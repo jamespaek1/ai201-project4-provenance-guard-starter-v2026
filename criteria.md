@@ -1,134 +1,92 @@
 # Acceptance criteria — Provenance Guard
 
-Five criteria that say what "working" means for this service, written in unit 7
-**before** you built it.
+These five criteria are authored with Codex AI assistance for the instructor
+example, before implementation or any detector results. They are not represented
+as unaided student work. Unit 7 implements and checks the service; Unit 8 evaluates
+these same targets in three complete trials. A criterion is MET only if its
+whole target holds in every trial, not just on average. Keep this original text;
+record any later clarification underneath with a reason.
 
-**All five are yours.** None are given.
+## 1. False positives: at most 1 of 20 known-human excerpts
 
-An acceptance criterion names a number or something plainly observable. *"The
-detector is accurate"* is an opinion — and perfect AI detection isn't possible
-anyway, so it's an opinion about something nobody can deliver. *"Of 10 pieces I
-wrote myself, at most 1 is labelled high-confidence AI"* is a criterion.
+In each trial, at most **1/20 (5%)** of a fixed set of 20 independently sourced,
+known-human English excerpts may receive `guess="ai"`. At least ten must be
+plain or conventional prose and at least five formal prose. Each is 80–220
+words. Record author, work, source URL and provenance; freeze the set before its
+first evaluation and use the same set in all three trials. Unsure is not a false
+accusation. AI-generated imitations do not count as human evidence.
 
-Under each, write a sentence or two on **why that target**. *"I allow at most 1
-false positive in 10 because on a writing site a wrong accusation costs more
-than a missed detection"* is a real answer.
+**Why this target:** a writing site's incorrect accusation can damage the
+writer's trust. A five-percent maximum is demanding while acknowledging a small
+sample; passing would not establish a population false-positive rate or justify
+punishment without human review.
 
-> Missing your own targets next unit costs you nothing. Setting a target so
-> easy you can't miss it does.
+## 2. Score separation: at least a 0.20 mean gap
 
----
+In every trial, the mean combined AI-oriented score of **20 recorded AI-generated
+English excerpts minus the mean score of the 20 human excerpts in criterion 1
+must be at least 0.20**. Match the 80–220-word length range and broad topics;
+record the AI prompt/model/source and freeze both sets before evaluation. Do
+not drop surprising examples or reclassify provenance using detector output.
 
-## Pick numbers you can defend
+**Why this target:** always answering unsure would avoid accusations but supply
+little useful distinction. A 0.20 gap requires a meaningful continuous signal,
+while the separate false-positive limit prevents a high mean from hiding harm
+to individual human writers. This does not claim calibrated probabilities.
 
-**Cover at least three of these five areas.** They're prompts, not a form.
+## 3. Label coverage: all 3 labels and all 1,001 score points
 
-| Area | A question it could answer |
-|---|---|
-| False positives | How often may a human's writing get called AI? |
-| Score spread | How far apart should clearly-AI and clearly-human text score? |
-| Label coverage | Is every one of your three labels actually reachable? |
-| The appeal path | Does an appeal always change status and always get recorded? |
-| Bad input | What happens when `text` is missing, empty, or enormous? |
+In each trial, actual text submissions through both real signals must produce
+**at least one `human`, one `unsure`, and one `ai`** response; retain the texts,
+sources and responses. Separately, **all 1,001 scores from 0 through 1 in steps
+of 0.001** must map to exactly one documented label, including both boundary
+values. Scores **0.51 and 0.95 must map to different labels**. Invalid scores
+(NaN, infinity or outside 0–1) must be rejected. Stubbed/model-mocked responses
+may test plumbing but cannot establish text-to-label reachability.
 
-Two things worth knowing before you pick numbers:
+**Why this target:** a three-label contract is misleading if one label is only
+present in documentation. The continuous score sweep checks boundaries; the
+real submissions distinguish mathematical coverage from end-to-end reachability.
 
-- **The expensive mistake is one-sided.** Missing some AI text costs the site a
-  little. Accusing a real writer costs that person a lot. A criterion that
-  treats both errors as equally bad is describing a system nobody would ship.
-- **Unit 8 tests across three trials, and the target has to hold across all
-  three.** Your first signal runs a model, so identical input can score
-  differently twice. A target of "at most 1 in 10" against trials of 2, 1, 2 is
-  a **miss**.
+## 4. Appeals: 10 of 10 recorded and persistent
 
----
-## 1.
+For **10 distinct existing submissions per trial**, a valid appeal must return
+HTTP 200 and `status="under_review"`, preserve its exact nonempty reasoning,
+append an appeal beside the unchanged original decision, and be returned as
+under review by a fresh reader of the audit file. **10/10** must still resolve
+that way after the service restarts. Appealing an unknown content ID must return
+HTTP 404 and create no appeal. No appeal may call the detector again or silently
+reverse the original guess.
 
-<!-- Your criterion. It must name a number. -->
+**Why this target:** a writer needs a durable way to challenge an error, not an
+acknowledgment that disappears with the process. Repeated append-only events keep
+the decision and its challenge inspectable; an appeal is not automatic exoneration.
 
+## 5. Bad input: all 12 cases fail safely
 
+In each trial, all **12** cases below must return a JSON error with the specified
+status, create no decision or appeal, and perform no model inference:
 
-**Why this target:**
+| Case | Expected HTTP status |
+|---|---:|
+| `/submit` with non-JSON Content-Type | 415 |
+| `/submit` with malformed JSON and JSON Content-Type | 400 |
+| `/submit` with a JSON array instead of an object | 400 |
+| Missing `text` | 400 |
+| Numeric `text` | 400 |
+| Whitespace-only `text` | 400 |
+| Text with fewer than 20 words | 400 |
+| Text longer than 10,000 characters | 413 |
+| Missing `creator_id` | 400 |
+| Non-string `creator_id` | 400 |
+| Blank or longer-than-100-character `creator_id` (test both) | 400 |
+| `/appeal` with a known content ID but blank reasoning | 400 |
 
+Also reject any request body exceeding **64 KiB** with JSON HTTP 413 before
+parsing or model inference. A rejection event may be logged, but never masquerade
+as a successful content decision. Treat each variant in the last creator row as
+an additional assertion, not a reason to skip either.
 
-
----
-
-## 2.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
-
----
-
-## 3.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
-
----
-
-## 4.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
-
----
-
-## 5.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
-
----
-
-<!-- ─────────────────────────────────────────────────────────────────────────
-     UNIT 8 — read this before you change anything above.
-
-     If a criterion turns out to be BROKEN rather than merely unmet, you can
-     revise it, and that earns credit. But never delete or edit the original
-     line. Add the revision underneath, like this:
-
-         ## 2. Uncertain cases land in the unsure band
-
-         The system handles uncertain cases well.
-
-         **Why this target:** ...
-
-         > **Revised in unit 8:** Text I judged borderline scores between
-         > 0.4 and 0.6 in at least 4 of 5 cases.
-         >
-         > **Why revised:** "well" gave me nothing to check. I couldn't
-         > reach a verdict from it at all.
-
-     That's a revision because the criterion couldn't be MEASURED.
-
-     Lowering a target because you missed it is not a revision, and it costs
-     you the point:
-
-         ✗ "At most 1 of 10 of my own pieces flagged as AI" → "at most 3
-            of 10", because 1 of 10 turned out to be hard.
-
-     A number you missed stays where it is, gets diagnosed, and gets a fix
-     attempted. That's where the points are.
-     ───────────────────────────────────────────────────────────────────────── -->
+**Why this target:** malformed requests should not become 500s, expensive model
+work or phantom submissions. Explicit word, character and byte limits make the
+contract reproducible and bound the local service's work.
