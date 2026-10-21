@@ -1,0 +1,53 @@
+{
+  "health": {
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--fail-with-body",
+      "http://127.0.0.1:5057/health"
+    ],
+    "response": {
+      "detector_loaded": false,
+      "detector_model": "gpt2",
+      "log_entries": 10,
+      "ok": true,
+      "rate_limiting": false
+    }
+  },
+  "content": {
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--fail-with-body",
+      "http://127.0.0.1:5057/content/6631bd5c-f449-48ec-ad10-656d3128e7e9"
+    ],
+    "response": {
+      "appeals": [
+        {
+          "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+          "creator_id": "sample-run",
+          "event": "appeal",
+          "reasoning": "For this demonstration, please review the process notes for this sample. This is a test appeal, not a claim of human authorship.",
+          "status": "under_review",
+          "timestamp": "2026-10-21T22:17:02+00:00"
+        }
+      ],
+      "combined_score": 0.9657959246369339,
+      "confidence": 0.9657959246369339,
+      "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+      "creator_id": "sample-run",
+      "guess": "ai",
+      "implementation_stage": "two_signals",
+      "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+      "model_score": 0.9842,
+      "status": "under_review",
+      "style_score": 0.9105836985477356,
+      "timestamp": "2026-10-21T22:17:02+00:00"
+    }
+  },
+  "status": "passed",
+  "meaning": "A new server process reconstructed under_review from the audit log without loading or calling the detector.",
+  "audit_sha256": "e84972caac0d0c4baf3adc305fddae80d7304d00c2caa8cb0ca1ee2f3e52c8ba"
+}

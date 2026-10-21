@@ -1,0 +1,572 @@
+{
+  "scope": "Unit 7 live development check; real model, no mocks; not Unit 8 accuracy evaluation",
+  "started_utc": "2026-10-21T22:16:56.971116+00:00",
+  "source_commit": "5e5b8104ea71ece8e18f45278aee1cd463773f32",
+  "files_sha256": {
+    "criteria.md": "fcfd61942404b48c498dde893c5b3bb5a34bb406ad9ce9e14b0046e0edd8b937",
+    "app.py": "b91ac3d0c78fd8609cd2510bc89f3fd65f7d1cb37401ca951560c2f25f0ae96d",
+    "config.py": "b6a4481458b5edede45c2b6caca4ce57364c8a57b73a1824919b0a4fd77a6aa6",
+    "scoring.py": "8329ec540974b05a02a619d331ba0c32d9bdf1f0fd9c2de048f14dc9be811476",
+    "stylometry.py": "2648aa5f762f086a21ea6921c2f42eeeea42b5b65b2f44055c0071ac75726a89",
+    "detector.py": "220bb755b01321638f770c89d2eba8e59968b2dcaeb3f22ee53ad23c1d735e3a",
+    "audit.py": "405e7bdb2e4eca513fa12320aebda6f5d05d5c10999e69614be0217766f3805c",
+    "examples/calibration.json": "8caf8ed3d33bb31f58cd4bbd666104490f601f8b761c85f883e22f4017f6abd5"
+  },
+  "packages": {
+    "flask": "3.1.3",
+    "torch": "2.14.1",
+    "transformers": "4.57.6"
+  },
+  "health_before": {
+    "method": "GET",
+    "route": "/health",
+    "request": null,
+    "http_status": 200,
+    "response": {
+      "detector_loaded": false,
+      "detector_model": "gpt2",
+      "log_entries": 1,
+      "ok": true,
+      "rate_limiting": false
+    },
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--max-time",
+      "120",
+      "-X",
+      "GET",
+      "http://127.0.0.1:5057/health",
+      "--write-out",
+      "\n%{http_code}"
+    ]
+  },
+  "calibration": [
+    {
+      "method": "POST",
+      "route": "/submit",
+      "request": {
+        "text": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”\n\nSo she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.",
+        "creator_id": "calibration-human_narrative"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.5589396836421172,
+        "confidence": 0.5589396836421172,
+        "content_id": "8ba62b9e-70c7-4100-9b34-69f642dfee5c",
+        "creator_id": "calibration-human_narrative",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.5855,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.479258734568469,
+        "timestamp": "2026-10-21T22:17:01+00:00"
+      },
+      "curl_command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "120",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”\\n\\nSo she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.\", \"creator_id\": \"calibration-human_narrative\"}",
+        "--write-out",
+        "\n%{http_code}"
+      ],
+      "sample_id": "human_narrative"
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "request": {
+        "text": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.",
+        "creator_id": "calibration-human_formal"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.6830707761005979,
+        "confidence": 0.6830707761005979,
+        "content_id": "88b45dfe-8c1c-45ce-8750-66133c61fc6b",
+        "creator_id": "calibration-human_formal",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.9915,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4900662088047828,
+        "timestamp": "2026-10-21T22:17:01+00:00"
+      },
+      "curl_command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "120",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.\", \"creator_id\": \"calibration-human_formal\"}",
+        "--write-out",
+        "\n%{http_code}"
+      ],
+      "sample_id": "human_formal"
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "request": {
+        "text": "Ineluctable modality of the visible: at least that if no more, thought through my eyes. Signatures of all things I am here to read, seaspawn and seawrack, the nearing tide, that rusty boot. Snotgreen, bluesilver, rust: coloured signs. Limits of the diaphane. But he adds: in bodies. Then he was aware of them bodies before of them coloured. How? By knocking his sconce against them, sure. Go easy. Bald he was and a millionaire, maestro di color che sanno. Limit of the diaphane in. Why in? Diaphane, adiaphane.\n\nIf you can put your five fingers through it it is a gate, if not a door. Shut your eyes and see.",
+        "creator_id": "calibration-human_literary"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.17341056920266548,
+        "confidence": 0.17341056920266548,
+        "content_id": "f4a22f38-b12a-45f3-bc35-9ceac44d2319",
+        "creator_id": "calibration-human_literary",
+        "guess": "human",
+        "implementation_stage": "two_signals",
+        "label": "This writing looks more consistent with human writing to our tools. This is an estimate, not proof of authorship. You can request a review if this label seems wrong.",
+        "model_score": 0.1261,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.31534227681066196,
+        "timestamp": "2026-10-21T22:17:01+00:00"
+      },
+      "curl_command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "120",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"Ineluctable modality of the visible: at least that if no more, thought through my eyes. Signatures of all things I am here to read, seaspawn and seawrack, the nearing tide, that rusty boot. Snotgreen, bluesilver, rust: coloured signs. Limits of the diaphane. But he adds: in bodies. Then he was aware of them bodies before of them coloured. How? By knocking his sconce against them, sure. Go easy. Bald he was and a millionaire, maestro di color che sanno. Limit of the diaphane in. Why in? Diaphane, adiaphane.\\n\\nIf you can put your five fingers through it it is a gate, if not a door. Shut your eyes and see.\", \"creator_id\": \"calibration-human_literary\"}",
+        "--write-out",
+        "\n%{http_code}"
+      ],
+      "sample_id": "human_literary"
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "request": {
+        "text": "A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food and learn practical skills. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. They should also plan how to obtain water, tools, and seeds before planting begins. Regular communication can help the group solve problems and maintain steady progress. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.",
+        "creator_id": "calibration-ai_generic"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.7038929163847477,
+        "confidence": 0.7038929163847477,
+        "content_id": "7b72ddd4-48a5-4655-9eaf-9f57d4f1a291",
+        "creator_id": "calibration-ai_generic",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.7285,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.6300716655389905,
+        "timestamp": "2026-10-21T22:17:01+00:00"
+      },
+      "curl_command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "120",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food and learn practical skills. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. They should also plan how to obtain water, tools, and seeds before planting begins. Regular communication can help the group solve problems and maintain steady progress. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.\", \"creator_id\": \"calibration-ai_generic\"}",
+        "--write-out",
+        "\n%{http_code}"
+      ],
+      "sample_id": "ai_generic"
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "request": {
+        "text": "The team will make a plan for the project. The team will share the plan with the group. The team will discuss the plan with the group. The team will review the plan with the group. The team will make a list of the tasks. The team will share the list with the group. The team will discuss the list with the group. The team will review the list with the group. The team will set a date for the meeting. The team will share the date with the group. The team will discuss the date with the group. The team will review the date with the group.",
+        "creator_id": "calibration-ai_repetitive"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.9657959246369339,
+        "confidence": 0.9657959246369339,
+        "content_id": "ea3a5921-5d5f-48a0-b762-04087bbb217f",
+        "creator_id": "calibration-ai_repetitive",
+        "guess": "ai",
+        "implementation_stage": "two_signals",
+        "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+        "model_score": 0.9842,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.9105836985477356,
+        "timestamp": "2026-10-21T22:17:01+00:00"
+      },
+      "curl_command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "120",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"The team will make a plan for the project. The team will share the plan with the group. The team will discuss the plan with the group. The team will review the plan with the group. The team will make a list of the tasks. The team will share the list with the group. The team will discuss the list with the group. The team will review the list with the group. The team will set a date for the meeting. The team will share the date with the group. The team will discuss the date with the group. The team will review the date with the group.\", \"creator_id\": \"calibration-ai_repetitive\"}",
+        "--write-out",
+        "\n%{http_code}"
+      ],
+      "sample_id": "ai_repetitive"
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "request": {
+        "text": "A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food. They can learn practical skills, too. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. But who brings the water, tools, and seeds? That needs sorting out before planting begins. Regular comunication can help the group solve problems and keep things moving. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.",
+        "creator_id": "calibration-ai_lightly_edited"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.6253407847823549,
+        "confidence": 0.6253407847823549,
+        "content_id": "c3512b60-f48b-4182-9df5-2b9cec2624b1",
+        "creator_id": "calibration-ai_lightly_edited",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.6582,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.5267631391294195,
+        "timestamp": "2026-10-21T22:17:01+00:00"
+      },
+      "curl_command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "120",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food. They can learn practical skills, too. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. But who brings the water, tools, and seeds? That needs sorting out before planting begins. Regular comunication can help the group solve problems and keep things moving. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.\", \"creator_id\": \"calibration-ai_lightly_edited\"}",
+        "--write-out",
+        "\n%{http_code}"
+      ],
+      "sample_id": "ai_lightly_edited"
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "request": {
+        "text": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”\n\nAlice decided that an unusual event was worth investigating. She stood up and looked toward the path, hoping to see where the rabbit had gone. The quiet afternoon now seemed full of possibilities. Following a surprising sight might lead to an adventure, but it might also take her farther from her sister than she intended. She hesitated briefly, then took a few steps forward.",
+        "creator_id": "calibration-mixed_narrative"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.5350008141542025,
+        "confidence": 0.5350008141542025,
+        "content_id": "995346c0-0b3c-4974-a930-162da0288c7d",
+        "creator_id": "calibration-mixed_narrative",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.6179,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.28630325661681016,
+        "timestamp": "2026-10-21T22:17:01+00:00"
+      },
+      "curl_command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "120",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”\\n\\nAlice decided that an unusual event was worth investigating. She stood up and looked toward the path, hoping to see where the rabbit had gone. The quiet afternoon now seemed full of possibilities. Following a surprising sight might lead to an adventure, but it might also take her farther from her sister than she intended. She hesitated briefly, then took a few steps forward.\", \"creator_id\": \"calibration-mixed_narrative\"}",
+        "--write-out",
+        "\n%{http_code}"
+      ],
+      "sample_id": "mixed_narrative"
+    }
+  ],
+  "health_after": {
+    "method": "GET",
+    "route": "/health",
+    "request": null,
+    "http_status": 200,
+    "response": {
+      "detector_loaded": true,
+      "detector_model": "gpt2",
+      "log_entries": 8,
+      "ok": true,
+      "rate_limiting": false
+    },
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--max-time",
+      "120",
+      "-X",
+      "GET",
+      "http://127.0.0.1:5057/health",
+      "--write-out",
+      "\n%{http_code}"
+    ]
+  },
+  "sample_submit": {
+    "method": "POST",
+    "route": "/submit",
+    "request": {
+      "text": "The team will make a plan for the project. The team will share the plan with the group. The team will discuss the plan with the group. The team will review the plan with the group. The team will make a list of the tasks. The team will share the list with the group. The team will discuss the list with the group. The team will review the list with the group. The team will set a date for the meeting. The team will share the date with the group. The team will discuss the date with the group. The team will review the date with the group.",
+      "creator_id": "sample-run"
+    },
+    "http_status": 200,
+    "response": {
+      "appeal": {
+        "endpoint": "/appeal",
+        "method": "POST",
+        "required_fields": [
+          "content_id",
+          "reasoning"
+        ]
+      },
+      "combined_score": 0.9657959246369339,
+      "confidence": 0.9657959246369339,
+      "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+      "creator_id": "sample-run",
+      "guess": "ai",
+      "implementation_stage": "two_signals",
+      "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+      "model_score": 0.9842,
+      "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+      "status": "decided",
+      "style_score": 0.9105836985477356,
+      "timestamp": "2026-10-21T22:17:02+00:00"
+    },
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--max-time",
+      "120",
+      "-X",
+      "POST",
+      "http://127.0.0.1:5057/submit",
+      "-H",
+      "Content-Type: application/json",
+      "--data-binary",
+      "{\"text\": \"The team will make a plan for the project. The team will share the plan with the group. The team will discuss the plan with the group. The team will review the plan with the group. The team will make a list of the tasks. The team will share the list with the group. The team will discuss the list with the group. The team will review the list with the group. The team will set a date for the meeting. The team will share the date with the group. The team will discuss the date with the group. The team will review the date with the group.\", \"creator_id\": \"sample-run\"}",
+      "--write-out",
+      "\n%{http_code}"
+    ]
+  },
+  "sample_appeal": {
+    "method": "POST",
+    "route": "/appeal",
+    "request": {
+      "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+      "reasoning": "For this demonstration, please review the process notes for this sample. This is a test appeal, not a claim of human authorship."
+    },
+    "http_status": 200,
+    "response": {
+      "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+      "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
+      "reasoning": "For this demonstration, please review the process notes for this sample. This is a test appeal, not a claim of human authorship.",
+      "status": "under_review"
+    },
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--max-time",
+      "120",
+      "-X",
+      "POST",
+      "http://127.0.0.1:5057/appeal",
+      "-H",
+      "Content-Type: application/json",
+      "--data-binary",
+      "{\"content_id\": \"6631bd5c-f449-48ec-ad10-656d3128e7e9\", \"reasoning\": \"For this demonstration, please review the process notes for this sample. This is a test appeal, not a claim of human authorship.\"}",
+      "--write-out",
+      "\n%{http_code}"
+    ]
+  },
+  "sample_log": {
+    "method": "GET",
+    "route": "/log?limit=2",
+    "request": null,
+    "http_status": 200,
+    "response": {
+      "count": 2,
+      "entries": [
+        {
+          "combined_score": 0.9657959246369339,
+          "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+          "creator_id": "sample-run",
+          "guess": "ai",
+          "implementation_stage": "two_signals",
+          "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+          "model_score": 0.9842,
+          "status": "decided",
+          "style_score": 0.9105836985477356,
+          "timestamp": "2026-10-21T22:17:02+00:00"
+        },
+        {
+          "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+          "creator_id": "sample-run",
+          "event": "appeal",
+          "reasoning": "For this demonstration, please review the process notes for this sample. This is a test appeal, not a claim of human authorship.",
+          "status": "under_review",
+          "timestamp": "2026-10-21T22:17:02+00:00"
+        }
+      ]
+    },
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--max-time",
+      "120",
+      "-X",
+      "GET",
+      "http://127.0.0.1:5057/log?limit=2",
+      "--write-out",
+      "\n%{http_code}"
+    ]
+  },
+  "content": {
+    "method": "GET",
+    "route": "/content/6631bd5c-f449-48ec-ad10-656d3128e7e9",
+    "request": null,
+    "http_status": 200,
+    "response": {
+      "appeals": [
+        {
+          "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+          "creator_id": "sample-run",
+          "event": "appeal",
+          "reasoning": "For this demonstration, please review the process notes for this sample. This is a test appeal, not a claim of human authorship.",
+          "status": "under_review",
+          "timestamp": "2026-10-21T22:17:02+00:00"
+        }
+      ],
+      "combined_score": 0.9657959246369339,
+      "confidence": 0.9657959246369339,
+      "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+      "creator_id": "sample-run",
+      "guess": "ai",
+      "implementation_stage": "two_signals",
+      "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+      "model_score": 0.9842,
+      "status": "under_review",
+      "style_score": 0.9105836985477356,
+      "timestamp": "2026-10-21T22:17:02+00:00"
+    },
+    "curl_command": [
+      "curl",
+      "--silent",
+      "--show-error",
+      "--max-time",
+      "120",
+      "-X",
+      "GET",
+      "http://127.0.0.1:5057/content/6631bd5c-f449-48ec-ad10-656d3128e7e9",
+      "--write-out",
+      "\n%{http_code}"
+    ]
+  },
+  "finished_utc": "2026-10-21T22:17:02.051705+00:00",
+  "status": "passed"
+}

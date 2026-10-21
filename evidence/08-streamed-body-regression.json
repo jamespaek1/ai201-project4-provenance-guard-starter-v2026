@@ -1,0 +1,339 @@
+{
+  "scope": "Real HTTP regression after final body-limit fix; no model mocks. Prior calibration is preserved separately.",
+  "started_utc": "2026-10-21T22:25:53.893147+00:00",
+  "source_commit": "b2a5cc16e7aaf30c9badaeb9faf845db168fb109",
+  "app_sha256": "79b1d59e3e4101c1813f9ba2dccaae319c6db37c93fe05a709a495e350afd2a2",
+  "health_before": {
+    "method": "GET",
+    "route": "/health",
+    "http_status": 200,
+    "content_type": null,
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 0,
+    "body_sha256": null,
+    "response": {
+      "detector_loaded": false,
+      "detector_model": "gpt2",
+      "log_entries": 12,
+      "ok": true,
+      "rate_limiting": false
+    }
+  },
+  "audit_sha256_before_rejections": "3d91b97f875730a556b5899a0d176c14ee2eb1243a3704ff1adad3edacedd449",
+  "oversized": [
+    {
+      "method": "POST",
+      "route": "/submit",
+      "http_status": 413,
+      "content_type": "application/json",
+      "transfer_encoding": "Content-Length",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "http_status": 413,
+      "content_type": "text/plain",
+      "transfer_encoding": "Content-Length",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/appeal",
+      "http_status": 413,
+      "content_type": "application/json",
+      "transfer_encoding": "Content-Length",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/appeal",
+      "http_status": 413,
+      "content_type": "text/plain",
+      "transfer_encoding": "Content-Length",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "http_status": 413,
+      "content_type": "application/json",
+      "transfer_encoding": "chunked",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/submit",
+      "http_status": 413,
+      "content_type": "text/plain",
+      "transfer_encoding": "chunked",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/appeal",
+      "http_status": 413,
+      "content_type": "application/json",
+      "transfer_encoding": "chunked",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    },
+    {
+      "method": "POST",
+      "route": "/appeal",
+      "http_status": 413,
+      "content_type": "text/plain",
+      "transfer_encoding": "chunked",
+      "body_bytes": 70014,
+      "body_sha256": "43551e8824ce963a38b4ae2b10e4a1b066869d5ab5d7d4b06027b40e5168a253",
+      "response": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      }
+    }
+  ],
+  "exact_limit_non_json": {
+    "method": "POST",
+    "route": "/submit",
+    "http_status": 415,
+    "content_type": "text/plain",
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 65536,
+    "body_sha256": "1f8745f0d2d1387ec1af2211a3cf417b2e9e885e853472649c1d979d0e9370e3",
+    "response": {
+      "error": "json_required",
+      "message": "Send application/json."
+    }
+  },
+  "exact_limit_chunked": {
+    "method": "POST",
+    "route": "/submit",
+    "http_status": 415,
+    "content_type": "text/plain",
+    "transfer_encoding": "chunked",
+    "body_bytes": 65536,
+    "body_sha256": "1f8745f0d2d1387ec1af2211a3cf417b2e9e885e853472649c1d979d0e9370e3",
+    "response": {
+      "error": "json_required",
+      "message": "Send application/json."
+    }
+  },
+  "one_byte_over_chunked": {
+    "method": "POST",
+    "route": "/submit",
+    "http_status": 413,
+    "content_type": "text/plain",
+    "transfer_encoding": "chunked",
+    "body_bytes": 65537,
+    "body_sha256": "1abe08ebecf1c18cab71f6fe28aaddf20268f85bad78bb9a72f88ca47c874662",
+    "response": {
+      "error": "payload_too_large",
+      "message": "Request body must not exceed 64 KiB."
+    }
+  },
+  "ping": {
+    "method": "POST",
+    "route": "/ping",
+    "http_status": 200,
+    "content_type": "application/json",
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 36,
+    "body_sha256": "2deb4a0a7506d4b9d086885afae9305173d9784e82d4e6c9427233b3f145fad7",
+    "response": {
+      "ok": true,
+      "service": "provenance-guard",
+      "you_sent": "body-limit regression"
+    },
+    "request": {
+      "message": "body-limit regression"
+    }
+  },
+  "prior_appeal_after_restart": {
+    "method": "GET",
+    "route": "/content/6631bd5c-f449-48ec-ad10-656d3128e7e9",
+    "http_status": 200,
+    "content_type": null,
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 0,
+    "body_sha256": null,
+    "response": {
+      "appeals": [
+        {
+          "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+          "creator_id": "sample-run",
+          "event": "appeal",
+          "reasoning": "For this demonstration, please review the process notes for this sample. This is a test appeal, not a claim of human authorship.",
+          "status": "under_review",
+          "timestamp": "2026-10-21T22:17:02+00:00"
+        }
+      ],
+      "combined_score": 0.9657959246369339,
+      "confidence": 0.9657959246369339,
+      "content_id": "6631bd5c-f449-48ec-ad10-656d3128e7e9",
+      "creator_id": "sample-run",
+      "guess": "ai",
+      "implementation_stage": "two_signals",
+      "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+      "model_score": 0.9842,
+      "status": "under_review",
+      "style_score": 0.9105836985477356,
+      "timestamp": "2026-10-21T22:17:02+00:00"
+    }
+  },
+  "health_after_rejections": {
+    "method": "GET",
+    "route": "/health",
+    "http_status": 200,
+    "content_type": null,
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 0,
+    "body_sha256": null,
+    "response": {
+      "detector_loaded": false,
+      "detector_model": "gpt2",
+      "log_entries": 12,
+      "ok": true,
+      "rate_limiting": false
+    }
+  },
+  "audit_sha256_after_rejections": "3d91b97f875730a556b5899a0d176c14ee2eb1243a3704ff1adad3edacedd449",
+  "valid_submit": {
+    "method": "POST",
+    "route": "/submit",
+    "http_status": 200,
+    "content_type": "application/json",
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 589,
+    "body_sha256": "b0dae7369e36f7ec5d548e8161afeadb7c9e0c5e04e9ca455729f561df8c3ec2",
+    "response": {
+      "appeal": {
+        "endpoint": "/appeal",
+        "method": "POST",
+        "required_fields": [
+          "content_id",
+          "reasoning"
+        ]
+      },
+      "combined_score": 0.9657959246369339,
+      "confidence": 0.9657959246369339,
+      "content_id": "f9761fa5-fa53-4253-9e0c-11c5b9d89c42",
+      "creator_id": "body-limit-regression",
+      "guess": "ai",
+      "implementation_stage": "two_signals",
+      "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+      "model_score": 0.9842,
+      "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+      "status": "decided",
+      "style_score": 0.9105836985477356,
+      "timestamp": "2026-10-21T22:25:57+00:00"
+    },
+    "request": {
+      "text": "The team will make a plan for the project. The team will share the plan with the group. The team will discuss the plan with the group. The team will review the plan with the group. The team will make a list of the tasks. The team will share the list with the group. The team will discuss the list with the group. The team will review the list with the group. The team will set a date for the meeting. The team will share the date with the group. The team will discuss the date with the group. The team will review the date with the group.",
+      "creator_id": "body-limit-regression"
+    }
+  },
+  "valid_appeal": {
+    "method": "POST",
+    "route": "/appeal",
+    "http_status": 200,
+    "content_type": "application/json",
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 146,
+    "body_sha256": "4948f52b165493916659cbe484e4b694d7ec7e2e4e2901d6b5b297ec3a3fcdbb",
+    "response": {
+      "content_id": "f9761fa5-fa53-4253-9e0c-11c5b9d89c42",
+      "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
+      "reasoning": "Synthetic regression appeal verifying JSON parsing after the body-size fix.",
+      "status": "under_review"
+    },
+    "request": {
+      "content_id": "f9761fa5-fa53-4253-9e0c-11c5b9d89c42",
+      "reasoning": "Synthetic regression appeal verifying JSON parsing after the body-size fix."
+    }
+  },
+  "content": {
+    "method": "GET",
+    "route": "/content/f9761fa5-fa53-4253-9e0c-11c5b9d89c42",
+    "http_status": 200,
+    "content_type": null,
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 0,
+    "body_sha256": null,
+    "response": {
+      "appeals": [
+        {
+          "content_id": "f9761fa5-fa53-4253-9e0c-11c5b9d89c42",
+          "creator_id": "body-limit-regression",
+          "event": "appeal",
+          "reasoning": "Synthetic regression appeal verifying JSON parsing after the body-size fix.",
+          "status": "under_review",
+          "timestamp": "2026-10-21T22:25:57+00:00"
+        }
+      ],
+      "combined_score": 0.9657959246369339,
+      "confidence": 0.9657959246369339,
+      "content_id": "f9761fa5-fa53-4253-9e0c-11c5b9d89c42",
+      "creator_id": "body-limit-regression",
+      "guess": "ai",
+      "implementation_stage": "two_signals",
+      "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+      "model_score": 0.9842,
+      "status": "under_review",
+      "style_score": 0.9105836985477356,
+      "timestamp": "2026-10-21T22:25:57+00:00"
+    }
+  },
+  "health_after_positive_path": {
+    "method": "GET",
+    "route": "/health",
+    "http_status": 200,
+    "content_type": null,
+    "transfer_encoding": "Content-Length",
+    "body_bytes": 0,
+    "body_sha256": null,
+    "response": {
+      "detector_loaded": true,
+      "detector_model": "gpt2",
+      "log_entries": 14,
+      "ok": true,
+      "rate_limiting": false
+    }
+  },
+  "audit_sha256_final": "7070222bad285f21ecfb2cf278e13d74124247d5a60ad5994726f61697833a1e",
+  "finished_utc": "2026-10-21T22:25:57.243768+00:00",
+  "status": "passed"
+}

@@ -1,0 +1,27 @@
+AI201 environment check
+------------------------------------------------------------
+[PASS] Python version
+         3.12.14 on Darwin
+[PASS] Virtual environment
+         /Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.venv
+[PASS] Pinned packages
+         all 6 import cleanly
+[FAIL] Free disk space
+         2.2 GB free, need about 9 GB. PyTorch and the detector model cache are most of it.
+[PASS] Memory
+         16.0 GB
+[PASS] PyTorch
+         2.14.1
+[PASS] Flask
+         flask and flask-limiter both import
+[WARN] Detector model
+         Not downloaded yet (~550 MB). Run `python detector.py` once BEFORE
+         class — downloading it during the session costs you the breakout.
+[PASS] The service
+         /ping answers — the starter works before you edit it
+------------------------------------------------------------
+7 passed, 1 failed, 1 to look at, 0 skipped
+
+Not ready yet. Fix the FAIL lines above, then run test.py again.
+Still stuck after one honest attempt? Post the whole output in the
+help channel — the day before class, not the morning of.
