@@ -48,41 +48,34 @@ DETECTOR_MAX_TOKENS = 400
 
 
 # ─── Scoring (Milestone 4) ───────────────────────────────────────────────────
-# How much each signal counts toward the combined score.
-#
-# ⚠️ These are placeholders. Milestone 4 asks you to write your combining rule
-# down BEFORE you code it, and to put the numbers in your README. Whatever you
-# decide, it goes here.
+# Written in README and committed before implementation or detector results.
+# These are heuristic design choices, not calibrated authorship probabilities.
+WEIGHT_MODEL_SIGNAL = 0.75
+WEIGHT_STYLE_SIGNAL = 0.25
 
-WEIGHT_MODEL_SIGNAL = 0.5
-WEIGHT_STYLE_SIGNAL = 0.5
+NEUTRAL_SCORE = 0.5
+SIGNAL_DISAGREEMENT_THRESHOLD = 0.50
+DISAGREEMENT_SHRINK_FACTOR = 0.5
+
+STYLE_WEIGHT_REGULARITY = 0.50
+STYLE_WEIGHT_REPETITION = 0.35
+STYLE_WEIGHT_PUNCTUATION = 0.15
+STYLE_SPREAD_CAP = 1.0
+STYLE_PUNCTUATION_SCALE = 0.15
+STYLE_SHORT_TEXT_WORDS = 40
 
 
 # ─── Thresholds (Milestone 5) ────────────────────────────────────────────────
 # Where one label becomes another. Scores run 0.0 (confidently human) to 1.0
 # (confidently AI).
 #
-#   score < HUMAN_THRESHOLD          -> high-confidence human
-#   between the two                  -> unsure
-#   score > AI_THRESHOLD             -> high-confidence AI
-#
-# ⚠️ This is where your false-positive decision from Milestone 1 actually gets
-# made. Widening the unsure band means fewer wrong accusations and more AI text
-# getting through. There is no setting that avoids the trade — only settings
-# that decide who pays for it.
-
-HUMAN_THRESHOLD = 0.35
-AI_THRESHOLD = 0.65
-
-# ⚠️ One thing that catches people out in Milestone 5. A weighted average can
-# only land between its two inputs — so while `style_signal` is still the stub
-# returning 0.5, the combined score can never leave 0.25–0.75 no matter what
-# the model signal says, and the human label needs a model score below 0.20 to
-# be reachable at all.
-#
-# If a label you can't reach is the problem, the fix is upstream of the
-# thresholds: a style signal that actually varies. `scoring.label_ranges()`
-# prints the bands; the reachable range is a different question.
+#   score <= HUMAN_THRESHOLD         -> high-confidence human
+#   HUMAN_THRESHOLD < score < AI_THRESHOLD -> unsure
+#   score >= AI_THRESHOLD            -> high-confidence AI
+# The wide unsure interval prioritizes avoiding false accusations. The names
+# identify score bands, not verified certainty about a writer's authorship.
+HUMAN_THRESHOLD = 0.20
+AI_THRESHOLD = 0.85
 
 
 # ─── Rate limiting (UNIT 8) ──────────────────────────────────────────────────
@@ -108,3 +101,10 @@ RATE_LIMIT_STORAGE = "memory://"
 LOG_DIR = ROOT / "logs"
 AUDIT_LOG = LOG_DIR / "audit.jsonl"
 RESULTS_DIR = ROOT / "results"
+
+# Unit 7 input contract. Bounds apply before either signal runs.
+MAX_REQUEST_BYTES = 64 * 1024
+MIN_TEXT_WORDS = 20
+MAX_TEXT_CHARACTERS = 10_000
+MAX_CREATOR_CHARACTERS = 100
+MAX_REASONING_CHARACTERS = 2_000

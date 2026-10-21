@@ -1,0 +1,58 @@
+{
+  "stage": "real model signal; style/confidence/labels intentionally not connected yet",
+  "request": {
+    "text": "A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food and learn practical skills. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. They should also plan how to obtain water, tools, and seeds before planting begins. Regular communication can help the group solve problems and maintain steady progress. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.",
+    "creator_id": "instructor-stage-one"
+  },
+  "command": [
+    "curl",
+    "--silent",
+    "--show-error",
+    "--fail-with-body",
+    "-X",
+    "POST",
+    "http://127.0.0.1:5057/submit",
+    "-H",
+    "Content-Type: application/json",
+    "--data-binary",
+    "{\"text\": \"A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food and learn practical skills. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. They should also plan how to obtain water, tools, and seeds before planting begins. Regular communication can help the group solve problems and maintain steady progress. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.\", \"creator_id\": \"instructor-stage-one\"}"
+  ],
+  "response": {
+    "combined_score": null,
+    "confidence": null,
+    "content_id": "df6394a8-b485-4cbe-9c81-2106162e627e",
+    "creator_id": "instructor-stage-one",
+    "development_stage": "one_signal",
+    "guess": "unsure",
+    "implementation_stage": "one_signal",
+    "label": "Development stage: first signal only; final scoring is not connected.",
+    "model_score": 0.7285,
+    "status": "decided",
+    "style_score": null,
+    "timestamp": "2026-10-21T22:14:29+00:00"
+  },
+  "log_command": [
+    "curl",
+    "--silent",
+    "--show-error",
+    "--fail-with-body",
+    "http://127.0.0.1:5057/log?limit=1"
+  ],
+  "log_response": {
+    "count": 1,
+    "entries": [
+      {
+        "combined_score": null,
+        "content_id": "df6394a8-b485-4cbe-9c81-2106162e627e",
+        "creator_id": "instructor-stage-one",
+        "guess": "unsure",
+        "implementation_stage": "one_signal",
+        "label": "Development stage: first signal only; final scoring is not connected.",
+        "model_score": 0.7285,
+        "status": "decided",
+        "style_score": null,
+        "timestamp": "2026-10-21T22:14:29+00:00"
+      }
+    ]
+  }
+}

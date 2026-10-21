@@ -1,0 +1,8 @@
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+{"id": "human_narrative", "model_score": 0.5855, "elapsed_seconds": 16.171}
+{"id": "human_formal", "model_score": 0.9915, "elapsed_seconds": 0.052}
+{"id": "human_literary", "model_score": 0.1261, "elapsed_seconds": 0.057}
+{"id": "ai_generic", "model_score": 0.7285, "elapsed_seconds": 0.044}
+{"id": "ai_repetitive", "model_score": 0.9842, "elapsed_seconds": 0.049}
+{"id": "ai_lightly_edited", "model_score": 0.6582, "elapsed_seconds": 0.051}
+{"id": "mixed_narrative", "model_score": 0.6179, "elapsed_seconds": 0.055}

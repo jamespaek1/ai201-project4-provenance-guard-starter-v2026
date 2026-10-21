@@ -24,14 +24,49 @@ Routes:
     GET  /health      is the service up, and is the model loaded
 """
 
+import math
 import uuid
+
+from werkzeug.exceptions import BadRequest, RequestEntityTooLarge
 
 from flask import Flask, jsonify, request
 
 import audit
 import config
+import detector
+import scoring
+import stylometry
 
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = config.MAX_REQUEST_BYTES
+
+
+def error_response(code, message, status):
+    return jsonify({"error": code, "message": message}), status
+
+
+@app.errorhandler(RequestEntityTooLarge)
+def request_too_large(exc):
+    return error_response("payload_too_large", "Request body must not exceed 64 KiB.", 413)
+
+
+def json_object():
+    if not request.is_json:
+        return None, error_response("json_required", "Send application/json.", 415)
+    try:
+        payload = request.get_json()
+    except BadRequest:
+        return None, error_response("invalid_json", "The request body must be valid JSON.", 400)
+    if not isinstance(payload, dict):
+        return None, error_response("invalid_object", "The JSON body must be an object.", 400)
+    return payload, None
+
+
+def decision_for(content_id):
+    events = audit.entries_for(content_id)
+    decision = next((e for e in events if "guess" in e and e.get("status") == "decided"), None)
+    return decision, events
+
 
 
 # ── Rate limiting — UNIT 8 ────────────────────────────────────────────────────
@@ -199,11 +234,34 @@ def submit():
     what should this do when `text` is missing, empty, or enormous? A crash on
     a malformed input is one of the most common real failures there is.
     """
-    return jsonify({
-        "content_id": str(uuid.uuid4()), "guess": "unsure", "confidence": 0.5,
-        "label": "Development stub: the route answers; no detector has run.",
-        "model_score": 0.5, "style_score": 0.5, "development_stub": True,
-    })
+    payload, error = json_object()
+    if error is not None:
+        return error
+    text, creator = payload.get("text"), payload.get("creator_id")
+    if not isinstance(text, str) or not text.strip():
+        return error_response("invalid_text", "text must be a nonempty string.", 400)
+    if len(text) > config.MAX_TEXT_CHARACTERS:
+        return error_response("text_too_large", "text must not exceed 10,000 characters.", 413)
+    if len(stylometry.words(text)) < config.MIN_TEXT_WORDS:
+        return error_response("text_too_short", "Provide at least 20 words for this estimate.", 400)
+    if not isinstance(creator, str) or not creator.strip() or len(creator) > config.MAX_CREATOR_CHARACTERS:
+        return error_response("invalid_creator", "creator_id must be a nonblank string of at most 100 characters.", 400)
+    try:
+        model_score = detector.model_signal(text)
+        if not math.isfinite(model_score) or not 0 <= model_score <= 1:
+            raise ValueError("Nonfinite or out-of-range signal")
+    except detector.DetectorUnavailable:
+        return error_response("detector_unavailable", "The local model is unavailable. Try again after it is installed.", 503)
+    except ValueError:
+        return error_response("unscorable_text", "The model could not score this text. Try a longer passage.", 422)
+    content_id = str(uuid.uuid4())
+    entry = audit.log_decision(
+        content_id=content_id, creator_id=creator, guess="unsure",
+        model_score=model_score, style_score=None, combined_score=None,
+        label="Development stage: first signal only; final scoring is not connected.",
+        status="decided", implementation_stage="one_signal",
+    )
+    return jsonify({**entry, "confidence": None, "development_stage": "one_signal"})
 
 
 @app.post("/appeal")
