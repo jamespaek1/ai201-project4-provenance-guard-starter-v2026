@@ -1,0 +1,49 @@
+{
+  "stage": "explicit hardcoded routing check, not detector evidence",
+  "calls": [
+    {
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--fail-with-body",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/ping",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"message\": \"hello\"}"
+      ],
+      "response": {
+        "ok": true,
+        "service": "provenance-guard",
+        "you_sent": "hello"
+      }
+    },
+    {
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--fail-with-body",
+        "-X",
+        "POST",
+        "http://127.0.0.1:5057/submit",
+        "-H",
+        "Content-Type: application/json",
+        "--data-binary",
+        "{\"text\": \"Routing-only development check, no model call.\", \"creator_id\": \"routing-demo\"}"
+      ],
+      "response": {
+        "confidence": 0.5,
+        "content_id": "20bdf2a6-5e50-4fb4-8459-52fbf910a5c9",
+        "development_stub": true,
+        "guess": "unsure",
+        "label": "Development stub: the route answers; no detector has run.",
+        "model_score": 0.5,
+        "style_score": 0.5
+      }
+    }
+  ]
+}

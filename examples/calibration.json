@@ -1,0 +1,127 @@
+{
+  "purpose": "Seven transparent development/calibration specimens for the Unit 7 instructor example. Not the Unit 8 attack set or a representative authorship benchmark.",
+  "selection": "Chosen and written before running the detector. Provenance describes actual authorship, not an expected detector label.",
+  "verified_source_date": "2026-10-21",
+  "samples": [
+    {
+      "id": "human_narrative",
+      "role": "ordinary human narrative",
+      "authorship": "human",
+      "text": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”\n\nSo she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.",
+      "provenance": {
+        "author": "Lewis Carroll",
+        "title": "Alice's Adventures in Wonderland",
+        "published": 1865,
+        "source_url": "https://www.gutenberg.org/cache/epub/11/pg11-images.html",
+        "catalog_url": "https://www.gutenberg.org/ebooks/11",
+        "locator": "Chapter I, opening two paragraphs, from “Alice was beginning” through “ran close by her.”",
+        "rights": "Public domain in the USA; catalog confirms status.",
+        "transformation": "Exact displayed prose; paragraph separation normalized to two newline characters. No wording edits."
+      },
+      "word_count_whitespace": 112,
+      "text_sha256": "f82216881c3d6969dd0c22718a101e6b09ce3038f53a3a19e3631105134eec06"
+    },
+    {
+      "id": "human_formal",
+      "role": "formal human writing",
+      "authorship": "human",
+      "text": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.",
+      "provenance": {
+        "author": "Second Continental Congress; principal draft by Thomas Jefferson",
+        "title": "Declaration of Independence",
+        "published": 1776,
+        "source_url": "https://www.archives.gov/founding-docs/declaration-transcript",
+        "locator": "The complete paragraph beginning “We hold these truths” and ending “Safety and Happiness.”",
+        "rights": "Public-domain historical document; official National Archives transcription.",
+        "transformation": "Exact displayed paragraph, preserving capitalization, punctuation and double hyphens."
+      },
+      "word_count_whitespace": 109,
+      "text_sha256": "d9d8c09bbae59b8e1fa3a63abc96df99cbcfdf973a393bb271b1fd85d3056129"
+    },
+    {
+      "id": "human_literary",
+      "role": "distinctive human literary prose",
+      "authorship": "human",
+      "text": "Ineluctable modality of the visible: at least that if no more, thought through my eyes. Signatures of all things I am here to read, seaspawn and seawrack, the nearing tide, that rusty boot. Snotgreen, bluesilver, rust: coloured signs. Limits of the diaphane. But he adds: in bodies. Then he was aware of them bodies before of them coloured. How? By knocking his sconce against them, sure. Go easy. Bald he was and a millionaire, maestro di color che sanno. Limit of the diaphane in. Why in? Diaphane, adiaphane.\n\nIf you can put your five fingers through it it is a gate, if not a door. Shut your eyes and see.",
+      "provenance": {
+        "author": "James Joyce",
+        "title": "Ulysses",
+        "published": 1922,
+        "source_url": "https://www.gutenberg.org/cache/epub/4300/pg4300-images.html",
+        "catalog_url": "https://www.gutenberg.org/ebooks/4300",
+        "locator": "Part I, section [3], opening text from “Ineluctable modality” through “Shut your eyes and see.”",
+        "rights": "Public domain in the USA; catalog identifies a pre-1923 edition.",
+        "transformation": "Exact displayed prose; paragraph separation normalized to two newline characters."
+      },
+      "word_count_whitespace": 110,
+      "text_sha256": "cb0063343407a812782d66bcc43231a5f5bc49bf80e64ccb8d0a803ee59fb3dd"
+    },
+    {
+      "id": "ai_generic",
+      "role": "generic AI paragraph",
+      "authorship": "ai",
+      "text": "A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food and learn practical skills. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. They should also plan how to obtain water, tools, and seeds before planting begins. Regular communication can help the group solve problems and maintain steady progress. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.",
+      "provenance": {
+        "author": "Codex AI",
+        "created_date": "2026-10-21",
+        "method": "Written by the assistant specifically for this instructor calibration demonstration before any detector output was seen.",
+        "purpose": "Probe behavior, not estimate deployment accuracy.",
+        "representativeness": "Constructed example, not a random sample of machine writing."
+      },
+      "word_count_whitespace": 101,
+      "text_sha256": "3cd2b51a30287b6c9296689dd1ca33044dbf5a2e3e6c9811446823dc55ab7c0e"
+    },
+    {
+      "id": "ai_repetitive",
+      "role": "deliberately regular and repetitive AI paragraph",
+      "authorship": "ai",
+      "text": "The team will make a plan for the project. The team will share the plan with the group. The team will discuss the plan with the group. The team will review the plan with the group. The team will make a list of the tasks. The team will share the list with the group. The team will discuss the list with the group. The team will review the list with the group. The team will set a date for the meeting. The team will share the date with the group. The team will discuss the date with the group. The team will review the date with the group.",
+      "provenance": {
+        "author": "Codex AI",
+        "created_date": "2026-10-21",
+        "method": "Written by the assistant specifically for this instructor calibration demonstration before any detector output was seen.",
+        "purpose": "Probe behavior, not estimate deployment accuracy.",
+        "representativeness": "Constructed example, not a random sample of machine writing."
+      },
+      "word_count_whitespace": 108,
+      "text_sha256": "e9ae63bd0e73494c9f4d1bc50899868efd85fbe1738afbe49252efac4a328017"
+    },
+    {
+      "id": "ai_lightly_edited",
+      "role": "lightly edited AI paragraph",
+      "authorship": "ai_edited_by_ai",
+      "text": "A community garden can provide several benefits for a neighborhood. It creates a shared space where residents can grow fresh food. They can learn practical skills, too. It also gives people an opportunity to meet their neighbors and work toward a common goal. To organize a successful garden, volunteers should agree on a clear schedule and divide responsibilities fairly. But who brings the water, tools, and seeds? That needs sorting out before planting begins. Regular comunication can help the group solve problems and keep things moving. With careful planning and consistent participation, the garden can become a useful and welcoming part of the community.",
+      "provenance": {
+        "author": "Codex AI",
+        "created_date": "2026-10-21",
+        "base_sample_id": "ai_generic",
+        "editor": "Codex AI, not a human",
+        "edits": [
+          "Split the second sentence into two and added “too”.",
+          "Replaced the planning sentence with a question and short follow-up.",
+          "Changed “communication” to the deliberate typo “comunication” and replaced “maintain steady progress” with “keep things moving”."
+        ],
+        "method": "Small wording and punctuation edits to the generated paragraph; no claim that a person edited or authored it."
+      },
+      "word_count_whitespace": 104,
+      "text_sha256": "467c777c026972db04436db2595688907380ed3d4a3fe6972e85370e85dcca15"
+    },
+    {
+      "id": "mixed_narrative",
+      "role": "known mixed-authorship input",
+      "authorship": "mixed",
+      "text": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”\n\nAlice decided that an unusual event was worth investigating. She stood up and looked toward the path, hoping to see where the rabbit had gone. The quiet afternoon now seemed full of possibilities. Following a surprising sight might lead to an adventure, but it might also take her farther from her sister than she intended. She hesitated briefly, then took a few steps forward.",
+      "provenance": {
+        "human_source_sample_id": "human_narrative",
+        "human_source_url": "https://www.gutenberg.org/cache/epub/11/pg11-images.html",
+        "human_span": "The first paragraph, ending “without pictures or conversations?”",
+        "ai_span": "The second paragraph, beginning “Alice decided”.",
+        "ai_author": "Codex AI",
+        "created_date": "2026-10-21",
+        "method": "Unchanged first source paragraph followed by a new AI-written continuation. This is intentionally mixed, not a human or AI-only ground-truth case."
+      },
+      "word_count_whitespace": 121,
+      "text_sha256": "7793cfba70abe2891e5b9d5b09373db08fe88f61569ba7ad38bd1985f59e4cf9"
+    }
+  ]
+}
