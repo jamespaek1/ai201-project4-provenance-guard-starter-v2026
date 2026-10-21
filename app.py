@@ -18,13 +18,13 @@ doesn't, it's the service itself.
 Routes:
 
     POST /ping        the worked example. Already works. Don't edit it
-    POST /submit      ← YOU BUILD THIS (Milestone 3, 4, 5)
-    POST /appeal      ← YOU BUILD THIS (Milestone 5)
+    POST /submit      validate, score, label and record writing
+    POST /appeal      record a challenge without rescoring
+    GET  /content/id  original decision, current status and appeal history
     GET  /log         the audit log. Already works
     GET  /health      is the service up, and is the model loaded
 """
 
-import math
 import uuid
 
 from werkzeug.exceptions import BadRequest, RequestEntityTooLarge
@@ -183,57 +183,12 @@ def health():
     })
 
 
-# ── YOU BUILD THIS ────────────────────────────────────────────────────────────
+# ── Unit 7 submission and appeal routes ───────────────────────────────────────
 
 @app.post("/submit")
 # @limiter.limit(f"{config.RATE_LIMIT_PER_MINUTE}/minute;{config.RATE_LIMIT_PER_DAY}/day")
 def submit():
-    """
-    Take a piece of text, decide about it, log the decision, answer.
-    ← TODO — Milestones 3, 4 and 5
-
-    Expects JSON:
-        {"text": "...", "creator_id": "..."}
-
-    Should return JSON with, at minimum:
-        {"content_id": "...", "guess": "...", "confidence": 0.0, "label": "...",
-         "model_score": 0.0, "style_score": 0.0}
-
-    ⚠️ **Both signal scores go in the response, not just the log.** Unit 8's
-    `run_attacks.py` and `run_eval.py` read `model_score` and `style_score`
-    straight off this response and put them in your reports. Leave them out and
-    every row of next unit's evidence says `null` — which is exactly the
-    diagnostic you need to name a stage and a mechanism. You do not want to
-    find that out after running the attack set.
-
-    ─────────────────────────────────────────────────────────────────────────
-    Build it in three passes. Do not skip ahead — the ordering is how you tell
-    a broken route from a broken signal.
-
-    **Milestone 3 — the route answers.**
-      1. Return a hardcoded response. Confirm `curl` gets it back before you
-         add any logic at all.
-      2. Then pull `text` and `creator_id` out of the payload.
-      3. Then call ONE signal — `detector.model_signal(text)` — and put the
-         real number in. Leave confidence and label as placeholders.
-      4. Log every submission with `audit.log_decision(...)`. The content_id
-         matters: `/appeal` needs it, and a student who skips it rebuilds this
-         whole flow later.
-
-    **Milestone 4 — the second signal and the score.**
-      5. Add `stylometry.style_signal(text)`.
-      6. Combine them with `scoring.combine_signals(...)`.
-      7. Log BOTH signal scores alongside the combined one, and put them in the
-         response too. Next unit you can't diagnose anything without them.
-
-    **Milestone 5 — the label.**
-      8. `scoring.score_to_label(...)` and put the real label in the response.
-
-    ─────────────────────────────────────────────────────────────────────────
-    Worth deciding early, because unit 8's attack set will decide it for you:
-    what should this do when `text` is missing, empty, or enormous? A crash on
-    a malformed input is one of the most common real failures there is.
-    """
+    """Validate input before inference; return and audit the two-signal decision."""
     payload, error = json_object()
     if error is not None:
         return error
@@ -248,50 +203,57 @@ def submit():
         return error_response("invalid_creator", "creator_id must be a nonblank string of at most 100 characters.", 400)
     try:
         model_score = detector.model_signal(text)
-        if not math.isfinite(model_score) or not 0 <= model_score <= 1:
-            raise ValueError("Nonfinite or out-of-range signal")
+        style_score = stylometry.style_signal(text)
+        confidence = scoring.combine_signals(model_score, style_score)
+        guess, label = scoring.score_to_label(confidence)
     except detector.DetectorUnavailable:
         return error_response("detector_unavailable", "The local model is unavailable. Try again after it is installed.", 503)
     except ValueError:
         return error_response("unscorable_text", "The model could not score this text. Try a longer passage.", 422)
     content_id = str(uuid.uuid4())
     entry = audit.log_decision(
-        content_id=content_id, creator_id=creator, guess="unsure",
-        model_score=model_score, style_score=None, combined_score=None,
-        label="Development stage: first signal only; final scoring is not connected.",
-        status="decided", implementation_stage="one_signal",
+        content_id=content_id, creator_id=creator, guess=guess,
+        model_score=model_score, style_score=style_score, combined_score=confidence,
+        label=label, status="decided", implementation_stage="two_signals",
     )
-    return jsonify({**entry, "confidence": None, "development_stage": "one_signal"})
+    return jsonify({**entry, "confidence": confidence,
+        "appeal": {"endpoint": "/appeal", "method": "POST",
+                   "required_fields": ["content_id", "reasoning"]},
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+    })
 
 
 @app.post("/appeal")
 def appeal():
-    """
-    A writer says you got it wrong. ← TODO — Milestone 5
+    """Append an appeal; the latest event supplies durable under-review status."""
+    payload, error = json_object()
+    if error is not None:
+        return error
+    content_id, reasoning = payload.get("content_id"), payload.get("reasoning")
+    if not isinstance(content_id, str) or not content_id.strip():
+        return error_response("invalid_content_id", "content_id must be a nonempty string.", 400)
+    if not isinstance(reasoning, str) or not reasoning.strip() or len(reasoning) > config.MAX_REASONING_CHARACTERS:
+        return error_response("invalid_reasoning", "reasoning must be a nonblank string of at most 2,000 characters.", 400)
+    decision, events = decision_for(content_id)
+    if decision is None:
+        return error_response("content_not_found", "No submission has that content_id.", 404)
+    entry = audit.log_appeal(content_id, decision["creator_id"], reasoning)
+    return jsonify({"content_id": content_id, "status": entry["status"],
+        "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
+        "reasoning": reasoning,
+    })
 
-    Expects JSON:
-        {"content_id": "...", "reasoning": "..."}
 
-    Should:
-      1. Check the content_id actually exists — `audit.entries_for(id)` tells
-         you. A typo here fails silently and looks like a broken endpoint,
-         which is the single most common way this milestone eats an hour.
-      2. Record the appeal with `audit.log_appeal(...)`, which moves the item
-         to `under_review`.
-      3. Confirm to the writer. No automatic re-checking needed.
-
-    This is the smallest endpoint in the project and the one that matters most
-    to the person on the other end. It's the only thing standing between a
-    wrong accusation and nothing at all.
-    """
-    payload = request.get_json(silent=True) or {}
-
-    # TODO: delete this and build the route.
-    return jsonify({
-        "error": "not_implemented",
-        "message": "POST /appeal isn't built yet — see the TODO in app.py.",
-        "you_sent": payload,
-    }), 501
+@app.get("/content/<content_id>")
+def get_content(content_id):
+    """Declared stretch: reconstruct current status from persistent audit events."""
+    decision, events = decision_for(content_id)
+    if decision is None:
+        return error_response("content_not_found", "No submission has that content_id.", 404)
+    appeals = [e for e in events if e.get("event") == "appeal"]
+    return jsonify({**decision, "confidence": decision.get("combined_score"),
+        "status": "under_review" if appeals else decision["status"], "appeals": appeals,
+    })
 
 
 # ── Already works ─────────────────────────────────────────────────────────────

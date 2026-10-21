@@ -1,0 +1,75 @@
+{
+  "method": "unchanged model outputs from isolated run plus standalone style signal; no HTTP request yet",
+  "results": [
+    {
+      "id": "human_narrative",
+      "model_score": 0.5855,
+      "style_score": 0.479258734568469,
+      "confidence": 0.5589396836421172,
+      "guess": "unsure",
+      "cv": 0.0,
+      "ttr": 0.672566371681416,
+      "punctuation_density": 0.035343035343035345
+    },
+    {
+      "id": "human_formal",
+      "model_score": 0.9915,
+      "style_score": 0.4900662088047828,
+      "confidence": 0.6830707761005979,
+      "guess": "unsure",
+      "cv": 0.0,
+      "ttr": 0.6486486486486487,
+      "punctuation_density": 0.03290676416819013
+    },
+    {
+      "id": "human_literary",
+      "model_score": 0.1261,
+      "style_score": 0.31534227681066196,
+      "confidence": 0.17341056920266548,
+      "guess": "human",
+      "cv": 0.7480000883899713,
+      "ttr": 0.7272727272727273,
+      "punctuation_density": 0.056112224448897796
+    },
+    {
+      "id": "ai_generic",
+      "model_score": 0.7285,
+      "style_score": 0.6300716655389905,
+      "confidence": 0.7038929163847477,
+      "guess": "unsure",
+      "cv": 0.173196590935999,
+      "ttr": 0.7524752475247525,
+      "punctuation_density": 0.019963702359346643
+    },
+    {
+      "id": "ai_repetitive",
+      "model_score": 0.9842,
+      "style_score": 0.9105836985477356,
+      "confidence": 0.9657959246369339,
+      "guess": "ai",
+      "cv": 0.0,
+      "ttr": 0.17592592592592593,
+      "punctuation_density": 0.027842227378190254
+    },
+    {
+      "id": "ai_lightly_edited",
+      "model_score": 0.6582,
+      "style_score": 0.5267631391294195,
+      "confidence": 0.6253407847823549,
+      "guess": "unsure",
+      "cv": 0.35119196861057067,
+      "ttr": 0.7788461538461539,
+      "punctuation_density": 0.025044722719141325
+    },
+    {
+      "id": "mixed_narrative",
+      "model_score": 0.6179,
+      "style_score": 0.28630325661681016,
+      "confidence": 0.5350008141542025,
+      "guess": "unsure",
+      "cv": 0.8887276071914092,
+      "ttr": 0.6776859504132231,
+      "punctuation_density": 0.03214285714285714
+    }
+  ]
+}
