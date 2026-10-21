@@ -38,15 +38,19 @@ import scoring
 import stylometry
 
 app = Flask(__name__)
-app.config["MAX_CONTENT_LENGTH"] = config.MAX_REQUEST_BYTES
+# One bounded lookahead byte distinguishes an exactly-full streamed body from
+# an oversized one when the client does not supply Content-Length.
+app.config["MAX_CONTENT_LENGTH"] = config.MAX_REQUEST_BYTES + 1
 
 
 @app.before_request
 def enforce_request_size():
     """Bound the body before media-type checks, parsing or model inference."""
-    # Flask/Werkzeug enforce MAX_CONTENT_LENGTH while reading. Caching lets the
-    # JSON parser reuse this bounded body, including for non-JSON requests.
-    request.get_data(cache=True)
+    # Werkzeug can stop at its stream limit without raising for chunked input.
+    # Read at most one byte beyond our contract, then explicitly check the size.
+    # Caching lets the JSON parser reuse the bounded body.
+    if len(request.get_data(cache=True)) > config.MAX_REQUEST_BYTES:
+        raise RequestEntityTooLarge()
 
 
 def error_response(code, message, status):

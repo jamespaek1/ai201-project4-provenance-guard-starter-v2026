@@ -8,9 +8,10 @@ test_invalid_input_matrix_never_calls_detector_or_creates_content (test_service.
 test_oversized_body_precedes_media_and_field_validation_on_both_routes (test_service.ServiceContractTests.test_oversized_body_precedes_media_and_field_validation_on_both_routes) ... ok
 test_submit_contract_and_audit_match_one_real_route_call (test_service.ServiceContractTests.test_submit_contract_and_audit_match_one_real_route_call) ... ok
 test_ten_appealed_items_survive_fresh_process_read (test_service.ServiceContractTests.test_ten_appealed_items_survive_fresh_process_read) ... ok
+test_terminated_unknown_length_bodies_enforce_limit_without_truncation (test_service.ServiceContractTests.test_terminated_unknown_length_bodies_enforce_limit_without_truncation) ... ok
 test_valid_input_limits_are_inclusive (test_service.ServiceContractTests.test_valid_input_limits_are_inclusive) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.096s
+Ran 12 tests in 0.096s
 
 OK

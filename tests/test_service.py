@@ -6,6 +6,7 @@ Audit files are isolated in a temporary directory, never the committed demo log.
 """
 
 import copy
+import io
 import json
 import math
 from pathlib import Path
@@ -146,6 +147,35 @@ class ServiceContractTests(unittest.TestCase):
                     self.assert_json_error(response, 413)
                     self.model.assert_not_called()
                     self.assertEqual(audit.read_entries(), original_log)
+
+    def test_terminated_unknown_length_bodies_enforce_limit_without_truncation(self):
+        self.submit()
+        original_log = copy.deepcopy(audit.read_entries())
+        for route in ("/submit", "/appeal"):
+            for content_type in ("text/plain", "application/json"):
+                for size in (65536, 65537, 70000):
+                    with self.subTest(route=route, content_type=content_type, size=size):
+                        self.model.reset_mock()
+                        response = self.client.open(
+                            route,
+                            method="POST",
+                            content_type=content_type,
+                            environ_overrides={
+                                "wsgi.input": io.BytesIO(b"x" * size),
+                                "wsgi.input_terminated": True,
+                                "CONTENT_LENGTH": "",
+                            },
+                        )
+                        # An unknown-length stream must be checked with a
+                        # lookahead, not silently accepted after truncation.
+                        # Exactly 64 KiB is allowed through the size gate and
+                        # then fails the ordinary media/JSON validation.
+                        expected = 413 if size > 65536 else (
+                            415 if content_type == "text/plain" else 400
+                        )
+                        self.assert_json_error(response, expected)
+                        self.model.assert_not_called()
+                        self.assertEqual(audit.read_entries(), original_log)
 
     def test_appeal_retains_original_and_exact_reasoning_without_rescoring(self):
         decision = self.submit()
