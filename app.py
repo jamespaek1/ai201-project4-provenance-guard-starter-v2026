@@ -41,6 +41,14 @@ app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = config.MAX_REQUEST_BYTES
 
 
+@app.before_request
+def enforce_request_size():
+    """Bound the body before media-type checks, parsing or model inference."""
+    # Flask/Werkzeug enforce MAX_CONTENT_LENGTH while reading. Caching lets the
+    # JSON parser reuse this bounded body, including for non-JSON requests.
+    request.get_data(cache=True)
+
+
 def error_response(code, message, status):
     return jsonify({"error": code, "message": message}), status
 

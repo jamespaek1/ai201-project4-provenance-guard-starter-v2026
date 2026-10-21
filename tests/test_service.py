@@ -123,6 +123,30 @@ class ServiceContractTests(unittest.TestCase):
         self.assertEqual(self.model.call_count, 2)
         self.assertEqual(len([r for r in audit.read_entries() if r["status"] == "decided"]), 2)
 
+    def test_oversized_body_precedes_media_and_field_validation_on_both_routes(self):
+        decision = self.submit()
+        original_log = copy.deepcopy(audit.read_entries())
+        payloads = {
+            "/submit": {"text": TEXT, "creator_id": "writer", "extra": "x" * 65536},
+            "/appeal": {"content_id": decision["content_id"], "reasoning": "x" * 65536},
+        }
+        for route, payload in payloads.items():
+            # The plain body is below 64 KiB in characters but above it in UTF-8
+            # bytes. Both forms must fail at the body limit, even when the
+            # Content-Type or individual fields would otherwise be invalid.
+            bodies = (
+                ("application/json", json.dumps(payload).encode("utf-8")),
+                ("text/plain", ("é" * 32769).encode("utf-8")),
+            )
+            for content_type, body in bodies:
+                with self.subTest(route=route, content_type=content_type):
+                    self.assertGreater(len(body), 64 * 1024)
+                    self.model.reset_mock()
+                    response = self.client.post(route, data=body, content_type=content_type)
+                    self.assert_json_error(response, 413)
+                    self.model.assert_not_called()
+                    self.assertEqual(audit.read_entries(), original_log)
+
     def test_appeal_retains_original_and_exact_reasoning_without_rescoring(self):
         decision = self.submit()
         original = copy.deepcopy(audit.read_entries()[0])
