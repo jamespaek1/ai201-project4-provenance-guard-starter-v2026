@@ -57,6 +57,34 @@ def error_response(code, message, status):
     return jsonify({"error": code, "message": message}), status
 
 
+def valid_creator(payload):
+    creator = payload.get("creator_id") if isinstance(payload, dict) else None
+    if isinstance(creator, str) and creator.strip() and len(creator) <= config.MAX_CREATOR_CHARACTERS:
+        return creator
+    return None
+
+
+@app.after_request
+def log_refused_request(response):
+    """Record each refused write once, including failures before route entry."""
+    if request.path in ("/submit", "/appeal") and response.status_code >= 400:
+        # Oversized requests may fail before their body was cached. Do not let
+        # best-effort identity extraction raise the same 413 again.
+        try:
+            payload = request.get_json(silent=True) if request.is_json else None
+        except (BadRequest, RequestEntityTooLarge):
+            payload = None
+        error = response.get_json(silent=True) or {}
+        audit.log_rejection(
+            creator_id=valid_creator(payload) or "unknown",
+            reason=error.get("error", f"http_{response.status_code}"),
+            http_status=response.status_code, route=request.path,
+            method=request.method,
+            **({"limit": error["limit"]} if "limit" in error else {}),
+        )
+    return response
+
+
 @app.errorhandler(RequestEntityTooLarge)
 def request_too_large(exc):
     return error_response("payload_too_large", "Request body must not exceed 64 KiB.", 413)
@@ -82,7 +110,7 @@ def decision_for(content_id):
 
 
 # ── Rate limiting — UNIT 8 ────────────────────────────────────────────────────
-# Off until you turn it on. In unit 8, Milestone 1:
+# Enabled in Unit 8, Milestone 1; the instructions below describe the setup:
 #
 #   1. Set RATE_LIMITING_ENABLED = True in config.py (or AI201_RATE_LIMITS=1)
 #   2. Choose your numbers there
@@ -129,9 +157,9 @@ if config.RATE_LIMITING_ENABLED:
         # BEFORE the route runs, and a malformed request becomes a 500 that
         # looks like your handler crashed when your handler never ran.
         if not isinstance(payload, dict):
-            return get_remote_address()
-        creator = payload.get("creator_id")
-        return creator if isinstance(creator, str) and creator.strip() else get_remote_address()
+            return "address:" + get_remote_address()
+        creator = valid_creator(payload)
+        return "creator:" + creator if creator is not None else "address:" + get_remote_address()
 
     limiter = Limiter(
         key_func=rate_limit_key,
@@ -147,14 +175,6 @@ if config.RATE_LIMITING_ENABLED:
 
         ⚠️ An attack that shows up only as an absence is one you'll never find.
         """
-        payload = request.get_json(silent=True)
-        if not isinstance(payload, dict):
-            payload = {}
-        audit.log_rejection(
-            creator_id=payload.get("creator_id", "unknown"),
-            reason="rate_limited",
-            limit=str(exc.description),
-        )
         return jsonify({
             "error": "rate_limited",
             "message": "Too many submissions. Try again shortly.",
@@ -198,7 +218,7 @@ def health():
 # ── Unit 7 submission and appeal routes ───────────────────────────────────────
 
 @app.post("/submit")
-# @limiter.limit(f"{config.RATE_LIMIT_PER_MINUTE}/minute;{config.RATE_LIMIT_PER_DAY}/day")
+@limiter.limit(f"{config.RATE_LIMIT_PER_MINUTE}/minute;{config.RATE_LIMIT_PER_DAY}/day")
 def submit():
     """Validate input before inference; return and audit the two-signal decision."""
     payload, error = json_object()

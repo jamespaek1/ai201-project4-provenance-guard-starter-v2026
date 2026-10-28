@@ -53,6 +53,8 @@ import argparse
 import csv
 import datetime as dt
 import json
+import hashlib
+import subprocess
 import sys
 from pathlib import Path
 
@@ -69,6 +71,19 @@ for _stream in (sys.stdout, sys.stderr):
 
 
 DEFAULT_URL = f"http://{config.HOST}:{config.PORT}"
+
+
+def evidence_metadata():
+    """Identify the exact service sources, without changing any service logic."""
+    return {
+        "timestamp_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "source_commit": subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=config.ROOT, text=True).strip(),
+        "source_sha256": {name: hashlib.sha256((config.ROOT / name).read_bytes()).hexdigest()
+                          for name in ("app.py", "config.py", "audit.py", "detector.py",
+                                       "scoring.py", "stylometry.py", "criteria.md")},
+        "audit_lines": len((config.AUDIT_LOG.read_text().splitlines())) if config.AUDIT_LOG.exists() else 0,
+    }
 
 
 def load_attacks(folder: Path):
@@ -355,7 +370,9 @@ def run_flood(args):
     print(f"{args.flood} submissions as '{args.creator}' against {args.url}")
     print("The first one is slow while the model loads.\n")
 
-    codes = []
+    codes, responses = [], []
+    metadata = evidence_metadata()
+    health_before = requests.get(f"{args.url}/health", timeout=5).json()
     for i in range(1, args.flood + 1):
         try:
             response = requests.post(f"{args.url}/submit",
@@ -363,8 +380,12 @@ def run_flood(args):
                                            "creator_id": args.creator},
                                      timeout=args.timeout)
             codes.append(str(response.status_code))
+            responses.append({"request": {"text": FLOOD_TEXT, "creator_id": args.creator},
+                              "http_status": response.status_code,
+                              "response": response.json()})
         except Exception as exc:  # noqa: BLE001
             codes.append(type(exc).__name__)
+            responses.append({"error": f"{type(exc).__name__}: {exc}"})
         print(f"  [{i:>2}/{args.flood}] {codes[-1]}")
 
     run = " ".join(codes)
@@ -383,7 +404,7 @@ def run_flood(args):
               "GET /health tells you which.")
 
     config.RESULTS_DIR.mkdir(exist_ok=True)
-    stamp = dt.datetime.now().strftime("%Y-%m-%d_%H%M")
+    stamp = dt.datetime.now().strftime("%Y-%m-%d_%H%M%S_%f")
     path = config.RESULTS_DIR / f"flood_{stamp}.md"
     path.write_text(
         f"# Rate limit check\n\n"
@@ -394,6 +415,10 @@ def run_flood(args):
         f"```\n{run}\n```\n",
         encoding="utf-8")
     print(f"\nWrote {path.relative_to(config.ROOT)}")
+    path.with_suffix(".json").write_text(json.dumps({
+        "metadata": metadata, "url": args.url, "health_before": health_before,
+        "statuses": codes, "responses": responses, "metadata_after": evidence_metadata(),
+    }, indent=2) + "\n")
 
 
 def main():
@@ -468,6 +493,9 @@ def main():
     print("Signal one runs a model. The first request is slow while it loads;\n"
           "after that, a second or two each.\n")
 
+    args.evidence_before = evidence_metadata()
+    args.health_before = health
+    args.parse_problems = problems
     rows = []
     for i, attack in enumerate(attacks, 1):
         status, payload, error = send(args.url, attack, args.timeout)
@@ -493,6 +521,8 @@ def main():
             "error": error,
             "verdict": verdict,
             "note": note,
+            "request": attack,
+            "response": payload,
         }
         rows.append(row)
 
@@ -505,7 +535,7 @@ def main():
 
 def write_report(rows, args):
     config.RESULTS_DIR.mkdir(exist_ok=True)
-    stamp = dt.datetime.now().strftime("%Y-%m-%d_%H%M")
+    stamp = dt.datetime.now().strftime("%Y-%m-%d_%H%M%S_%f")
     label = f"_{args.label}" if args.label else ""
     path = config.RESULTS_DIR / f"attack_run_{stamp}{label}.md"
 
@@ -582,6 +612,15 @@ def write_report(rows, args):
         ]
 
     path.write_text("\n".join(lines), encoding="utf-8")
+    source_files = [Path(args.folder) / name for name in ("attacks.csv", "attacks_malformed_requests.csv")]
+    path.with_suffix(".json").write_text(json.dumps({
+        "label": args.label, "url": args.url,
+        "metadata_before": args.evidence_before, "metadata_after": evidence_metadata(),
+        "health_before": args.health_before, "parse_problems": args.parse_problems,
+        "attack_file_sha256": {str(p): hashlib.sha256(p.read_bytes()).hexdigest()
+                               for p in source_files if p.exists()},
+        "results": rows,
+    }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"\n{'=' * 60}")
     print(f"Wrote {path.relative_to(config.ROOT)}")

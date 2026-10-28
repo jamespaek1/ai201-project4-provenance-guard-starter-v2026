@@ -425,3 +425,17 @@ The baseline will add only limiting and rejection logging. The five original
 criteria and the two signals, weights, thresholds and labels remain fixed until
 the before runs are committed and a diagnosis selects one measured improvement.
 The instructor-example authorship disclosure from Unit 7 continues to apply.
+
+Milestone 1 verified on 2026-10-28, before opening the staff inputs:
+
+```text
+200 200 200 200 200 200 200 200 200 200 429 429 429 429 429
+```
+
+The [15-request flood](results/flood_2026-10-28_183550_762597.json) used one
+creator. Five rejections appear once each in the audit log. Three additional
+real submissions have all nine decision fields and are returned by `/log`;
+a missing-text refusal is recorded too ([HTTP evidence](results/milestone1-http.json)).
+All 17 contract/instrument tests passed ([output](results/milestone1-tests.log)).
+Rejections are written by one response hook, including malformed, oversized,
+wrong-media and rate-limited requests, without inventing decision scores.

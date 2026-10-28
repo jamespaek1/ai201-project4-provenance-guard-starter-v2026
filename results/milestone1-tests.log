@@ -1,0 +1,22 @@
+test_agreement_keeps_score_and_disagreement_uses_unsure (test_service.ScoreContractTests.test_agreement_keeps_score_and_disagreement_uses_unsure) ... ok
+test_all_1001_points_follow_the_declared_inclusive_boundaries (test_service.ScoreContractTests.test_all_1001_points_follow_the_declared_inclusive_boundaries) ... ok
+test_nonfinite_or_out_of_range_scores_are_rejected (test_service.ScoreContractTests.test_nonfinite_or_out_of_range_scores_are_rejected) ... ok
+test_style_features_have_the_declared_units (test_service.ScoreContractTests.test_style_features_have_the_declared_units) ... ok
+test_appeal_retains_original_and_exact_reasoning_without_rescoring (test_service.ServiceContractTests.test_appeal_retains_original_and_exact_reasoning_without_rescoring) ... ok
+test_invalid_appeals_never_append_or_rescore (test_service.ServiceContractTests.test_invalid_appeals_never_append_or_rescore) ... ok
+test_invalid_input_matrix_never_calls_detector_or_creates_content (test_service.ServiceContractTests.test_invalid_input_matrix_never_calls_detector_or_creates_content) ... ok
+test_oversized_body_precedes_media_and_field_validation_on_both_routes (test_service.ServiceContractTests.test_oversized_body_precedes_media_and_field_validation_on_both_routes) ... ok
+test_submit_contract_and_audit_match_one_real_route_call (test_service.ServiceContractTests.test_submit_contract_and_audit_match_one_real_route_call) ... ok
+test_ten_appealed_items_survive_fresh_process_read (test_service.ServiceContractTests.test_ten_appealed_items_survive_fresh_process_read) ... ok
+test_terminated_unknown_length_bodies_enforce_limit_without_truncation (test_service.ServiceContractTests.test_terminated_unknown_length_bodies_enforce_limit_without_truncation) ... ok
+test_valid_input_limits_are_inclusive (test_service.ServiceContractTests.test_valid_input_limits_are_inclusive) ... ok
+test_decision_has_all_nine_fields_and_log_endpoint_preserves_order (test_unit8_instruments.Unit8InstrumentTests.test_decision_has_all_nine_fields_and_log_endpoint_preserves_order) ... ok
+test_missing_or_invalid_identity_uses_one_address_bucket (test_unit8_instruments.Unit8InstrumentTests.test_missing_or_invalid_identity_uses_one_address_bucket) ... ok
+test_route_and_pre_route_refusals_each_append_one_rejection_without_inference (test_unit8_instruments.Unit8InstrumentTests.test_route_and_pre_route_refusals_each_append_one_rejection_without_inference) ... ok
+test_streamed_oversize_refusal_is_logged_once_without_reread_failure (test_unit8_instruments.Unit8InstrumentTests.test_streamed_oversize_refusal_is_logged_once_without_reread_failure) ... ok
+test_tenth_request_allowed_eleventh_logged_once_and_other_creator_independent (test_unit8_instruments.Unit8InstrumentTests.test_tenth_request_allowed_eleventh_logged_once_and_other_creator_independent) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.174s
+
+OK

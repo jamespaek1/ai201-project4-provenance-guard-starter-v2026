@@ -43,6 +43,10 @@ class ServiceContractTests(unittest.TestCase):
         self.old_testing = service.app.config["TESTING"]
         service.app.config["TESTING"] = True
         self.addCleanup(service.app.config.__setitem__, "TESTING", self.old_testing)
+        # Unit 8 enables the shared in-memory limiter. Each isolated contract
+        # test starts with a fresh quota; this is not an accuracy trial.
+        if hasattr(service.limiter, "reset"):
+            service.limiter.reset()
         self.client = service.app.test_client()
         self.model_patch = patch.object(detector, "model_signal", return_value=0.6)
         self.model = self.model_patch.start()
@@ -146,7 +150,8 @@ class ServiceContractTests(unittest.TestCase):
                     response = self.client.post(route, data=body, content_type=content_type)
                     self.assert_json_error(response, 413)
                     self.model.assert_not_called()
-                    self.assertEqual(audit.read_entries(), original_log)
+                    self.assertEqual(audit.read_entries()[:len(original_log)], original_log)
+                    self.assert_no_new_successful_events(original_log)
 
     def test_terminated_unknown_length_bodies_enforce_limit_without_truncation(self):
         self.submit()
@@ -175,7 +180,8 @@ class ServiceContractTests(unittest.TestCase):
                         )
                         self.assert_json_error(response, expected)
                         self.model.assert_not_called()
-                        self.assertEqual(audit.read_entries(), original_log)
+                        self.assertEqual(audit.read_entries()[:len(original_log)], original_log)
+                        self.assert_no_new_successful_events(original_log)
 
     def test_appeal_retains_original_and_exact_reasoning_without_rescoring(self):
         decision = self.submit()

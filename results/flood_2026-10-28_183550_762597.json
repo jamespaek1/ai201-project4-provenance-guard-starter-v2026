@@ -1,0 +1,407 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-10-28T22:35:45.914659+00:00",
+    "source_commit": "a24fd799151ce572e26a8313058459d1c4627e47",
+    "source_sha256": {
+      "app.py": "4fb0191913d3dbe9f93290466d721b9690d9ced2c30322a815bde9a7f19d0ea5",
+      "config.py": "1b4f367dd07ca7c4cf70ee6239227ca3a8c4c5eba615fb0853d1f75a745b33a2",
+      "audit.py": "405e7bdb2e4eca513fa12320aebda6f5d05d5c10999e69614be0217766f3805c",
+      "detector.py": "220bb755b01321638f770c89d2eba8e59968b2dcaeb3f22ee53ad23c1d735e3a",
+      "scoring.py": "8329ec540974b05a02a619d331ba0c32d9bdf1f0fd9c2de048f14dc9be811476",
+      "stylometry.py": "2648aa5f762f086a21ea6921c2f42eeeea42b5b65b2f44055c0071ac75726a89",
+      "criteria.md": "fcfd61942404b48c498dde893c5b3bb5a34bb406ad9ce9e14b0046e0edd8b937"
+    },
+    "audit_lines": 14
+  },
+  "url": "http://127.0.0.1:5057",
+  "health_before": {
+    "detector_loaded": false,
+    "detector_model": "gpt2",
+    "log_entries": 14,
+    "ok": true,
+    "rate_limiting": true
+  },
+  "statuses": [
+    "200",
+    "200",
+    "200",
+    "200",
+    "200",
+    "200",
+    "200",
+    "200",
+    "200",
+    "200",
+    "429",
+    "429",
+    "429",
+    "429",
+    "429"
+  ],
+  "responses": [
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "f89d94b2-e746-47aa-b4b5-48096ab53ea5",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "8a483416-49e7-4e80-bdf1-2dce5ab6d612",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "e4b0f3c0-072b-443a-9e26-b0c998917322",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "c65283df-2a8f-417c-a5b2-57e8550ae108",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "16c9ec13-ade6-4d88-b5a3-5c2cdf80234b",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "3c7d93bc-a7f0-4da0-9f8e-66aaddcdbf4b",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "64321bca-2efc-4c89-9f49-1e0312d01065",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "4c9c64d7-00fd-4a30-b45e-9d0a7f534624",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "ebd9c38d-b4d3-43fe-9bea-65edfa2fe3b4",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 200,
+      "response": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.2999504098360656,
+        "confidence": 0.2999504098360656,
+        "content_id": "a2b70cf4-ceb4-4718-8905-fd4fe93f81ca",
+        "creator_id": "unit8-m1-flood",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2588,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4234016393442623,
+        "timestamp": "2026-10-28T22:35:50+00:00"
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 429,
+      "response": {
+        "error": "rate_limited",
+        "limit": "10 per 1 minute",
+        "message": "Too many submissions. Try again shortly."
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 429,
+      "response": {
+        "error": "rate_limited",
+        "limit": "10 per 1 minute",
+        "message": "Too many submissions. Try again shortly."
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 429,
+      "response": {
+        "error": "rate_limited",
+        "limit": "10 per 1 minute",
+        "message": "Too many submissions. Try again shortly."
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 429,
+      "response": {
+        "error": "rate_limited",
+        "limit": "10 per 1 minute",
+        "message": "Too many submissions. Try again shortly."
+      }
+    },
+    {
+      "request": {
+        "text": "This is an ordinary submission, sent over and over from the same account to find out where the rate limit sits. Nothing about the text matters here.",
+        "creator_id": "unit8-m1-flood"
+      },
+      "http_status": 429,
+      "response": {
+        "error": "rate_limited",
+        "limit": "10 per 1 minute",
+        "message": "Too many submissions. Try again shortly."
+      }
+    }
+  ],
+  "metadata_after": {
+    "timestamp_utc": "2026-10-28T22:35:50.762980+00:00",
+    "source_commit": "a24fd799151ce572e26a8313058459d1c4627e47",
+    "source_sha256": {
+      "app.py": "4fb0191913d3dbe9f93290466d721b9690d9ced2c30322a815bde9a7f19d0ea5",
+      "config.py": "1b4f367dd07ca7c4cf70ee6239227ca3a8c4c5eba615fb0853d1f75a745b33a2",
+      "audit.py": "405e7bdb2e4eca513fa12320aebda6f5d05d5c10999e69614be0217766f3805c",
+      "detector.py": "220bb755b01321638f770c89d2eba8e59968b2dcaeb3f22ee53ad23c1d735e3a",
+      "scoring.py": "8329ec540974b05a02a619d331ba0c32d9bdf1f0fd9c2de048f14dc9be811476",
+      "stylometry.py": "2648aa5f762f086a21ea6921c2f42eeeea42b5b65b2f44055c0071ac75726a89",
+      "criteria.md": "fcfd61942404b48c498dde893c5b3bb5a34bb406ad9ce9e14b0046e0edd8b937"
+    },
+    "audit_lines": 29
+  }
+}
