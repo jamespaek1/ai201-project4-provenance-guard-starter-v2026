@@ -404,3 +404,24 @@ three-trial criterion verdicts and measured improvement have **not** been run
 or claimed. The original `run_eval.py`, `run_attacks.py` and `scenarios.py` remain
 available for that next task. Use this same fork for Unit 8:
 [jamespaek1/ai201-project4-provenance-guard-starter-v2026](https://github.com/jamespaek1/ai201-project4-provenance-guard-starter-v2026).
+
+## Rate Limiting
+
+Unit 8 plan, recorded before implementation and before opening the staff attack
+inputs: enable **10 submissions per minute and 120 per day per creator**. Ten
+allows a writer to revise several passages while restricting a script's burst;
+120 bounds sustained probing for that claimed identity. These are classroom
+policy choices, not measurements of normal writer traffic.
+
+**Declared Unit 8 stretch: per-creator limits.** The starter's caller key already
+uses a claimed creator ID; this unit will enable that policy and use the remote
+address when a valid creator ID is unavailable. Shared-address writers can have
+separate quotas, but callers can evade them by inventing new IDs because this
+service has no authentication. Memory-only counters reset with a process restart
+and are not shared across workers. A production service needs verified identity,
+shared storage and a complementary address/global budget.
+
+The baseline will add only limiting and rejection logging. The five original
+criteria and the two signals, weights, thresholds and labels remain fixed until
+the before runs are committed and a diagnosis selects one measured improvement.
+The instructor-example authorship disclosure from Unit 7 continues to apply.
