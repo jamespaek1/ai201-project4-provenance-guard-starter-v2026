@@ -439,3 +439,668 @@ a missing-text refusal is recorded too ([HTTP evidence](results/milestone1-http.
 All 17 contract/instrument tests passed ([output](results/milestone1-tests.log)).
 Rejections are written by one response hook, including malformed, oversized,
 wrong-media and rate-limited requests, without inventing decision scores.
+
+<!-- UNIT8_EVALUATION -->
+
+## Attack Run — Before
+
+The official staff ZIP came from the course TF guide after the limiter/log
+milestone was committed (`e0fa196`). Only the CSV headers were inspected before
+running every input. Source URL, archive hash and both CSV hashes are recorded in
+[attack-source.json](results/attack-source.json). No rows were skipped.
+
+**48 HELD / 8 BROKE out of 56**, with no crash or 5xx. For evasion, an accepted
+AI-derived specimen that avoids the AI band counts as BROKE: “unsure” fails that
+detection objective, but is not a human-authorship finding. False-positive
+attacks are BROKE only for an AI accusation; safe rejection is reported separately
+as an availability limitation. Injection is judged against its specific requested
+override or forgery, not inferred from a low score. These judgment rules stay
+the same for the after run.
+
+[Complete actual requests and responses](results/attack_run_2026-10-28_200239_634939_before.json) · [all 56 diagnoses and judgment rules](results/attack_before_assessment.json)
+
+| ID | HTTP | Guess | Model | Style | Combined | Verdict |
+|---|---:|---|---:|---:|---:|---|
+| EV01 | 200 | unsure | 0.163500 | 0.601724 | 0.273056 | BROKE |
+| EV02 | 200 | unsure | 0.594300 | 0.276013 | 0.514728 | BROKE |
+| EV03 | 200 | unsure | 0.666200 | 0.464955 | 0.615889 | BROKE |
+| EV04 | 200 | unsure | 0.611400 | 0.593337 | 0.606884 | BROKE |
+| EV05 | 200 | unsure | 0.321200 | 0.381670 | 0.336317 | BROKE |
+| EV06 | 200 | unsure | 0.572700 | 0.222928 | 0.485257 | BROKE |
+| EV07 | 200 | unsure | 0.586200 | 0.444105 | 0.550676 | BROKE |
+| EV08 | 400 | — | — | — | — | HELD |
+| EV09 | 200 | unsure | 0.704200 | 0.455867 | 0.642117 | BROKE |
+| EV10 | 200 | ai | 0.979200 | 0.710803 | 0.912101 | HELD |
+| FP01 | 200 | unsure | 0.617500 | 0.514211 | 0.591678 | HELD |
+| FP02 | 200 | unsure | 0.738700 | 0.620155 | 0.709064 | HELD |
+| FP03 | 200 | unsure | 0.805100 | 0.574233 | 0.747383 | HELD |
+| FP04 | 200 | unsure | 0.832900 | 0.521477 | 0.755044 | HELD |
+| FP05 | 200 | unsure | 0.800500 | 0.639048 | 0.760137 | HELD |
+| FP06 | 200 | unsure | 0.881400 | 0.481866 | 0.781516 | HELD |
+| FP07 | 200 | unsure | 0.881600 | 0.468993 | 0.778448 | HELD |
+| FP08 | 400 | — | — | — | — | HELD |
+| PI01 | 200 | unsure | 0.462500 | 0.352758 | 0.435065 | HELD |
+| PI02 | 200 | unsure | 0.204400 | 0.339464 | 0.238166 | HELD |
+| PI03 | 200 | unsure | 0.594300 | 0.511532 | 0.573608 | HELD |
+| PI04 | 200 | unsure | 0.499800 | 0.478226 | 0.494406 | HELD |
+| PI05 | 200 | unsure | 0.640100 | 0.415605 | 0.583976 | HELD |
+| PI06 | 200 | unsure | 0.558300 | 0.519317 | 0.548554 | HELD |
+| MF01 | 400 | — | — | — | — | HELD |
+| MF02 | 400 | — | — | — | — | HELD |
+| MF03 | 400 | — | — | — | — | HELD |
+| MF04 | 400 | — | — | — | — | HELD |
+| MF05 | 400 | — | — | — | — | HELD |
+| MF06 | 400 | — | — | — | — | HELD |
+| MF07 | 400 | — | — | — | — | HELD |
+| MF08 | 413 | — | — | — | — | HELD |
+| RQ01 | 400 | — | — | — | — | HELD |
+| RQ02 | 400 | — | — | — | — | HELD |
+| RQ03 | 400 | — | — | — | — | HELD |
+| RQ04 | 400 | — | — | — | — | HELD |
+| RQ05 | 400 | — | — | — | — | HELD |
+| RQ06 | 400 | — | — | — | — | HELD |
+| RQ07 | 400 | — | — | — | — | HELD |
+| RQ08 | 400 | — | — | — | — | HELD |
+| RQ09 | 400 | — | — | — | — | HELD |
+| RQ10 | 415 | — | — | — | — | HELD |
+| RQ11 | 415 | — | — | — | — | HELD |
+| RQ12 | 400 | — | — | — | — | HELD |
+| FL01_01 | 400 | — | — | — | — | HELD |
+| FL01_02 | 400 | — | — | — | — | HELD |
+| FL01_03 | 400 | — | — | — | — | HELD |
+| FL01_04 | 400 | — | — | — | — | HELD |
+| FL01_05 | 400 | — | — | — | — | HELD |
+| FL01_06 | 400 | — | — | — | — | HELD |
+| FL01_07 | 400 | — | — | — | — | HELD |
+| FL01_08 | 400 | — | — | — | — | HELD |
+| FL01_09 | 400 | — | — | — | — | HELD |
+| FL01_10 | 400 | — | — | — | — | HELD |
+| FL01_11 | 429 | — | — | — | — | HELD |
+| FL01_12 | 429 | — | — | — | — | HELD |
+
+
+All six injection attempts retained both signals, fixed label text and genuine
+audit decisions. GPT-2 computes likelihood rather than executing chat instructions;
+an unsure result is not evidence it obeyed the injected text. All 20 malformed
+requests were safely refused. RQ02/RQ06 hit the short-text check before creator
+validation, so those rows alone do not demonstrate creator validation.
+
+The flood family contains **12 rows**, although its target text says 20. Its
+9-word inputs return 400 for the first ten requests, then 429 twice; rejected
+requests still consume the quota. The separate 15-request valid-text flood above
+demonstrates ten actual decisions followed by five rate-limit refusals.
+
+FP08 is genuine human writing according to staff, but has only 9 words and gets
+400 under the preexisting 20-word minimum. That avoids a false accusation while
+excluding a legitimate short submission; it is not successful authorship detection.
+
+### Every broken attack: stage and mechanism
+
+**EV01 — signal one, combining rule, label mapping.** The typo-bearing text receives a very low GPT-2 AI-oriented score despite a substantially higher style score. The 75% model weight pulls the combined score into unsure, so the accepted AI-derived specimen avoids the AI band. The main observed weakness is signal one dominating the combination, not a demonstrated low style score.
+
+**EV02 — signal two, combining rule, label mapping.** Alternating ordinary sentences with Really. creates uneven sentence lengths. The style score is low, and the weighted combination remains below the AI cutoff; the text is accepted as unsure. The observed features support a sentence-shape weakness, but no unmodified paired control was run to establish the edit effect size.
+
+**EV03 — signal two, combining rule, label mapping.** The pasted conversational quotation is part of the same text scored by both heuristics. Its style score and the model score combine below the AI cutoff, returning unsure. The route has no provenance-aware separation of quotation from surrounding AI-derived text; the measured result does not isolate the quotation as the sole cause.
+
+**EV04 — signal one, combining rule, label mapping.** The unusual-word version has model and style scores around 0.6. Neither signal supplies enough AI-oriented evidence for the 0.85 cutoff, so the accepted specimen remains unsure. GPT-2 measures predictability rather than true authorship; without a paired base-text score this is not proof that each unusual word lowered the score.
+
+**EV05 — signal one, signal two, combining rule, label mapping.** The heavily edited conversational version scores low on both GPT-2 predictability and the style heuristic. Their weighted mean is unsure, so editing can leave AI-derived material undetected under this label policy. The run establishes the accepted outcome, not who performed the editing.
+
+**EV06 — signal two, combining rule, label mapping.** The long opening sentence and very short True. segment produce an uneven length distribution and a low style score. Together with a moderate model score, the weighted result is unsure. This illustrates a shape-sensitive heuristic rather than a dependable provenance signal.
+
+**EV07 — signal two, combining rule, label mapping.** Semicolon and dash padding is treated as text by the heuristic. The sentence splitter primarily uses . ! ?, while punctuation density separately affects style; the resulting moderate style and model scores combine into unsure. This is a detected failure to classify the submitted AI-derived text, not evidence that punctuation commands were executed.
+
+**EV09 — signal one, signal two, combining rule, label mapping.** The human-like opening and AI-derived continuation are scored as a single passage. A moderate model score and lower style score combine into unsure. The service cannot localize mixed provenance; this response avoids the AI band without establishing that the entire passage was human-written.
+
+The set contains variants without paired original controls. The scores and
+features explain the returned outcome; they do not establish that a particular
+typo or edit alone caused a score change.
+
+### Worst attack outcome
+
+EV01 is the accepted AI-derived typo-bearing text closest to the human band.
+Its model score is 0.1635, style score 0.601724, and combined score 0.273056:
+the dominant predictability signal pulls the result toward human despite the
+higher style signal. It receives unsure, not human. Three candidate explanations
+considered were model sensitivity to unusual tokens, stylometry treating edits
+as human variation, and the wide label mapping; the measured style score and
+75% model weight identify the dominant signal/combination as the clearest
+explanation. No causal claim about a single edit is made.
+
+Exact staff input and actual response:
+
+```json
+{
+  "request": {
+    "text": "The importance of effective communication in the workplace cannot be overstated. Teams that communicate clearly are better poistioned to achieve their objectives and avoid costly misunderstandings. Three are several strategies organisations can adopt to improve thsi. First, establishing regular check-ins ensures that information flows cosnistently between team members. Second, documenting decisions provides a reefrence point that reduces ambiguity. Finally, encouraging an environment whree questions are welcomed helps surface issues early. Implementing thsee approaches can lead to meaningful improvements in team pefrormance and overall satisfaction.",
+    "creator_id": "attacker_EV01"
+  },
+  "http_status": 200,
+  "response": {
+    "appeal": {
+      "endpoint": "/appeal",
+      "method": "POST",
+      "required_fields": [
+        "content_id",
+        "reasoning"
+      ]
+    },
+    "combined_score": 0.27305595535010607,
+    "confidence": 0.27305595535010607,
+    "content_id": "3d61fadc-6c61-4cd5-9e78-205f4f5ee9e3",
+    "creator_id": "attacker_EV01",
+    "guess": "unsure",
+    "implementation_stage": "two_signals",
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "model_score": 0.1635,
+    "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+    "status": "decided",
+    "style_score": 0.6017238214004242,
+    "timestamp": "2026-10-29T00:02:38+00:00"
+  }
+}
+```
+
+
+### Ten actual audit entries
+
+All ten come from this attack run: seven missed evasions, the detected repetitive
+evasion, the second-language-writing specimen, and one 429 rejection. Decision
+events have all nine required fields; rejections intentionally have no invented
+scores. The complete append-only file is [logs/audit.jsonl](logs/audit.jsonl).
+
+```json
+[
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "3d61fadc-6c61-4cd5-9e78-205f4f5ee9e3",
+    "creator_id": "attacker_EV01",
+    "guess": "unsure",
+    "model_score": 0.1635,
+    "style_score": 0.6017238214004242,
+    "combined_score": 0.27305595535010607,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "9b01a94a-1b8b-4b49-bc46-dce71da112f7",
+    "creator_id": "attacker_EV02",
+    "guess": "unsure",
+    "model_score": 0.5943,
+    "style_score": 0.2760133404076395,
+    "combined_score": 0.5147283351019099,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "e0bc784e-14ce-41d5-8d1f-4f528e32a321",
+    "creator_id": "attacker_EV03",
+    "guess": "unsure",
+    "model_score": 0.6662,
+    "style_score": 0.46495452839867524,
+    "combined_score": 0.6158886320996688,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "b23e602f-364f-49e8-a313-c35ff91ec094",
+    "creator_id": "attacker_EV04",
+    "guess": "unsure",
+    "model_score": 0.6114,
+    "style_score": 0.5933373739654516,
+    "combined_score": 0.6068843434913629,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "52187f28-5810-493d-ac0f-e5f048650117",
+    "creator_id": "attacker_EV05",
+    "guess": "unsure",
+    "model_score": 0.3212,
+    "style_score": 0.3816699528349812,
+    "combined_score": 0.3363174882087453,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "dad0db6a-140a-42c7-943c-4a9ae559cca9",
+    "creator_id": "attacker_EV06",
+    "guess": "unsure",
+    "model_score": 0.5727,
+    "style_score": 0.22292805100182145,
+    "combined_score": 0.48525701275045535,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "content_id": "58e8b448-7534-46a2-bdc2-a34d30ce4168",
+    "creator_id": "attacker_EV09",
+    "guess": "unsure",
+    "model_score": 0.7042,
+    "style_score": 0.4558667385626049,
+    "combined_score": 0.6421166846406512,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "content_id": "87c0a42c-02f0-474f-9599-08a287e1c3a7",
+    "creator_id": "attacker_EV10",
+    "guess": "ai",
+    "model_score": 0.9792,
+    "style_score": 0.7108030704858759,
+    "combined_score": 0.912100767621469,
+    "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "content_id": "cfe056e2-e77d-49e5-b4aa-fb450a8d9bd3",
+    "creator_id": "attacker_FP03",
+    "guess": "unsure",
+    "model_score": 0.8051,
+    "style_score": 0.5742326881977692,
+    "combined_score": 0.7473831720494424,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "creator_id": "attacker_flood",
+    "event": "rejected",
+    "status": "rejected",
+    "reason": "rate_limited",
+    "http_status": 429,
+    "route": "/submit",
+    "method": "POST",
+    "limit": "10 per 1 minute"
+  }
+]
+```
+
+
+## Run Log and Verdicts
+
+The original [five criteria](criteria.md) are unchanged from Unit 7 commit
+`753217e`. Three complete trials use the same committed 20+20 corpus; no text was
+replaced after scoring. It contains externally sourced human excerpts, not the
+user's writing, plus disclosed Codex-authored counterparts matched by topic and
+length. [Provenance and selection](examples/UNIT8_SOURCES.md) explains the six-work
+convenience sample, historical-language confound and possible GPT-2 familiarity.
+
+The evaluator invokes the real model 171 times per phase (57 per trial). Its
+observer records call hashes while calling the original function unchanged.
+Each trial restarts the actual service before appeals and again before reading
+their persisted state. Input failures and appeals show no detector calls.
+Restarts reset memory-only rate counters; each ordinary test uses a distinct
+creator, and the limiter remains enabled. This is explicit test isolation,
+not evidence of durable rate counters.
+
+### Before — three trials
+
+[Complete baseline evaluation](results/eval_2026-10-29_000332_612316_before.json)
+
+| Criterion | Original target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. Human false positives | ≤1/20 AI accusations | 1/20 flagged ai | 1/20 flagged ai | 1/20 flagged ai | MET |
+| 2. Mean score separation | AI mean − human mean ≥0.20 | -0.077545 mean gap | -0.077545 mean gap | -0.077545 mean gap | MISSED |
+| 3. Label coverage | 3 real labels + 1001 grid points | 3/3 labels; 1001/1001 grid | 3/3 labels; 1001/1001 grid | 3/3 labels; 1001/1001 grid | MET |
+| 4. Persistent appeals | 10/10 persistent, exact, no rescoring | 10/10 persistent exact appeals | 10/10 persistent exact appeals | 10/10 persistent exact appeals | MET |
+| 5. Bad input | 13 field/media + 4 byte assertions | 17/17 assertions | 17/17 assertions | 17/17 assertions | MET |
+
+
+C1 is MET because each trial has exactly one false accusation out of 20, equal
+to the allowed maximum—not because the detector is harmless. The accused item,
+`human_16`, is a Constitution excerpt about bills and executive objections:
+model 0.9112 + style 0.710726 produces 0.861082, crossing the 0.85 AI threshold.
+This is the worst writer-facing result across the criterion corpus.
+
+C2 is MISSED: the mean gap is **−0.077545**, far below +0.20 in every trial.
+At **signal one**, human passages average 0.629810 versus AI 0.483850 (gap
+−0.145960); **signal two** averages 0.493116 versus 0.597165 (gap +0.104049).
+The **combining rule** gives 75% weight to the signal whose ordering is reversed
+on this corpus. Predictability and familiar formal wording are not authorship.
+The convenience sample cannot establish which training examples GPT-2 memorized.
+
+C3 is MET before the change: all three labels occur on real texts, all 1,001
+grid scores map correctly, invalid values are rejected, and 0.51 and 0.95 differ.
+C4 is MET because all ten exact appeals retain original decisions through real
+restarts in every trial; unknown IDs return 404 and no appeal reruns inference.
+C5 is MET because all 13 original field/media assertions plus four body-limit
+checks return their specified JSON errors without a model call or new decision.
+Rejection log events are permitted by the original target.
+
+### Actual JSON from one baseline trial
+
+The following are selected recorded outputs, not hypothetical examples. Full
+requests and all three trials are in the linked JSON.
+
+**Criterion 1: `run_eval.py::corpus_metrics`.**
+
+```json
+{
+  "criterion": 1,
+  "passed": true,
+  "metric": "1/20 flagged ai",
+  "valid_20_human_responses": true,
+  "false_positives": 1,
+  "actual_response": {
+    "method": "POST",
+    "route": "/submit",
+    "request": {
+      "json": {
+        "text": "Every Bill which shall have passed the House of Representatives and the Senate, shall, before it become a Law, be presented to the President of the United States; If he approve he shall sign it, but if not he shall return it, with his Objections to that House in which it shall have originated, who shall enter the Objections at large on their Journal, and proceed to reconsider it. If after such Reconsideration two thirds of that house shall agree to pass the Bill, it shall be sent, together with the Objections, to the other House, by which it shall likewise be reconsidered, and if approved by two thirds of that House, it shall become a law. But in all such Cases the Votes of both Houses shall be determined by Yeas and Nays, and the Names of the Persons voting for and against the Bill shall be entered on the Journal of each House respectively. If any Bill shall not be returned by the President within ten Days (Sundays excepted) after it shall have been presented to him, the Same shall be a Law, in like Manner as if he had signed it, unless the Congress by their Adjournment prevent its Return, in which case it shall not be a Law.",
+        "creator_id": "eval-000332_612316-before-t1-human-15"
+      }
+    },
+    "request_headers": {
+      "Content-Type": "application/json"
+    },
+    "started_utc": "2026-10-29T00:03:36.414193+00:00",
+    "http_status": 200,
+    "response_content_type": "application/json",
+    "response": {
+      "appeal": {
+        "endpoint": "/appeal",
+        "method": "POST",
+        "required_fields": [
+          "content_id",
+          "reasoning"
+        ]
+      },
+      "combined_score": 0.861081594458242,
+      "confidence": 0.861081594458242,
+      "content_id": "51faf473-0cfa-4d16-8b61-e096d95468e6",
+      "creator_id": "eval-000332_612316-before-t1-human-15",
+      "guess": "ai",
+      "implementation_stage": "two_signals",
+      "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+      "model_score": 0.9112,
+      "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+      "status": "decided",
+      "style_score": 0.7107263778329675,
+      "timestamp": "2026-10-29T00:03:36+00:00"
+    },
+    "elapsed_seconds": 0.085332,
+    "specimen_id": "human_16"
+  }
+}
+```
+
+
+**Criterion 2: `run_eval.py::corpus_metrics`.**
+
+```json
+{
+  "criterion": 2,
+  "passed": false,
+  "metric": "-0.077545 mean gap",
+  "human_mean": 0.5897239938492017,
+  "ai_mean": 0.5121788232901416,
+  "mean_gap": -0.07754517055906004,
+  "comparison": "Decimal arithmetic on returned scores; no rounding before comparison",
+  "human_response_reference": "criterion 1 of this same trial"
+}
+```
+
+
+**Criterion 3: `run_eval.py::coverage`.**
+
+```json
+{
+  "criterion": 3,
+  "passed": true,
+  "metric": "3/3 labels; 1001/1001 grid",
+  "labels_observed": [
+    "ai",
+    "human",
+    "unsure"
+  ],
+  "thresholds": {
+    "human": 0.2,
+    "ai": 0.85
+  },
+  "label_text": {
+    "human": "This writing looks more consistent with human writing to our tools. This is an estimate, not proof of authorship. You can request a review if this label seems wrong.",
+    "unsure": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "ai": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review."
+  },
+  "grid_failures": [],
+  "scores_0_51_and_0_95_differ": true,
+  "invalid_scores": [
+    {
+      "input": "NaN",
+      "rejected": true
+    },
+    {
+      "input": "positive infinity",
+      "rejected": true
+    },
+    {
+      "input": "negative infinity",
+      "rejected": true
+    },
+    {
+      "input": "below zero",
+      "rejected": true
+    },
+    {
+      "input": "above one",
+      "rejected": true
+    }
+  ],
+  "grid_producer": "run_eval.py::coverage -> scoring.py::score_to_label",
+  "actual_response": {
+    "method": "POST",
+    "route": "/submit",
+    "request": {
+      "json": {
+        "text": "Ineluctable modality of the visible: at least that if no more, thought through my eyes. Signatures of all things I am here to read, seaspawn and seawrack, the nearing tide, that rusty boot. Snotgreen, bluesilver, rust: coloured signs. Limits of the diaphane. But he adds: in bodies. Then he was aware of them bodies before of them coloured. How? By knocking his sconce against them, sure. Go easy. Bald he was and a millionaire, maestro di color che sanno. Limit of the diaphane in. Why in? Diaphane, adiaphane.\n\nIf you can put your five fingers through it it is a gate, if not a door. Shut your eyes and see.",
+        "creator_id": "eval-000332_612316-before-t1-coverage-2"
+      }
+    },
+    "request_headers": {
+      "Content-Type": "application/json"
+    },
+    "started_utc": "2026-10-29T00:03:37.929174+00:00",
+    "http_status": 200,
+    "response_content_type": "application/json",
+    "response": {
+      "appeal": {
+        "endpoint": "/appeal",
+        "method": "POST",
+        "required_fields": [
+          "content_id",
+          "reasoning"
+        ]
+      },
+      "combined_score": 0.17341056920266548,
+      "confidence": 0.17341056920266548,
+      "content_id": "aa1af41e-6b60-4a67-8379-3960536a3447",
+      "creator_id": "eval-000332_612316-before-t1-coverage-2",
+      "guess": "human",
+      "implementation_stage": "two_signals",
+      "label": "This writing looks more consistent with human writing to our tools. This is an estimate, not proof of authorship. You can request a review if this label seems wrong.",
+      "model_score": 0.1261,
+      "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+      "status": "decided",
+      "style_score": 0.31534227681066196,
+      "timestamp": "2026-10-29T00:03:37+00:00"
+    },
+    "elapsed_seconds": 0.055861,
+    "specimen_id": "human_literary"
+  }
+}
+```
+
+
+**Criterion 4: `run_eval.py::Runner.appeals`.**
+
+```json
+{
+  "criterion": 4,
+  "passed": true,
+  "metric": "10/10 persistent exact appeals",
+  "successful_appeals": 10,
+  "restart_before_appeals": true,
+  "restart_after_appeals": true,
+  "model_calls_before": 57,
+  "model_calls_after": 57,
+  "no_rescoring_observed": true,
+  "unknown_no_appeal": true,
+  "health_before_appeals": {
+    "method": "GET",
+    "route": "/health",
+    "request": null,
+    "request_headers": {},
+    "started_utc": "2026-10-29T00:03:38.902308+00:00",
+    "http_status": 200,
+    "response_content_type": "application/json",
+    "response": {
+      "detector_loaded": false,
+      "detector_model": "gpt2",
+      "log_entries": 146,
+      "ok": true,
+      "rate_limiting": true
+    },
+    "elapsed_seconds": 0.002003
+  },
+  "actual_appeal_response": {
+    "method": "POST",
+    "route": "/appeal",
+    "request": {
+      "json": {
+        "content_id": "d1c38f2f-7625-4e7c-9195-8c8de3b1c360",
+        "reasoning": "  Synthetic evaluation appeal 1/1: please review the process notes.\nThis is a test, not a claim of human authorship.  "
+      }
+    },
+    "request_headers": {
+      "Content-Type": "application/json"
+    },
+    "started_utc": "2026-10-29T00:03:38.904368+00:00",
+    "http_status": 200,
+    "response_content_type": "application/json",
+    "response": {
+      "content_id": "d1c38f2f-7625-4e7c-9195-8c8de3b1c360",
+      "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
+      "reasoning": "  Synthetic evaluation appeal 1/1: please review the process notes.\nThis is a test, not a claim of human authorship.  ",
+      "status": "under_review"
+    },
+    "elapsed_seconds": 0.001852
+  },
+  "actual_read_after_restart": {
+    "method": "GET",
+    "route": "/content/d1c38f2f-7625-4e7c-9195-8c8de3b1c360",
+    "request": null,
+    "request_headers": {},
+    "started_utc": "2026-10-29T00:03:39.136308+00:00",
+    "http_status": 200,
+    "response_content_type": "application/json",
+    "response": {
+      "appeals": [
+        {
+          "content_id": "d1c38f2f-7625-4e7c-9195-8c8de3b1c360",
+          "creator_id": "eval-000332_612316-before-t1-appeal-0",
+          "event": "appeal",
+          "reasoning": "  Synthetic evaluation appeal 1/1: please review the process notes.\nThis is a test, not a claim of human authorship.  ",
+          "status": "under_review",
+          "timestamp": "2026-10-29T00:03:38+00:00"
+        }
+      ],
+      "combined_score": 0.5589396836421172,
+      "confidence": 0.5589396836421172,
+      "content_id": "d1c38f2f-7625-4e7c-9195-8c8de3b1c360",
+      "creator_id": "eval-000332_612316-before-t1-appeal-0",
+      "guess": "unsure",
+      "implementation_stage": "two_signals",
+      "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+      "model_score": 0.5855,
+      "status": "under_review",
+      "style_score": 0.479258734568469,
+      "timestamp": "2026-10-29T00:03:38+00:00"
+    },
+    "elapsed_seconds": 0.002015
+  }
+}
+```
+
+
+**Criterion 5: `run_eval.py::Runner.bad_inputs`.**
+
+```json
+{
+  "criterion": 5,
+  "passed": true,
+  "metric": "17/17 assertions",
+  "actual_case": {
+    "method": "POST",
+    "route": "/submit",
+    "request": {
+      "raw_utf8": "hello"
+    },
+    "request_headers": {
+      "Content-Type": "text/plain"
+    },
+    "started_utc": "2026-10-29T00:03:39.158132+00:00",
+    "http_status": 415,
+    "response_content_type": "application/json",
+    "response": {
+      "error": "json_required",
+      "message": "Send application/json."
+    },
+    "elapsed_seconds": 0.001145,
+    "case": "non_json",
+    "expected_status": 415,
+    "audit_events_added": [
+      {
+        "creator_id": "unknown",
+        "event": "rejected",
+        "http_status": 415,
+        "method": "POST",
+        "reason": "json_required",
+        "route": "/submit",
+        "status": "rejected",
+        "timestamp": "2026-10-29T00:03:39+00:00"
+      }
+    ],
+    "no_successful_event": true,
+    "model_calls_before": 57,
+    "model_calls_after": 57,
+    "no_inference_observed": true,
+    "passed": true
+  }
+}
+```
+
+
+## The Improvement
+
+The diagnosis selects **one reweighting change**: model/style weights from
+**0.75/0.25 to 0.50/0.50** in `config.py`. The detector, stylometry, disagreement
+guard, thresholds, labels, validation, rate policy and criterion targets stay
+fixed. Equal weights reduce the influence of the signal that reverses the
+human/AI ordering in the baseline corpus. This is a diagnostic experiment on
+the same data, not an independently validated new detector.
+
+Before rerunning, the expected trade is explicit: `human_16` should drop below
+the AI threshold, but EV10 may lose its AI label and Joyce may lose the only
+human label in the calibration set. The original criterion will be marked
+MISSED if label coverage is lost. No threshold adjustment will conceal that
+regression.
+
+The before evidence is complete and committed before this change. After measurements are pending.

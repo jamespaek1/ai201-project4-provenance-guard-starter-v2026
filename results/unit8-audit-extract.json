@@ -1,0 +1,121 @@
+[
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "3d61fadc-6c61-4cd5-9e78-205f4f5ee9e3",
+    "creator_id": "attacker_EV01",
+    "guess": "unsure",
+    "model_score": 0.1635,
+    "style_score": 0.6017238214004242,
+    "combined_score": 0.27305595535010607,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "9b01a94a-1b8b-4b49-bc46-dce71da112f7",
+    "creator_id": "attacker_EV02",
+    "guess": "unsure",
+    "model_score": 0.5943,
+    "style_score": 0.2760133404076395,
+    "combined_score": 0.5147283351019099,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "e0bc784e-14ce-41d5-8d1f-4f528e32a321",
+    "creator_id": "attacker_EV03",
+    "guess": "unsure",
+    "model_score": 0.6662,
+    "style_score": 0.46495452839867524,
+    "combined_score": 0.6158886320996688,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "b23e602f-364f-49e8-a313-c35ff91ec094",
+    "creator_id": "attacker_EV04",
+    "guess": "unsure",
+    "model_score": 0.6114,
+    "style_score": 0.5933373739654516,
+    "combined_score": 0.6068843434913629,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "52187f28-5810-493d-ac0f-e5f048650117",
+    "creator_id": "attacker_EV05",
+    "guess": "unsure",
+    "model_score": 0.3212,
+    "style_score": 0.3816699528349812,
+    "combined_score": 0.3363174882087453,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:38+00:00",
+    "content_id": "dad0db6a-140a-42c7-943c-4a9ae559cca9",
+    "creator_id": "attacker_EV06",
+    "guess": "unsure",
+    "model_score": 0.5727,
+    "style_score": 0.22292805100182145,
+    "combined_score": 0.48525701275045535,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "content_id": "58e8b448-7534-46a2-bdc2-a34d30ce4168",
+    "creator_id": "attacker_EV09",
+    "guess": "unsure",
+    "model_score": 0.7042,
+    "style_score": 0.4558667385626049,
+    "combined_score": 0.6421166846406512,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "content_id": "87c0a42c-02f0-474f-9599-08a287e1c3a7",
+    "creator_id": "attacker_EV10",
+    "guess": "ai",
+    "model_score": 0.9792,
+    "style_score": 0.7108030704858759,
+    "combined_score": 0.912100767621469,
+    "label": "Our tools found patterns often associated with AI-generated writing. They can be wrong; this is not proof of how you wrote it. You can explain your process and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "content_id": "cfe056e2-e77d-49e5-b4aa-fb450a8d9bd3",
+    "creator_id": "attacker_FP03",
+    "guess": "unsure",
+    "model_score": 0.8051,
+    "style_score": 0.5742326881977692,
+    "combined_score": 0.7473831720494424,
+    "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+    "status": "decided",
+    "implementation_stage": "two_signals"
+  },
+  {
+    "timestamp": "2026-10-29T00:02:39+00:00",
+    "creator_id": "attacker_flood",
+    "event": "rejected",
+    "status": "rejected",
+    "reason": "rate_limited",
+    "http_status": 429,
+    "route": "/submit",
+    "method": "POST",
+    "limit": "10 per 1 minute"
+  }
+]
