@@ -2,7 +2,7 @@
 
 [unit8_corpus.json](unit8_corpus.json) contains the fixed **20 human + 20
 AI-generated** specimens for the original acceptance criteria 1 and 2. It was
-selected on **2026-10-28 before any Unit 8 model or style scores were inspected**.
+selected on **2026-10-28 before any scores from this corpus were generated or inspected**.
 Commit the corpus before its first evaluation and retain exactly these texts
 for every before/after trial. This is the project's own criterion corpus, not
 staff's independent attack set and not an estimate of population accuracy.

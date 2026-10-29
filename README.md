@@ -1,9 +1,15 @@
-# Provenance Guard — Unit 7 instructor example
+# Provenance Guard — Units 7 and 8 instructor example
 
 This is an AI-assisted instructor example built from the CodePath starter.
 Codex authorship is disclosed. The service, criteria, real-model calibration,
-audit trail and Unit 7 write-up are complete. No personal hours, unaided student
-work or course-portal submission are claimed. Unit 8 evaluation is separate.
+audit trail and Unit 7 write-up are preserved below. No personal hours, unaided
+student work or course-portal submission are claimed.
+
+**How to read this report:** the sections through the Unit 7 handoff describe
+the original 75% model / 25% style baseline. The Unit 8 sections beginning at
+**Rate Limiting** record the independent attacks, repeated criterion trials and
+the single measured change to 50% / 50%. Original criteria and historical results
+are retained; missed targets and regressions are reported explicitly.
 
 ## What This Does
 
@@ -391,7 +397,26 @@ the cached body's byte count to 64 KiB. Exact-limit and oversized streamed input
 are tested; live HTTP checks verify rejected requests neither load the model nor
 alter the log. The original criterion and all scoring constants are unchanged.
 
-### Unit 7 completion and Unit 8 handoff
+### Unit 8 AI assistance
+
+Codex translated the unchanged criteria into a real HTTP evaluation harness and
+used additional AI review to check the measurements and challenge the verdicts.
+It also prepared the fixed externally sourced human corpus and disclosed AI
+counterparts before scoring; these are not the user's own writing. The observer
+counts real detector calls without replacing their results, and software tests
+that mock the detector are identified separately.
+
+The baseline review considered model novelty sensitivity, style-feature
+limitations and label boundaries as possible explanations for EV01. The actual
+signals showed that the 75% model weight dominated its result, while the corpus
+showed the model's human/AI ordering was reversed. Codex selected and implemented
+one 50/50 reweighting, then retained its worse attack detection and lost human
+label coverage in the after report. A separate AI audit checked all three trials
+against the original targets; no human breakout discussion or Claude session is
+claimed. These are AI-assisted instructor judgments, not independent human
+validation of authorship detection.
+
+### Unit 7 completion and Unit 8 handoff (historical)
 
 Unit 7's required endpoints, two distinct signals, variable score, three exact
 labels, appeal audit trail, five preregistered criteria, five README sections
@@ -399,10 +424,9 @@ and at least four new commits are present. The declared stretch
 `GET /content/<id>` is implemented and verified. Nothing has been submitted
 through the course portal.
 
-Unit 8's rate limits, independent attack set, fixed 20+20 provenance corpus,
-three-trial criterion verdicts and measured improvement have **not** been run
-or claimed. The original `run_eval.py`, `run_attacks.py` and `scenarios.py` remain
-available for that next task. Use this same fork for Unit 8:
+At the Unit 7 handoff, Unit 8's rate limits, independent attack set, fixed 20+20
+provenance corpus, three-trial verdicts and measured improvement had not yet been
+run. The sections below now record that work in the same fork:
 [jamespaek1/ai201-project4-provenance-guard-starter-v2026](https://github.com/jamespaek1/ai201-project4-provenance-guard-starter-v2026).
 
 ## Rate Limiting
@@ -530,7 +554,7 @@ The flood family contains **12 rows**, although its target text says 20. Its
 requests still consume the quota. The separate 15-request valid-text flood above
 demonstrates ten actual decisions followed by five rate-limit refusals.
 
-FP08 is genuine human writing according to staff, but has only 9 words and gets
+FP08 is genuine human writing according to staff, but has only 8 words and gets
 400 under the preexisting 20-word minimum. That avoids a false accusation while
 excluding a legitimate short submission; it is not successful authorship detection.
 
@@ -1103,4 +1127,198 @@ human label in the calibration set. The original criterion will be marked
 MISSED if label coverage is lost. No threshold adjustment will conceal that
 regression.
 
-The before evidence is complete and committed before this change. After measurements are pending.
+### Attack Run — After
+
+[Complete after requests and responses](results/attack_run_2026-10-28_201040_319497_after.json) · [all after judgments](results/attack_after_assessment.json)
+
+| ID | HTTP | Guess | Model | Style | Combined | Verdict |
+|---|---:|---|---:|---:|---:|---|
+| EV01 | 200 | unsure | 0.163500 | 0.601724 | 0.382612 | BROKE |
+| EV02 | 200 | unsure | 0.594300 | 0.276013 | 0.435157 | BROKE |
+| EV03 | 200 | unsure | 0.666200 | 0.464955 | 0.565577 | BROKE |
+| EV04 | 200 | unsure | 0.611400 | 0.593337 | 0.602369 | BROKE |
+| EV05 | 200 | unsure | 0.321200 | 0.381670 | 0.351435 | BROKE |
+| EV06 | 200 | unsure | 0.572700 | 0.222928 | 0.397814 | BROKE |
+| EV07 | 200 | unsure | 0.586200 | 0.444105 | 0.515153 | BROKE |
+| EV08 | 400 | — | — | — | — | HELD |
+| EV09 | 200 | unsure | 0.704200 | 0.455867 | 0.580033 | BROKE |
+| EV10 | 200 | unsure | 0.979200 | 0.710803 | 0.845002 | BROKE |
+| FP01 | 200 | unsure | 0.617500 | 0.514211 | 0.565855 | HELD |
+| FP02 | 200 | unsure | 0.738700 | 0.620155 | 0.679428 | HELD |
+| FP03 | 200 | unsure | 0.805100 | 0.574233 | 0.689666 | HELD |
+| FP04 | 200 | unsure | 0.832900 | 0.521477 | 0.677189 | HELD |
+| FP05 | 200 | unsure | 0.800500 | 0.639048 | 0.719774 | HELD |
+| FP06 | 200 | unsure | 0.881400 | 0.481866 | 0.681633 | HELD |
+| FP07 | 200 | unsure | 0.881600 | 0.468993 | 0.675296 | HELD |
+| FP08 | 400 | — | — | — | — | HELD |
+| PI01 | 200 | unsure | 0.462500 | 0.352758 | 0.407629 | HELD |
+| PI02 | 200 | unsure | 0.204400 | 0.339464 | 0.271932 | HELD |
+| PI03 | 200 | unsure | 0.594300 | 0.511532 | 0.552916 | HELD |
+| PI04 | 200 | unsure | 0.499800 | 0.478226 | 0.489013 | HELD |
+| PI05 | 200 | unsure | 0.640100 | 0.415605 | 0.527852 | HELD |
+| PI06 | 200 | unsure | 0.558300 | 0.519317 | 0.538808 | HELD |
+| MF01 | 400 | — | — | — | — | HELD |
+| MF02 | 400 | — | — | — | — | HELD |
+| MF03 | 400 | — | — | — | — | HELD |
+| MF04 | 400 | — | — | — | — | HELD |
+| MF05 | 400 | — | — | — | — | HELD |
+| MF06 | 400 | — | — | — | — | HELD |
+| MF07 | 400 | — | — | — | — | HELD |
+| MF08 | 413 | — | — | — | — | HELD |
+| RQ01 | 400 | — | — | — | — | HELD |
+| RQ02 | 400 | — | — | — | — | HELD |
+| RQ03 | 400 | — | — | — | — | HELD |
+| RQ04 | 400 | — | — | — | — | HELD |
+| RQ05 | 400 | — | — | — | — | HELD |
+| RQ06 | 400 | — | — | — | — | HELD |
+| RQ07 | 400 | — | — | — | — | HELD |
+| RQ08 | 400 | — | — | — | — | HELD |
+| RQ09 | 400 | — | — | — | — | HELD |
+| RQ10 | 415 | — | — | — | — | HELD |
+| RQ11 | 415 | — | — | — | — | HELD |
+| RQ12 | 400 | — | — | — | — | HELD |
+| FL01_01 | 400 | — | — | — | — | HELD |
+| FL01_02 | 400 | — | — | — | — | HELD |
+| FL01_03 | 400 | — | — | — | — | HELD |
+| FL01_04 | 400 | — | — | — | — | HELD |
+| FL01_05 | 400 | — | — | — | — | HELD |
+| FL01_06 | 400 | — | — | — | — | HELD |
+| FL01_07 | 400 | — | — | — | — | HELD |
+| FL01_08 | 400 | — | — | — | — | HELD |
+| FL01_09 | 400 | — | — | — | — | HELD |
+| FL01_10 | 400 | — | — | — | — | HELD |
+| FL01_11 | 429 | — | — | — | — | HELD |
+| FL01_12 | 429 | — | — | — | — | HELD |
+
+
+### After — three trials
+
+[Complete after evaluation](results/eval_2026-10-29_001125_226594_after.json)
+
+| Criterion | Original target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. Human false positives | ≤1/20 AI accusations | 0/20 flagged ai | 0/20 flagged ai | 0/20 flagged ai | MET |
+| 2. Mean score separation | AI mean − human mean ≥0.20 | -0.018275 mean gap | -0.018275 mean gap | -0.018275 mean gap | MISSED |
+| 3. Label coverage | 3 real labels + 1001 grid points | 2/3 labels; 1001/1001 grid | 2/3 labels; 1001/1001 grid | 2/3 labels; 1001/1001 grid | MISSED |
+| 4. Persistent appeals | 10/10 persistent, exact, no rescoring | 10/10 persistent exact appeals | 10/10 persistent exact appeals | 10/10 persistent exact appeals | MET |
+| 5. Bad input | 13 field/media + 4 byte assertions | 17/17 assertions | 17/17 assertions | 17/17 assertions | MET |
+
+
+### Before and after side by side
+
+| Measurement | Before: 75% model / 25% style | After: 50% / 50% | Interpretation |
+|---|---:|---:|---|
+| Official attacks HELD / BROKE | 48 / 8 | 47 / 9 | One additional missed evasion |
+| Evasion HELD / BROKE | 2 / 8 | 1 / 9 | EV10 moves from AI to unsure |
+| False-positive-family HELD / BROKE | 8 / 0 | 8 / 0 | No new staff-set accusation; short-human rejection remains |
+| Injection-family HELD / BROKE | 6 / 0 | 6 / 0 | Specific overrides and forgeries do not succeed |
+| Malformed-family HELD / BROKE | 20 / 0 | 20 / 0 | Same safe refusals |
+| Flood-family HELD / BROKE | 12 / 0 | 12 / 0 | Same first-ten 400s, then two 429s |
+| C1: human excerpts labelled AI, each trial | 1/20, MET | 0/20, MET | The one measured false accusation disappears |
+| C2: AI mean minus human mean, each trial | −0.077545, MISSED | −0.018275, MISSED | Improves by 0.059270; still below +0.20 |
+| C3: observed real labels, each trial | 3/3, MET | 2/3, MISSED | No human label in the frozen calibration set |
+| C4: durable exact appeals, each trial | 10/10, MET | 10/10, MET | No regression |
+| C5: bad-input assertions, each trial | 17/17, MET | 17/17, MET | No regression |
+
+Every official input was resent unchanged. All 22 accepted staff specimens retain
+exactly the same individual model and style scores; only their combination and
+its resulting label can change. Each phase's 171 criterion model calls likewise
+repeat the same 57 texts in each trial. Sources stayed unchanged within each
+phase. JSON artifacts record full precision; table rounding does not determine
+the verdicts. Log timestamps use UTC; all runs occurred on October 28 in New York.
+
+**Did it help?** It removed the one corpus false accusation and narrowed the
+mean-score reversal, but it did not meet the separation target and worsened both
+attack detection and observed label coverage. It is a failed overall improvement,
+not a production upgrade. The measured 50/50 version remains in the repository
+so the after result is reproducible; no second change hides its regressions.
+
+The formerly accused `human_16` now scores **0.810963**, unsure. EV10's unchanged
+model/style scores (0.9792 / 0.710803) now combine to **0.845002**, below the 0.85
+AI cutoff, so it newly avoids the AI band. Joyce's unchanged 0.1261 / 0.315342
+signals now combine to **0.220721**, above the 0.20 human cutoff. The repeated
+AI calibration text still reaches AI, but the fixed set now reaches only AI and
+unsure. The 1,001-point mathematical mapping still passes; text-to-label coverage
+does not. The separate 20+20 corpus also contains no after-run human label.
+
+C2 remains MISSED at the **signal/combination stages**: neither predictability
+nor the small handcrafted style heuristic provides the required 0.20 separation.
+C3 newly misses at the **combining rule and label mapping**: increasing style's
+weight pushes the lowest calibration score across the unchanged human boundary.
+Repeating the identical result three times shows stability on these examples,
+not independent statistical evidence or general accuracy.
+
+## What's Still Broken
+
+Every remaining broken staff attack is an accepted AI-derived input assigned
+unsure. The nine cases below retain their actual after-run diagnosis; none is
+described as proven human authorship.
+
+**EV01 — signal one, combining rule, label mapping.** The typo-bearing specimen still has model score 0.1635 and style score 0.6017238214004242. Equal weighting raises its combined score from 0.27305595535010607 to 0.3826119107002121, but the result remains well below the unchanged 0.85 AI cutoff. The low predictability-based model signal still prevents confident detection; unsure remains a review outcome, not verified human authorship.
+
+**EV02 — signal two, combining rule, label mapping.** The mixed-length Really. sentence pattern still has style score 0.2760133404076395 versus model score 0.5943. Increasing the weight on this lower style score lowers the combination from 0.5147283351019099 to 0.43515667020381976. It remains unsure, so the new weighting does not cure this shape-sensitive evasion.
+
+**EV03 — signal two, combining rule, label mapping.** The quoted conversational ending and AI-derived surrounding text are still scored as one passage. Style remains 0.46495452839867524 and model remains 0.6662; equal weighting lowers the combination from 0.6158886320996688 to 0.5655772641993376. The accepted text still avoids the AI label. No paired quotation-free control establishes the quotation effect in isolation.
+
+**EV04 — signal one, combining rule, label mapping.** The unusual-word specimen keeps model score 0.6114 and style score 0.5933373739654516. Their equal-weight mean is 0.6023686869827258, slightly below its former 0.6068843434913629 and still unsure. Reweighting cannot create stronger evidence when both heuristics are moderate; no paired original establishes a word-specific effect.
+
+**EV05 — signal one, signal two, combining rule, label mapping.** The heavily edited conversational version remains low on both signals: model 0.3212 and style 0.3816699528349812. Equal weighting raises its score only from 0.3363174882087453 to 0.35143497641749055, still unsure. This is the lowest-scoring accepted evasion after the change; the service still cannot recover provenance from edited surface patterns.
+
+**EV06 — signal two, combining rule, label mapping.** The long sentence plus True. pattern keeps a low style score of 0.22292805100182145 and model score of 0.5727. More weight on style lowers the combination from 0.48525701275045535 to 0.3978140255009107. It remains unsure: weighting a sentence-shape weakness more heavily worsens the AI-oriented margin.
+
+**EV07 — signal two, combining rule, label mapping.** The semicolon and dash padding keeps style score 0.44410536967933717 and model score 0.5862. Equal weighting lowers the combination from 0.5506763424198343 to 0.5151526848396686, still unsure. The punctuation-based sentence splitter and density heuristic are unchanged; the run does not demonstrate that instructions were executed.
+
+**EV09 — signal one, signal two, combining rule, label mapping.** The human-like opening and AI-derived continuation keep model score 0.7042 and style score 0.4558667385626049. Equal weighting lowers their whole-passage score from 0.6421166846406512 to 0.5800333692813024, still unsure. No segment-level provenance distinction is made, so the mixed passage avoids the AI band.
+
+**EV10 — combining rule, label mapping.** This is the new failure caused by the intervention. The repeated stanzas keep model score 0.9792 and style score 0.7108030704858759. Changing only their weights lowers the combination from 0.912100767621469 to 0.8450015352429379, crossing below the unchanged 0.85 AI threshold. The label changes from AI to unsure, so a previously held evasion now breaks the stated detection objective.
+
+The next steps cover each remaining failed attack and criterion:
+
+| Remaining failure | What I would test next | Why it stops here |
+|---|---|---|
+| EV01 and EV04: atypical tokens / vocabulary | Paired originals and edited variants on held-out data; measure model sensitivity without normalizing away writers' spelling | A new signal or preprocessing rule would be a second unmeasured change |
+| EV02, EV06 and EV07: sentence/punctuation shape | Genre-aware robustness checks for the style features using paired variants and unaffected controls | Editing style features now would confound the one measured reweighting |
+| EV03 and EV09: quotation / mixed-origin passages | Segment-level analysis with explicit uncertainty and sourced quotations | Whole-document scores cannot locate authorship boundaries; segmentation needs a separate evaluation |
+| EV05: heavily edited AI-derived text | Process/provenance evidence and voluntary human review, rather than a detector-only authorship verdict | Text statistics alone cannot establish an editing history |
+| EV10: newly missed repetitive text | Compare the original and alternative weighting on a new fixed validation set before selecting a rule | A compensating threshold tweak would hide this measured regression |
+| C2: insufficient mean separation | Larger contemporary, topic/length-matched, source-diverse holdout; inspect distributions before calibrating weights | This six-work historical corpus cannot justify tuning until a target happens to pass |
+| C3: no observed human label after the change | Validate any proposed scoring/threshold revision on an unchanged holdout with real text-to-label coverage | Replacing Joyce or adding handpicked easy text after scoring would obscure the comparison |
+
+Short genuine writing (FP08) is still excluded by the 20-word contract. A future
+product should offer an explicit “insufficient evidence” route or review without
+pretending to infer authorship. The unchanged per-creator cap remains evadable by
+inventing IDs, memory quotas reset at restart, and audit writes are only protected
+within one process; authentication, shared counters and durable multi-process
+storage need separate work before public deployment. No staffed human-review
+workflow or reliable authorship detector is claimed.
+
+For a real deployment I would favor fewer false accusations, preserve uncertainty,
+and require human review before any penalty. That choice lets more AI-assisted
+text through and shifts time and cost to reviewers and the platform, rather than
+making legitimate writers prove their innocence to an unreliable score.
+
+### Reproduce and inspect
+
+```sh
+export HF_HOME="$PWD/.cache/huggingface"
+AI201_DEBUG=0 PORT=5057 .venv/bin/python app.py
+# In another terminal, with a fresh rate-limit window:
+.venv/bin/python run_attacks.py --set attack_set --label reproduction --url http://127.0.0.1:5057
+# Stop that service first; the evaluator owns its service and restart tests:
+.venv/bin/python run_eval.py --label reproduction --url http://127.0.0.1:5057 --manage-service
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+The before runtime is preserved at `b39e856`; the only subsequent service change
+is the two complementary weights in `config.py`, committed at `7e9ea8c`.
+The [post-change test output](results/post-improvement-tests.log) records **22
+passing software tests**. This does not turn the missed detection criteria into
+passes. Both original CSVs, both full attack runs, both three-trial evaluations,
+model-call traces, restart logs and the complete audit trail are committed.
+
+The new [environment check](results/environment-unit8.log) still reports 7 passes,
+one disk-space failure (7.4 GB free versus its 9 GB setup target), and one cache-path
+warning because the starter checks a different cache location. Actual cached-model
+runs succeeded; the setup check is retained unchanged. No additional model
+download or API key was needed. No personal work hours are invented, and nothing
+has been submitted through the CodePath portal.

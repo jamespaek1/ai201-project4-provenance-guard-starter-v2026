@@ -7,11 +7,6 @@ RESULTS = ROOT / 'results'
 MARKER = '<!-- UNIT8_EVALUATION -->'
 
 
-def latest(pattern):
-    matches = sorted(RESULTS.glob(pattern))
-    return matches[-1] if matches else None
-
-
 def read(path):
     return json.loads(path.read_text())
 
@@ -49,8 +44,10 @@ def trial_table(run):
     return '\n'.join(lines) + '\n'
 
 
-before_path = latest('attack_run_*_before.json')
-eval_before_path = latest('eval_*_before.json')
+# Bind this report to the measured experiment; later reproductions must not
+# silently replace its evidence while retaining the original interpretation.
+before_path = RESULTS / 'attack_run_2026-10-28_200239_634939_before.json'
+eval_before_path = RESULTS / 'eval_2026-10-29_000332_612316_before.json'
 before, evaluation = read(before_path), read(eval_before_path)
 assessment = read(RESULTS / 'attack_before_assessment.json')
 rows = {r['id']: r for r in before['results']}
@@ -88,7 +85,7 @@ The flood family contains **12 rows**, although its target text says 20. Its
 requests still consume the quota. The separate 15-request valid-text flood above
 demonstrates ten actual decisions followed by five rate-limit refusals.
 
-FP08 is genuine human writing according to staff, but has only 9 words and gets
+FP08 is genuine human writing according to staff, but has only 8 words and gets
 400 under the preexisting 20-word minimum. That avoids a false accusation while
 excluding a legitimate short submission; it is not successful authorship detection.
 
@@ -190,13 +187,115 @@ human label in the calibration set. The original criterion will be marked
 MISSED if label coverage is lost. No threshold adjustment will conceal that
 regression.''']
 
-after_path = latest('attack_run_*_after.json')
-eval_after_path = latest('eval_*_after.json')
+after_path = RESULTS / 'attack_run_2026-10-28_201040_319497_after.json'
+eval_after_path = RESULTS / 'eval_2026-10-29_001125_226594_after.json'
 after_assessment_path = RESULTS / 'attack_after_assessment.json'
-if after_path and eval_after_path and after_assessment_path.exists():
+if after_path.exists() and eval_after_path.exists() and after_assessment_path.exists():
     after, after_eval, after_assessment = read(after_path), read(eval_after_path), read(after_assessment_path)
     sections += ['### Attack Run — After', link(after_path, 'Complete after requests and responses') + ' · [all after judgments](results/attack_after_assessment.json)', attack_table(after, after_assessment),
                  '### After — three trials', link(eval_after_path, 'Complete after evaluation'), trial_table(after_eval)]
+    sections += ['''### Before and after side by side
+
+| Measurement | Before: 75% model / 25% style | After: 50% / 50% | Interpretation |
+|---|---:|---:|---|
+| Official attacks HELD / BROKE | 48 / 8 | 47 / 9 | One additional missed evasion |
+| Evasion HELD / BROKE | 2 / 8 | 1 / 9 | EV10 moves from AI to unsure |
+| False-positive-family HELD / BROKE | 8 / 0 | 8 / 0 | No new staff-set accusation; short-human rejection remains |
+| Injection-family HELD / BROKE | 6 / 0 | 6 / 0 | Specific overrides and forgeries do not succeed |
+| Malformed-family HELD / BROKE | 20 / 0 | 20 / 0 | Same safe refusals |
+| Flood-family HELD / BROKE | 12 / 0 | 12 / 0 | Same first-ten 400s, then two 429s |
+| C1: human excerpts labelled AI, each trial | 1/20, MET | 0/20, MET | The one measured false accusation disappears |
+| C2: AI mean minus human mean, each trial | −0.077545, MISSED | −0.018275, MISSED | Improves by 0.059270; still below +0.20 |
+| C3: observed real labels, each trial | 3/3, MET | 2/3, MISSED | No human label in the frozen calibration set |
+| C4: durable exact appeals, each trial | 10/10, MET | 10/10, MET | No regression |
+| C5: bad-input assertions, each trial | 17/17, MET | 17/17, MET | No regression |
+
+Every official input was resent unchanged. All 22 accepted staff specimens retain
+exactly the same individual model and style scores; only their combination and
+its resulting label can change. Each phase's 171 criterion model calls likewise
+repeat the same 57 texts in each trial. Sources stayed unchanged within each
+phase. JSON artifacts record full precision; table rounding does not determine
+the verdicts. Log timestamps use UTC; all runs occurred on October 28 in New York.
+
+**Did it help?** It removed the one corpus false accusation and narrowed the
+mean-score reversal, but it did not meet the separation target and worsened both
+attack detection and observed label coverage. It is a failed overall improvement,
+not a production upgrade. The measured 50/50 version remains in the repository
+so the after result is reproducible; no second change hides its regressions.
+
+The formerly accused `human_16` now scores **0.810963**, unsure. EV10's unchanged
+model/style scores (0.9792 / 0.710803) now combine to **0.845002**, below the 0.85
+AI cutoff, so it newly avoids the AI band. Joyce's unchanged 0.1261 / 0.315342
+signals now combine to **0.220721**, above the 0.20 human cutoff. The repeated
+AI calibration text still reaches AI, but the fixed set now reaches only AI and
+unsure. The 1,001-point mathematical mapping still passes; text-to-label coverage
+does not. The separate 20+20 corpus also contains no after-run human label.
+
+C2 remains MISSED at the **signal/combination stages**: neither predictability
+nor the small handcrafted style heuristic provides the required 0.20 separation.
+C3 newly misses at the **combining rule and label mapping**: increasing style's
+weight pushes the lowest calibration score across the unchanged human boundary.
+Repeating the identical result three times shows stability on these examples,
+not independent statistical evidence or general accuracy.
+
+## What's Still Broken
+
+Every remaining broken staff attack is an accepted AI-derived input assigned
+unsure. The nine cases below retain their actual after-run diagnosis; none is
+described as proven human authorship.''']
+    for row in after_assessment['results']:
+        if row['verdict'] == 'BROKE':
+            sections.append(f"**{row['id']} — {', '.join(row['stages'])}.** {row['mechanism']}")
+    sections += ['''The next steps cover each remaining failed attack and criterion:
+
+| Remaining failure | What I would test next | Why it stops here |
+|---|---|---|
+| EV01 and EV04: atypical tokens / vocabulary | Paired originals and edited variants on held-out data; measure model sensitivity without normalizing away writers' spelling | A new signal or preprocessing rule would be a second unmeasured change |
+| EV02, EV06 and EV07: sentence/punctuation shape | Genre-aware robustness checks for the style features using paired variants and unaffected controls | Editing style features now would confound the one measured reweighting |
+| EV03 and EV09: quotation / mixed-origin passages | Segment-level analysis with explicit uncertainty and sourced quotations | Whole-document scores cannot locate authorship boundaries; segmentation needs a separate evaluation |
+| EV05: heavily edited AI-derived text | Process/provenance evidence and voluntary human review, rather than a detector-only authorship verdict | Text statistics alone cannot establish an editing history |
+| EV10: newly missed repetitive text | Compare the original and alternative weighting on a new fixed validation set before selecting a rule | A compensating threshold tweak would hide this measured regression |
+| C2: insufficient mean separation | Larger contemporary, topic/length-matched, source-diverse holdout; inspect distributions before calibrating weights | This six-work historical corpus cannot justify tuning until a target happens to pass |
+| C3: no observed human label after the change | Validate any proposed scoring/threshold revision on an unchanged holdout with real text-to-label coverage | Replacing Joyce or adding handpicked easy text after scoring would obscure the comparison |
+
+Short genuine writing (FP08) is still excluded by the 20-word contract. A future
+product should offer an explicit “insufficient evidence” route or review without
+pretending to infer authorship. The unchanged per-creator cap remains evadable by
+inventing IDs, memory quotas reset at restart, and audit writes are only protected
+within one process; authentication, shared counters and durable multi-process
+storage need separate work before public deployment. No staffed human-review
+workflow or reliable authorship detector is claimed.
+
+For a real deployment I would favor fewer false accusations, preserve uncertainty,
+and require human review before any penalty. That choice lets more AI-assisted
+text through and shifts time and cost to reviewers and the platform, rather than
+making legitimate writers prove their innocence to an unreliable score.
+
+### Reproduce and inspect
+
+```sh
+export HF_HOME="$PWD/.cache/huggingface"
+AI201_DEBUG=0 PORT=5057 .venv/bin/python app.py
+# In another terminal, with a fresh rate-limit window:
+.venv/bin/python run_attacks.py --set attack_set --label reproduction --url http://127.0.0.1:5057
+# Stop that service first; the evaluator owns its service and restart tests:
+.venv/bin/python run_eval.py --label reproduction --url http://127.0.0.1:5057 --manage-service
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+The before runtime is preserved at `b39e856`; the only subsequent service change
+is the two complementary weights in `config.py`, committed at `7e9ea8c`.
+The [post-change test output](results/post-improvement-tests.log) records **22
+passing software tests**. This does not turn the missed detection criteria into
+passes. Both original CSVs, both full attack runs, both three-trial evaluations,
+model-call traces, restart logs and the complete audit trail are committed.
+
+The new [environment check](results/environment-unit8.log) still reports 7 passes,
+one disk-space failure (7.4 GB free versus its 9 GB setup target), and one cache-path
+warning because the starter checks a different cache location. Actual cached-model
+runs succeeded; the setup check is retained unchanged. No additional model
+download or API key was needed. No personal work hours are invented, and nothing
+has been submitted through the CodePath portal.''']
 else:
     sections += ['The before evidence is complete and committed before this change. After measurements are pending.']
 
