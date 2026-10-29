@@ -300,12 +300,12 @@ class ScoreContractTests(unittest.TestCase):
 
     def test_agreement_keeps_score_and_disagreement_uses_unsure(self):
         self.assertAlmostEqual(scoring.combine_signals(0.8, 0.8), 0.8)
-        self.assertAlmostEqual(scoring.combine_signals(1.0, 0.0), 0.625)
-        self.assertAlmostEqual(scoring.combine_signals(0.0, 1.0), 0.375)
-        self.assertAlmostEqual(scoring.combine_signals(0.75, 0.25), 0.5625)
-        self.assertAlmostEqual(scoring.combine_signals(0.7, 0.2), 0.5375)
-        self.assertAlmostEqual(scoring.combine_signals(math.nextafter(0.7, 0), 0.2), 0.575)
-        self.assertAlmostEqual(scoring.combine_signals(0.7499, 0.25), 0.624925)
+        self.assertAlmostEqual(scoring.combine_signals(1.0, 0.0), 0.5)
+        self.assertAlmostEqual(scoring.combine_signals(0.0, 1.0), 0.5)
+        self.assertAlmostEqual(scoring.combine_signals(0.75, 0.25), 0.5)
+        self.assertAlmostEqual(scoring.combine_signals(0.7, 0.2), 0.475)
+        self.assertAlmostEqual(scoring.combine_signals(math.nextafter(0.7, 0), 0.2), 0.45)
+        self.assertAlmostEqual(scoring.combine_signals(0.7499, 0.25), 0.49995)
         for model, style in ((1, 0), (0, 1), (0.75, 0.25)):
             self.assertEqual(scoring.score_to_label(scoring.combine_signals(model, style))[0], "unsure")
 

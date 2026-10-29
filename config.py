@@ -50,8 +50,10 @@ DETECTOR_MAX_TOKENS = 400
 # ─── Scoring (Milestone 4) ───────────────────────────────────────────────────
 # Written in README and committed before implementation or detector results.
 # These are heuristic design choices, not calibrated authorship probabilities.
-WEIGHT_MODEL_SIGNAL = 0.75
-WEIGHT_STYLE_SIGNAL = 0.25
+# Unit 8's single measured improvement: equal weighting after the baseline
+# corpus showed negative model-score separation and positive style separation.
+WEIGHT_MODEL_SIGNAL = 0.50
+WEIGHT_STYLE_SIGNAL = 0.50
 
 NEUTRAL_SCORE = 0.5
 SIGNAL_DISAGREEMENT_THRESHOLD = 0.50
