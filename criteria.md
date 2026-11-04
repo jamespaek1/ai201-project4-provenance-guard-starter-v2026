@@ -1,92 +1,92 @@
-# Acceptance criteria — Provenance Guard
+# Unit 9 capstone acceptance criteria — preregistered
 
-These five criteria are authored with Codex AI assistance for the instructor
-example, before implementation or any detector results. They are not represented
-as unaided student work. Unit 7 implements and checks the service; Unit 8 evaluates
-these same targets in three complete trials. A criterion is MET only if its
-whole target holds in every trial, not just on average. Keep this original text;
-record any later clarification underneath with a reason.
+Shape A: deploy and instrument Provenance Guard. Path B: local with logs.
+These five **new** criteria are AI-assisted instructor-example targets, authored
+before Unit 9 implementation or measurements. They are not unaided student work.
+[Original Unit 7–8 criteria](docs/criteria-units7-8.md) remain unchanged.
 
-## 1. False positives: at most 1 of 20 known-human excerpts
+All five are tested in three full independent trials before and after one
+measured improvement, using identical fixtures, pinned model/runtime and one
+sequential Gunicorn worker. MET requires every assertion in all three trials;
+never average away a failing trial. Record startup separately from request time.
+A warm disk cache means downloaded files exist, not a model loaded in a process.
 
-In each trial, at most **1/20 (5%)** of a fixed set of 20 independently sourced,
-known-human English excerpts may receive `guess="ai"`. At least ten must be
-plain or conventional prose and at least five formal prose. Each is 80–220
-words. Record author, work, source URL and provenance; freeze the set before its
-first evaluation and use the same set in all three trials. Unsure is not a false
-accusation. AI-generated imitations do not count as human evidence.
+## 1. Cached startup: ready within 60 seconds (extension)
 
-**Why this target:** a writing site's incorrect accusation can damage the
-writer's trust. A five-percent maximum is demanding while acknowledging a small
-sample; passing would not establish a population false-positive rate or justify
-punishment without human review.
+On each of three new service processes launched with the single command in
+RUNNING.md, using the documented installed environment and cached pinned model,
+`GET /health` must first return HTTP 200 with `ok=true` within **60 seconds**
+of launch. Measure with a monotonic clock; record whether the model is loaded.
+Repeat the documented setup/start in a separate clean clone with a fresh venv.
 
-## 2. Score separation: at least a 0.20 mean gap
+**Why 60 seconds:** this is a classroom laptop service with local model files;
+a reviewer should reach a responsive process within one minute. Dependency
+installation and first model download are setup costs, reported separately.
 
-In every trial, the mean combined AI-oriented score of **20 recorded AI-generated
-English excerpts minus the mean score of the 20 human excerpts in criterion 1
-must be at least 0.20**. Match the 80–220-word length range and broad topics;
-record the AI prompt/model/source and freeze both sets before evaluation. Do
-not drop surprising examples or reclassify provenance using detector output.
+## 2. Success instrumentation: 10/10 complete records (extension)
 
-**Why this target:** always answering unsure would avoid accusations but supply
-little useful distinction. A 0.20 gap requires a meaningful continuous signal,
-while the separate false-positive limit prevents a high mean from hiding harm
-to individual human writers. This does not claim calibrated probabilities.
+For each trial's **ten fixed sequential valid submissions**, each returned
+`X-Request-ID` must match exactly one parseable JSONL operation record containing
+an ISO UTC timestamp, method/path, the exact input body, exact JSON output and
+HTTP status, nonnegative finite wall/CPU seconds, and nonnegative model, style,
+scoring and audit stage durations. Record every submission, not a sample.
 
-## 3. Label coverage: all 3 labels and all 1,001 score points
+**Why 10/10:** ten requests supply the required cost sample; losing even one
+breaks the audit-to-cost correspondence. Fields and exact comparisons make the
+contract independently checkable; only authored fixture inputs are published.
 
-In each trial, actual text submissions through both real signals must produce
-**at least one `human`, one `unsure`, and one `ai`** response; retain the texts,
-sources and responses. Separately, **all 1,001 scores from 0 through 1 in steps
-of 0.001** must map to exactly one documented label, including both boundary
-values. Scores **0.51 and 0.95 must map to different labels**. Invalid scores
-(NaN, infinity or outside 0–1) must be rejected. Stubbed/model-mocked responses
-may test plumbing but cannot establish text-to-label reachability.
+## 3. Failure instrumentation: 5/5 rejected paths recorded (extension)
 
-**Why this target:** a three-label contract is misleading if one label is only
-present in documentation. The continuous score sweep checks boundaries; the
-real submissions distinguish mathematical coverage from end-to-end reachability.
+In each trial, malformed JSON (**400**), fewer than 20 words (**400**), a body
+larger than 64 KiB (**413**), an unknown appeal ID (**404**), and an eleventh
+request by one creator within one minute (**429**) must each produce exactly
+one correlated operation record with the actual error output/status, nonnegative
+wall/CPU seconds and **zero model-stage time**. The record must retain the input
+or explicitly mark a bounded prefix as truncated for an oversized body.
 
-## 4. Appeals: 10 of 10 recorded and persistent
+**Why 5/5:** these exercise parser, validation, byte limit, lookup and limiter
+failures; silent gaps would make the operator underestimate rejected load.
+Ten preliminary short requests for the rate-limit case are invalid and must
+not call the model. Each trial uses its own creator IDs and log files.
 
-For **10 distinct existing submissions per trial**, a valid appeal must return
-HTTP 200 and `status="under_review"`, preserve its exact nonempty reasoning,
-append an appeal beside the unchanged original decision, and be returned as
-under review by a fresh reader of the audit file. **10/10** must still resolve
-that way after the service restarts. Appealing an unknown content ID must return
-HTTP 404 and create no appeal. No appeal may call the detector again or silently
-reverse the original guess.
+## 4. Interactive latency: every response within 2.0 seconds (extension)
 
-**Why this target:** a writer needs a durable way to challenge an error, not an
-acknowledgment that disappears with the process. Repeated append-only events keep
-the decision and its challenge inspectable; an appeal is not automatic exoneration.
+Each of the same **ten valid submissions per trial**, including the first one
+immediately after health readiness, must return HTTP 200 within **2.0 seconds**
+client-observed monotonic wall time. No warm-up submission may precede them;
+report all ten times and the maximum, with startup time alongside.
 
-## 5. Bad input: all 12 cases fail safely
+**Why 2.0 seconds:** a short writing check should fit an interactive pause. This
+is deliberately demanding for a first local-model call, and may fail. Loading
+moved to startup must still satisfy criterion 1 and be reported, not hidden.
 
-In each trial, all **12** cases below must return a JSON error with the specified
-status, create no decision or appeal, and perform no model inference:
+## 5. Restart continuity: one full appeal round-trip preserved (integration)
 
-| Case | Expected HTTP status |
-|---|---:|
-| `/submit` with non-JSON Content-Type | 415 |
-| `/submit` with malformed JSON and JSON Content-Type | 400 |
-| `/submit` with a JSON array instead of an object | 400 |
-| Missing `text` | 400 |
-| Numeric `text` | 400 |
-| Whitespace-only `text` | 400 |
-| Text with fewer than 20 words | 400 |
-| Text longer than 10,000 characters | 413 |
-| Missing `creator_id` | 400 |
-| Non-string `creator_id` | 400 |
-| Blank or longer-than-100-character `creator_id` (test both) | 400 |
-| `/appeal` with a known content ID but blank reasoning | 400 |
+For the first valid submission in each trial, submit an appeal with the fixed
+reason `Please review this classroom example.`; after a service restart using
+the same log directory, `GET /content/<id>` must return the identical original
+decision, the exact reason and current `status=under_review`. The original
+submission and appeal operation records must each remain exactly once.
 
-Also reject any request body exceeding **64 KiB** with JSON HTTP 413 before
-parsing or model inference. A rejection event may be logged, but never masquerade
-as a successful content decision. Treat each variant in the last creator row as
-an additional assertion, not a reason to skip either.
+**Why one per trial:** the extension changes launch and log paths; one real
+round-trip in each independent process/log lifecycle detects an accidental
+reset or split between audit and operational storage. Unit 8 already tested ten
+appeals per trial; this is a restart-integration check, not a new accuracy claim.
 
-**Why this target:** malformed requests should not become 500s, expensive model
-work or phantom submissions. Explicit word, character and byte limits make the
-contract reproducible and bound the local service's work.
+## Frozen test and review protocol
+
+Freeze ten authored 40–100-word fixture texts in `examples/unit9_requests.json`
+before the first run. Use the same order and content in both phases, with trial
+prefixes only in creator IDs. Three trials are fresh worker processes with a
+warm disk cache, run sequentially; restart once per trial for criterion 5. Use
+CPU `process_time` as a local compute proxy, not money, plus wall time as user
+latency. Report mean of each ten-request sample and multiply by 100 for a
+one-submission-per-user/day estimate; separately disclose startup and failures.
+
+The course self-check was read before this commit: each target has a visible or
+numeric outcome, exact repeatable steps, a rationale and a failure condition.
+C1 checks startup, C2 successful evidence, C3 failure evidence, C4 latency, C5
+persistence. C4 is intentionally at risk. This is AI review and AI authorship,
+not invented peer review or unaided student work. Scope and optional latency
+breakdown stretch were declared in README before implementation. A single
+improvement will be selected from actual baseline evidence; targets stay frozen.

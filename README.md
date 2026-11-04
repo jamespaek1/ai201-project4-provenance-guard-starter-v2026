@@ -1,4 +1,4 @@
-# Provenance Guard — Units 7 and 8 instructor example
+# Provenance Guard — Units 7–9 instructor example
 
 This is an AI-assisted instructor example built from the CodePath starter.
 Codex authorship is disclosed. The service, criteria, real-model calibration,
@@ -10,6 +10,22 @@ the original 75% model / 25% style baseline. The Unit 8 sections beginning at
 **Rate Limiting** record the independent attacks, repeated criterion trials and
 the single measured change to 50% / 50%. Original criteria and historical results
 are retained; missed targets and regressions are reported explicitly.
+
+## Unit 9 capstone scope (preregistered)
+
+**Shape A: deploy and instrument. Path B: local with logs.** Extend this same
+repository at Unit 8 commit `e735f3c`; keep its history and detection behavior.
+Add one documented Gunicorn start command, pinned runtime/model setup, structured
+request logs, and measured request latency/CPU cost. Declare the optional
+**latency-breakdown stretch** now: model, style, scoring and audit stage timings.
+
+Excluded: changing detector/scoring/labels; adding a public host or authentication;
+adding a new model, dataset, UI or moderation workflow. Existing accuracy misses
+remain known limitations. New targets are in [criteria.md](criteria.md); historical
+Unit 7–8 targets are preserved in [docs/criteria-units7-8.md](docs/criteria-units7-8.md).
+The capstone criteria and implementation are an AI-assisted instructor example,
+not a claim to satisfy the student requirement for unaided criteria authorship.
+No Unit 9 measurements preceded this declaration.
 
 ## What This Does
 
