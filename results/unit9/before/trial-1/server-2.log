@@ -1,0 +1,10 @@
+[2026-11-04 18:19:21 -0500] [4501] [INFO] Starting gunicorn 23.0.0
+[2026-11-04 18:19:21 -0500] [4501] [INFO] Listening at: http://127.0.0.1:5057 (4501)
+[2026-11-04 18:19:21 -0500] [4501] [INFO] Using worker: sync
+[2026-11-04 18:19:21 -0500] [4506] [INFO] Booting worker with pid: 4506
+127.0.0.1 - - [04/Nov/2026:18:19:21 -0500] "GET /health HTTP/1.1" 200 279 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:21 -0500] "GET /content/f23c20f3-db12-45c3-9c96-1ae0b42e3362 HTTP/1.1" 200 717 "-" "python-requests/2.34.2"
+[2026-11-04 18:19:21 -0500] [4506] [INFO] Worker exiting (pid: 4506)
+[2026-11-04 18:19:21 -0500] [4501] [INFO] Handling signal: term
+[2026-11-04 18:19:21 -0500] [4501] [ERROR] Worker (pid:4506) was sent SIGTERM!
+[2026-11-04 18:19:21 -0500] [4501] [INFO] Shutting down: Master

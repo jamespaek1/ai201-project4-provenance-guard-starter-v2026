@@ -1,0 +1,27 @@
+Clean-clone verification, 2026-11-04
+
+GitHub was cloned into /private/tmp/ai201-unit9-clean-20261104 at
+4b00fb6893cd550e39d0d044bc313ac7c9c59b1a. The source checkout remained clean.
+A new .venv was created; it was not copied from the working repository.
+All requirements.lock pins matched the freshly installed distributions.
+The existing CPython 3.12.14 installation and model cache were shared explicitly.
+This is not a fresh-machine model-download test.
+
+setup.json preserves the initial uv interpreter-discovery failure. Adding the
+existing Python installation's bin directory to PATH allowed the same uv venv
+command to succeed. RUNNING.md was subsequently clarified in commit 7a7f592.
+
+verification.json and server.log preserve the first smoke harness failure:
+health succeeded, but the harness looked for unit9_requests.json in the clone,
+where that later-committed evaluator fixture did not exist. No model request
+was sent in that attempt; the service was stopped.
+
+smoke-attempt2/verification.json is the successful retry. The same frozen
+U9-01 input was read from the working repository and sent as an ordinary HTTP
+request to the unmodified clean clone. ./start.sh was the literal start command.
+Health readiness: 0.231312292 seconds. First actual model request:
+11.069082417 seconds, HTTP 200, with exactly one matching input/output log row.
+The verification passed and the server was stopped.
+
+These are setup/smoke observations, not replacements for the three formal
+before/after capstone trials. All attempts are retained.

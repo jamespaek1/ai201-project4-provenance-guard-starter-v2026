@@ -1,0 +1,8 @@
+[2026-11-04 18:18:09 -0500] [4415] [INFO] Starting gunicorn 23.0.0
+[2026-11-04 18:18:09 -0500] [4415] [INFO] Listening at: http://127.0.0.1:5067 (4415)
+[2026-11-04 18:18:09 -0500] [4415] [INFO] Using worker: sync
+[2026-11-04 18:18:09 -0500] [4420] [INFO] Booting worker with pid: 4420
+127.0.0.1 - - [04/Nov/2026:18:18:09 -0500] "GET /health HTTP/1.1" 200 278 "-" "Python-urllib/3.14"
+[2026-11-04 18:18:09 -0500] [4420] [INFO] Worker exiting (pid: 4420)
+[2026-11-04 18:18:09 -0500] [4415] [INFO] Handling signal: term
+[2026-11-04 18:18:09 -0500] [4415] [INFO] Shutting down: Master

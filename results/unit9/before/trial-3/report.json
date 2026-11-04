@@ -1,0 +1,2312 @@
+{
+  "trial": 3,
+  "started_utc": "2026-11-04T23:19:24.439873+00:00",
+  "successful_submissions": [
+    {
+      "case_id": "U9-01",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Our neighborhood volunteers will meet beside the library on Saturday morning. We plan to sort donated books, repair a few torn covers, and prepare boxes for the community center. Please bring comfortable shoes and a reusable water bottle. New volunteers can join an experienced partner before choosing a task.\", \"creator_id\": \"unit9-before-t3-U9-01\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:24.657373+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.4142435311510421,
+        "confidence": 0.4142435311510421,
+        "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+        "creator_id": "unit9-before-t3-U9-01",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.3053,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.5231870623020842,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "84bbe5c3-71da-4672-bc90-3fe60398868d",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 1.4679463330030558
+    },
+    {
+      "case_id": "U9-02",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"The small garden behind the school needs regular attention during the summer. Yesterday we watered the seedlings and removed weeds from the narrow paths. A wooden sign now explains which plants attract butterflies. Next week the students will compare the shaded beds with those that receive afternoon sunlight.\", \"creator_id\": \"unit9-before-t3-U9-02\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.125347+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.4281762634381982,
+        "confidence": 0.4281762634381982,
+        "content_id": "4412a91c-f90e-42a9-917a-470325984135",
+        "creator_id": "unit9-before-t3-U9-02",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.2662,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.5901525268763964,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "53250587-38e9-4faf-96a6-c4a9f1afe07f",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.031059458997333422
+    },
+    {
+      "case_id": "U9-03",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"I missed the first bus because I could not find my notebook. While waiting for the next one, I checked the route map and noticed a new stop near the museum. The delay gave me time to finish a short reading assignment, although I still arrived a little late.\", \"creator_id\": \"unit9-before-t3-U9-03\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.156423+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.6135667545757592,
+        "confidence": 0.6135667545757592,
+        "content_id": "03d45e99-1e34-46ee-acfb-2f67e1fab173",
+        "creator_id": "unit9-before-t3-U9-03",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.6314,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.5957335091515183,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "0e91cca1-fcc4-4d02-890f-8962b78a6d54",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.03027770899643656
+    },
+    {
+      "case_id": "U9-04",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"A useful meeting agenda gives each topic a clear purpose and an approximate time limit. Participants should receive it early enough to prepare questions. At the end of the meeting, someone can read back the decisions and identify the person responsible for each next step. This helps avoid confusion later.\", \"creator_id\": \"unit9-before-t3-U9-04\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.186718+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.4257788170110346,
+        "confidence": 0.4257788170110346,
+        "content_id": "b75ecab1-8731-4663-baf6-673e63d3c9a8",
+        "creator_id": "unit9-before-t3-U9-04",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.4145,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.4370576340220692,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "f3d1d0e5-f9b0-493f-9b60-b751aac4ee76",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.030607624998083338
+    },
+    {
+      "case_id": "U9-05",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"The kitchen smelled of toasted bread when the power went out. We moved our chairs toward the window and ate breakfast by daylight. My brother told a story about a camping trip that had gone badly. By the time the lights returned, nobody wanted to turn the television back on.\", \"creator_id\": \"unit9-before-t3-U9-05\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.217364+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.6013273733223472,
+        "confidence": 0.6013273733223472,
+        "content_id": "ddfd7dbc-7c7b-40fc-8954-f3b4f88b19b3",
+        "creator_id": "unit9-before-t3-U9-05",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.5705,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.6321547466446945,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "b046bdcf-8cd2-45e4-9980-62c59800844a",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.03229670900327619
+    },
+    {
+      "case_id": "U9-06",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"The town history exhibit includes photographs, handwritten letters, and a model of the old train station. Visitors can follow a timeline along the wall or listen to recorded interviews. One display describes how local shops changed after the highway opened. Another asks residents to contribute memories of their own.\", \"creator_id\": \"unit9-before-t3-U9-06\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.249684+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.48055023449624207,
+        "confidence": 0.48055023449624207,
+        "content_id": "82fcc447-1a1c-40cd-a97a-310912b27a15",
+        "creator_id": "unit9-before-t3-U9-06",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.3961,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.5650004689924841,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "7847fd59-c88a-479d-bd96-4573f4caa92c",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.03105620899441419
+    },
+    {
+      "case_id": "U9-07",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"When learning a new programming language, I begin with a very small example. I change one line, run the program, and compare the output with my prediction. If the result surprises me, I write down the question before looking for an explanation. Small experiments make mistakes easier to understand.\", \"creator_id\": \"unit9-before-t3-U9-07\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.280760+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.6009515326633228,
+        "confidence": 0.6009515326633228,
+        "content_id": "d756fa8e-4cc8-4f81-b2fd-a51bee7eda0a",
+        "creator_id": "unit9-before-t3-U9-07",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.6538,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.5481030653266455,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "0baede42-22be-4970-88be-45e629b657b4",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.03282004199718358
+    },
+    {
+      "case_id": "U9-08",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Rain continued throughout the afternoon, leaving shallow puddles across the playground. The soccer practice moved indoors, where the team worked on balance and passing with a soft ball. The coach ended the session with a discussion about teamwork. Everyone helped return the equipment before leaving the gym together.\", \"creator_id\": \"unit9-before-t3-U9-08\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.313600+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.4989581399842503,
+        "confidence": 0.4989581399842503,
+        "content_id": "b0a316e4-40cd-448e-a5fe-6275b20f2816",
+        "creator_id": "unit9-before-t3-U9-08",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.4187,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.5792162799685007,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "b4ac1bab-01bf-4d52-a45e-e4635140f314",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.03576204199634958
+    },
+    {
+      "case_id": "U9-09",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"The repair cafe opens on the first Sunday of each month. People bring broken lamps, loose chair legs, and other household items that might be fixed. Volunteers explain each repair so the owner can learn along the way. Items requiring specialist equipment are set aside with a written recommendation.\", \"creator_id\": \"unit9-before-t3-U9-09\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.349391+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.4795700611919708,
+        "confidence": 0.4795700611919708,
+        "content_id": "88ceb10e-fddd-4bf6-8f16-bb20eceeabdd",
+        "creator_id": "unit9-before-t3-U9-09",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.3571,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.6020401223839417,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "6d22e8d3-7038-4bbb-a108-0c7048b6a0a2",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.04542895799386315
+    },
+    {
+      "case_id": "U9-10",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"We tested three locations for the new reading corner in the community center. The hallway was convenient but noisy, and the upstairs room had too few chairs. The space near the courtyard offered good light and enough room for a shelf. We will try that arrangement for a month before reviewing it.\", \"creator_id\": \"unit9-before-t3-U9-10\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.394841+00:00",
+      "status": 200,
+      "output": {
+        "appeal": {
+          "endpoint": "/appeal",
+          "method": "POST",
+          "required_fields": [
+            "content_id",
+            "reasoning"
+          ]
+        },
+        "combined_score": 0.4891123631482779,
+        "confidence": 0.4891123631482779,
+        "content_id": "d3a9e318-7c90-4ce2-9c3a-288cc1ba4ec5",
+        "creator_id": "unit9-before-t3-U9-10",
+        "guess": "unsure",
+        "implementation_stage": "two_signals",
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "model_score": 0.3217,
+        "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+        "status": "decided",
+        "style_score": 0.6565247262965558,
+        "timestamp": "2026-11-04T23:19:26+00:00"
+      },
+      "request_id": "99ce47af-2ec0-4993-bade-32c9f25f675c",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.07519716599927051
+    }
+  ],
+  "failure_cases": [
+    {
+      "case_id": "malformed_json",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\":",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.470068+00:00",
+      "status": 400,
+      "output": {
+        "error": "invalid_json",
+        "message": "The request body must be valid JSON."
+      },
+      "request_id": "4ae9ad5a-7ca0-4a5b-a372-b3ce51ebf3e5",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.001517415999842342,
+      "expected_status": 400
+    },
+    {
+      "case_id": "short_input",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Too short.\", \"creator_id\": \"unit9-before-t3-short\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.471609+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "260a14c5-f7f1-4d81-b981-73b16a8a7715",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.001378459004627075,
+      "expected_status": 400
+    },
+    {
+      "case_id": "oversized_body",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.473000+00:00",
+      "status": 413,
+      "output": {
+        "error": "payload_too_large",
+        "message": "Request body must not exceed 64 KiB."
+      },
+      "request_id": "1157a5f8-6dd2-4376-8c07-7aceb38a9dfa",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.001091083002393134,
+      "expected_status": 413
+    },
+    {
+      "case_id": "unknown_appeal",
+      "method": "POST",
+      "path": "/appeal",
+      "input_body": "{\"content_id\": \"unit9-does-not-exist\", \"reasoning\": \"Please review this classroom example.\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.474109+00:00",
+      "status": 404,
+      "output": {
+        "error": "content_not_found",
+        "message": "No submission has that content_id."
+      },
+      "request_id": "3dd3e5fb-1559-4874-b9ce-52b26b471d5b",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0009082079996005632,
+      "expected_status": 404
+    },
+    {
+      "case_id": "rate_limit_11",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.486184+00:00",
+      "status": 429,
+      "output": {
+        "error": "rate_limited",
+        "limit": "10 per 1 minute",
+        "message": "Too many submissions. Try again shortly."
+      },
+      "request_id": "c070a55f-8a56-4eef-b68d-b22aac79275d",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0012989579990971833,
+      "expected_status": 429
+    }
+  ],
+  "rate_limit_preliminaries": [
+    {
+      "case_id": "rate_limit_1",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.475028+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "1b338947-b8e1-4bd0-b399-3b9a38ab39a5",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0007336249982472509
+    },
+    {
+      "case_id": "rate_limit_2",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.475777+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "6efafd27-53e4-42e6-bb6b-79a3967da0dd",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0008306669988087378
+    },
+    {
+      "case_id": "rate_limit_3",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.476621+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "f4b3698f-daf4-479e-a001-77c29a24f10d",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0007495000027120113
+    },
+    {
+      "case_id": "rate_limit_4",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.477379+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "c35e819d-2026-4ae8-ad60-b247c7d231e9",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0009305829953518696
+    },
+    {
+      "case_id": "rate_limit_5",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.478322+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "62727502-747d-403c-9f36-edad5265d4af",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0008210000014514662
+    },
+    {
+      "case_id": "rate_limit_6",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.479155+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "3a2872bc-508c-4634-9a83-dc59a6538345",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0008334590020240285
+    },
+    {
+      "case_id": "rate_limit_7",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.480002+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "6191cfa8-0145-445d-a84a-87287bb55e48",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0007753340032650158
+    },
+    {
+      "case_id": "rate_limit_8",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.480788+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "a91f2023-4e9b-43b5-b9fa-c8353e1d45b2",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0009333330017398112
+    },
+    {
+      "case_id": "rate_limit_9",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.481734+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "ecb960f0-3b55-4e5e-b547-4e825fe9fcf7",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0025912499986588955
+    },
+    {
+      "case_id": "rate_limit_10",
+      "method": "POST",
+      "path": "/submit",
+      "input_body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+      "content_type": "application/json",
+      "started_utc": "2026-11-04T23:19:26.484350+00:00",
+      "status": 400,
+      "output": {
+        "error": "text_too_short",
+        "message": "Provide at least 20 words for this estimate."
+      },
+      "request_id": "764a66dc-cf9e-404d-b597-3709486956d2",
+      "response_content_type": "application/json",
+      "elapsed_seconds": 0.0018087079952238128
+    }
+  ],
+  "criteria": {
+    "C1": {
+      "met": true,
+      "checks": {
+        "ready": true,
+        "within_60_seconds": true
+      },
+      "scope": "Three-trial startup subcheck; clean-clone setup/start evidence is additionally required."
+    },
+    "C2": {
+      "met": true,
+      "complete_records": 10,
+      "expected": 10,
+      "records": [
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "84bbe5c3-71da-4672-bc90-3fe60398868d",
+            "timestamp": "2026-11-04T23:19:24.657+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 1.4660554579968448,
+              "style": 0.0001788749941624701,
+              "scoring": 1.720800355542451e-05,
+              "audit": 0.00030941700242692605
+            },
+            "duration_seconds": 1.466845042006753,
+            "cpu_seconds": 1.478461,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Our neighborhood volunteers will meet beside the library on Saturday morning. We plan to sort donated books, repair a few torn covers, and prepare boxes for the community center. Please bring comfortable shoes and a reusable water bottle. New volunteers can join an experienced partner before choosing a task.\", \"creator_id\": \"unit9-before-t3-U9-01\"}",
+              "truncated": false,
+              "content_length": 360
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.4142435311510421,
+              "confidence": 0.4142435311510421,
+              "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+              "creator_id": "unit9-before-t3-U9-01",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.3053,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.5231870623020842,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "53250587-38e9-4faf-96a6-c4a9f1afe07f",
+            "timestamp": "2026-11-04T23:19:26.125+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.02951220799877774,
+              "style": 0.000115916998765897,
+              "scoring": 1.1374999303370714e-05,
+              "audit": 0.00018179099424742162
+            },
+            "duration_seconds": 0.0301276659956784,
+            "cpu_seconds": 0.04406399999999988,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"The small garden behind the school needs regular attention during the summer. Yesterday we watered the seedlings and removed weeds from the narrow paths. A wooden sign now explains which plants attract butterflies. Next week the students will compare the shaded beds with those that receive afternoon sunlight.\", \"creator_id\": \"unit9-before-t3-U9-02\"}",
+              "truncated": false,
+              "content_length": 361
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.4281762634381982,
+              "confidence": 0.4281762634381982,
+              "content_id": "4412a91c-f90e-42a9-917a-470325984135",
+              "creator_id": "unit9-before-t3-U9-02",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.2662,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.5901525268763964,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "0e91cca1-fcc4-4d02-890f-8962b78a6d54",
+            "timestamp": "2026-11-04T23:19:26.157+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.028581457998370752,
+              "style": 0.00012287499703234062,
+              "scoring": 1.129199517890811e-05,
+              "audit": 0.0002210829989053309
+            },
+            "duration_seconds": 0.029231166001409292,
+            "cpu_seconds": 0.043101999999999974,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"I missed the first bus because I could not find my notebook. While waiting for the next one, I checked the route map and noticed a new stop near the museum. The delay gave me time to finish a short reading assignment, although I still arrived a little late.\", \"creator_id\": \"unit9-before-t3-U9-03\"}",
+              "truncated": false,
+              "content_length": 308
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.6135667545757592,
+              "confidence": 0.6135667545757592,
+              "content_id": "03d45e99-1e34-46ee-acfb-2f67e1fab173",
+              "creator_id": "unit9-before-t3-U9-03",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.6314,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.5957335091515183,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "f3d1d0e5-f9b0-493f-9b60-b751aac4ee76",
+            "timestamp": "2026-11-04T23:19:26.187+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.02871479200257454,
+              "style": 0.0001183339991257526,
+              "scoring": 1.0666000889614224e-05,
+              "audit": 0.00023166600294644013
+            },
+            "duration_seconds": 0.029395207995548844,
+            "cpu_seconds": 0.04342900000000016,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"A useful meeting agenda gives each topic a clear purpose and an approximate time limit. Participants should receive it early enough to prepare questions. At the end of the meeting, someone can read back the decisions and identify the person responsible for each next step. This helps avoid confusion later.\", \"creator_id\": \"unit9-before-t3-U9-04\"}",
+              "truncated": false,
+              "content_length": 357
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.4257788170110346,
+              "confidence": 0.4257788170110346,
+              "content_id": "b75ecab1-8731-4663-baf6-673e63d3c9a8",
+              "creator_id": "unit9-before-t3-U9-04",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.4145,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.4370576340220692,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "b046bdcf-8cd2-45e4-9980-62c59800844a",
+            "timestamp": "2026-11-04T23:19:26.218+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.030463000002782792,
+              "style": 0.00010599999950500205,
+              "scoring": 9.625000529922545e-06,
+              "audit": 0.00023883300309535116
+            },
+            "duration_seconds": 0.03110575000027893,
+            "cpu_seconds": 0.04667500000000002,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"The kitchen smelled of toasted bread when the power went out. We moved our chairs toward the window and ate breakfast by daylight. My brother told a story about a camping trip that had gone badly. By the time the lights returned, nobody wanted to turn the television back on.\", \"creator_id\": \"unit9-before-t3-U9-05\"}",
+              "truncated": false,
+              "content_length": 326
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.6013273733223472,
+              "confidence": 0.6013273733223472,
+              "content_id": "ddfd7dbc-7c7b-40fc-8954-f3b4f88b19b3",
+              "creator_id": "unit9-before-t3-U9-05",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.5705,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.6321547466446945,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "7847fd59-c88a-479d-bd96-4573f4caa92c",
+            "timestamp": "2026-11-04T23:19:26.250+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.02912162499706028,
+              "style": 0.00011095900117652491,
+              "scoring": 1.0249998013023287e-05,
+              "audit": 0.00020450000010896474
+            },
+            "duration_seconds": 0.029732208997302223,
+            "cpu_seconds": 0.04413099999999992,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"The town history exhibit includes photographs, handwritten letters, and a model of the old train station. Visitors can follow a timeline along the wall or listen to recorded interviews. One display describes how local shops changed after the highway opened. Another asks residents to contribute memories of their own.\", \"creator_id\": \"unit9-before-t3-U9-06\"}",
+              "truncated": false,
+              "content_length": 368
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.48055023449624207,
+              "confidence": 0.48055023449624207,
+              "content_id": "82fcc447-1a1c-40cd-a97a-310912b27a15",
+              "creator_id": "unit9-before-t3-U9-06",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.3961,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.5650004689924841,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "0baede42-22be-4970-88be-45e629b657b4",
+            "timestamp": "2026-11-04T23:19:26.281+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.03104779199929908,
+              "style": 0.00013004199718125165,
+              "scoring": 1.0707997716963291e-05,
+              "audit": 0.0002622499960125424
+            },
+            "duration_seconds": 0.03177950000099372,
+            "cpu_seconds": 0.04820000000000002,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"When learning a new programming language, I begin with a very small example. I change one line, run the program, and compare the output with my prediction. If the result surprises me, I write down the question before looking for an explanation. Small experiments make mistakes easier to understand.\", \"creator_id\": \"unit9-before-t3-U9-07\"}",
+              "truncated": false,
+              "content_length": 349
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.6009515326633228,
+              "confidence": 0.6009515326633228,
+              "content_id": "d756fa8e-4cc8-4f81-b2fd-a51bee7eda0a",
+              "creator_id": "unit9-before-t3-U9-07",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.6538,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.5481030653266455,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "b4ac1bab-01bf-4d52-a45e-e4635140f314",
+            "timestamp": "2026-11-04T23:19:26.314+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.03320462500414578,
+              "style": 0.0001499170030001551,
+              "scoring": 1.1083000572398305e-05,
+              "audit": 0.00036004199500894174
+            },
+            "duration_seconds": 0.03419816600217018,
+            "cpu_seconds": 0.049714000000000036,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Rain continued throughout the afternoon, leaving shallow puddles across the playground. The soccer practice moved indoors, where the team worked on balance and passing with a soft ball. The coach ended the session with a discussion about teamwork. Everyone helped return the equipment before leaving the gym together.\", \"creator_id\": \"unit9-before-t3-U9-08\"}",
+              "truncated": false,
+              "content_length": 368
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.4989581399842503,
+              "confidence": 0.4989581399842503,
+              "content_id": "b0a316e4-40cd-448e-a5fe-6275b20f2816",
+              "creator_id": "unit9-before-t3-U9-08",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.4187,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.5792162799685007,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "6d22e8d3-7038-4bbb-a108-0c7048b6a0a2",
+            "timestamp": "2026-11-04T23:19:26.350+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.04312887499690987,
+              "style": 0.00013383299665292725,
+              "scoring": 1.7124999430961907e-05,
+              "audit": 0.0002766249963315204
+            },
+            "duration_seconds": 0.0439734169995063,
+            "cpu_seconds": 0.05448900000000001,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"The repair cafe opens on the first Sunday of each month. People bring broken lamps, loose chair legs, and other household items that might be fixed. Volunteers explain each repair so the owner can learn along the way. Items requiring specialist equipment are set aside with a written recommendation.\", \"creator_id\": \"unit9-before-t3-U9-09\"}",
+              "truncated": false,
+              "content_length": 350
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.4795700611919708,
+              "confidence": 0.4795700611919708,
+              "content_id": "88ceb10e-fddd-4bf6-8f16-bb20eceeabdd",
+              "creator_id": "unit9-before-t3-U9-09",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.3571,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.6020401223839417,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true
+          },
+          "record": {
+            "request_id": "99ce47af-2ec0-4993-bade-32c9f25f675c",
+            "timestamp": "2026-11-04T23:19:26.395+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.07334079200518318,
+              "style": 0.00013104200479574502,
+              "scoring": 1.445900124963373e-05,
+              "audit": 0.00023066600260790437
+            },
+            "duration_seconds": 0.07408970800315728,
+            "cpu_seconds": 0.061444000000000054,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"We tested three locations for the new reading corner in the community center. The hallway was convenient but noisy, and the upstairs room had too few chairs. The space near the courtyard offered good light and enough room for a shelf. We will try that arrangement for a month before reviewing it.\", \"creator_id\": \"unit9-before-t3-U9-10\"}",
+              "truncated": false,
+              "content_length": 347
+            },
+            "output": {
+              "appeal": {
+                "endpoint": "/appeal",
+                "method": "POST",
+                "required_fields": [
+                  "content_id",
+                  "reasoning"
+                ]
+              },
+              "combined_score": 0.4891123631482779,
+              "confidence": 0.4891123631482779,
+              "content_id": "d3a9e318-7c90-4ce2-9c3a-288cc1ba4ec5",
+              "creator_id": "unit9-before-t3-U9-10",
+              "guess": "unsure",
+              "implementation_stage": "two_signals",
+              "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+              "model_score": 0.3217,
+              "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+              "status": "decided",
+              "style_score": 0.6565247262965558,
+              "timestamp": "2026-11-04T23:19:26+00:00"
+            },
+            "status": 200
+          }
+        }
+      ]
+    },
+    "C3": {
+      "met": true,
+      "checks": {
+        "all_five_paths": true,
+        "ten_invalid_preliminaries": true,
+        "burst_within_one_minute": true,
+        "no_parse_errors": true
+      },
+      "recorded_paths": 5,
+      "expected": 5,
+      "records": [
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "4ae9ad5a-7ca0-4a5b-a372-b3ce51ebf3e5",
+            "timestamp": "2026-11-04T23:19:26.470+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 0.00013691699859919026
+            },
+            "duration_seconds": 0.0004744580000988208,
+            "cpu_seconds": 0.0004690000000000527,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\":",
+              "truncated": false,
+              "content_length": 8
+            },
+            "output": {
+              "error": "invalid_json",
+              "message": "The request body must be valid JSON."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "260a14c5-f7f1-4d81-b981-73b16a8a7715",
+            "timestamp": "2026-11-04T23:19:26.472+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 0.00016354200488422066
+            },
+            "duration_seconds": 0.0003923339972971007,
+            "cpu_seconds": 0.000344000000000122,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Too short.\", \"creator_id\": \"unit9-before-t3-short\"}",
+              "truncated": false,
+              "content_length": 61
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "input_or_marked_prefix": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "1157a5f8-6dd2-4376-8c07-7aceb38a9dfa",
+            "timestamp": "2026-11-04T23:19:26.473+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 0.00011074999929405749
+            },
+            "duration_seconds": 0.0002108750049956143,
+            "cpu_seconds": 0.00019500000000016726,
+            "input": {
+              "content_type": "application/json",
+              "body": "",
+              "truncated": true,
+              "content_length": 65538,
+              "capture_reason": "body_rejected_before_read"
+            },
+            "output": {
+              "error": "payload_too_large",
+              "message": "Request body must not exceed 64 KiB."
+            },
+            "status": 413
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "3dd3e5fb-1559-4874-b9ce-52b26b471d5b",
+            "timestamp": "2026-11-04T23:19:26.474+00:00",
+            "method": "POST",
+            "path": "/appeal",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 6.129199755378067e-05
+            },
+            "duration_seconds": 0.00026058300136355683,
+            "cpu_seconds": 0.00025999999999992696,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"content_id\": \"unit9-does-not-exist\", \"reasoning\": \"Please review this classroom example.\"}",
+              "truncated": false,
+              "content_length": 92
+            },
+            "output": {
+              "error": "content_not_found",
+              "message": "No submission has that content_id."
+            },
+            "status": 404
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "c070a55f-8a56-4eef-b68d-b22aac79275d",
+            "timestamp": "2026-11-04T23:19:26.486+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 8.029099990380928e-05
+            },
+            "duration_seconds": 0.00024000000121304765,
+            "cpu_seconds": 0.0002389999999998782,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "rate_limited",
+              "limit": "10 per 1 minute",
+              "message": "Too many submissions. Try again shortly."
+            },
+            "status": 429
+          }
+        }
+      ],
+      "preliminary_records": [
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "1b338947-b8e1-4bd0-b399-3b9a38ab39a5",
+            "timestamp": "2026-11-04T23:19:26.475+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 5.283400241751224e-05
+            },
+            "duration_seconds": 0.0002018750019487925,
+            "cpu_seconds": 0.00020199999999981344,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "6efafd27-53e4-42e6-bb6b-79a3967da0dd",
+            "timestamp": "2026-11-04T23:19:26.476+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 5.904199497308582e-05
+            },
+            "duration_seconds": 0.00017666700296103954,
+            "cpu_seconds": 0.00017599999999995397,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "f4b3698f-daf4-479e-a001-77c29a24f10d",
+            "timestamp": "2026-11-04T23:19:26.477+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 4.900000203633681e-05
+            },
+            "duration_seconds": 0.00015999999595806003,
+            "cpu_seconds": 0.00015999999999993797,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "c35e819d-2026-4ae8-ad60-b247c7d231e9",
+            "timestamp": "2026-11-04T23:19:26.477+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 6.32090013823472e-05
+            },
+            "duration_seconds": 0.00021020800340920687,
+            "cpu_seconds": 0.00021099999999996122,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "62727502-747d-403c-9f36-edad5265d4af",
+            "timestamp": "2026-11-04T23:19:26.478+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 6.587499956367537e-05
+            },
+            "duration_seconds": 0.00018258400086779147,
+            "cpu_seconds": 0.0001820000000001265,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "3a2872bc-508c-4634-9a83-dc59a6538345",
+            "timestamp": "2026-11-04T23:19:26.479+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 5.1166003686375916e-05
+            },
+            "duration_seconds": 0.00016641699767205864,
+            "cpu_seconds": 0.0001660000000001105,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "6191cfa8-0145-445d-a84a-87287bb55e48",
+            "timestamp": "2026-11-04T23:19:26.480+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 5.287500243866816e-05
+            },
+            "duration_seconds": 0.0001624590004212223,
+            "cpu_seconds": 0.00016199999999999548,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "a91f2023-4e9b-43b5-b9fa-c8353e1d45b2",
+            "timestamp": "2026-11-04T23:19:26.481+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 4.416699812281877e-05
+            },
+            "duration_seconds": 0.00015095799608388916,
+            "cpu_seconds": 0.00015100000000001224,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "ecb960f0-3b55-4e5e-b547-4e825fe9fcf7",
+            "timestamp": "2026-11-04T23:19:26.483+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 0.0001870420019258745
+            },
+            "duration_seconds": 0.0006932090036571026,
+            "cpu_seconds": 0.0004999999999999449,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        },
+        {
+          "passed": true,
+          "checks": {
+            "http_status": true,
+            "request_id_returned": true,
+            "exactly_one_record": true,
+            "utc_timestamp": true,
+            "method_path": true,
+            "status_matches": true,
+            "exact_json_output": true,
+            "wall_time": true,
+            "cpu_time": true,
+            "exact_input_body": true,
+            "content_type": true,
+            "all_stage_durations": true,
+            "error_output": true,
+            "no_model_stage": true
+          },
+          "record": {
+            "request_id": "764a66dc-cf9e-404d-b597-3709486956d2",
+            "timestamp": "2026-11-04T23:19:26.485+00:00",
+            "method": "POST",
+            "path": "/submit",
+            "query_string": "",
+            "stages_seconds": {
+              "model": 0.0,
+              "style": 0.0,
+              "scoring": 0.0,
+              "audit": 0.00011000000085914508
+            },
+            "duration_seconds": 0.00027300000510877,
+            "cpu_seconds": 0.0002629999999999022,
+            "input": {
+              "content_type": "application/json",
+              "body": "{\"text\": \"Short.\", \"creator_id\": \"unit9-before-t3-rate\"}",
+              "truncated": false,
+              "content_length": 56
+            },
+            "output": {
+              "error": "text_too_short",
+              "message": "Provide at least 20 words for this estimate."
+            },
+            "status": 400
+          }
+        }
+      ]
+    },
+    "C4": {
+      "met": true,
+      "maximum_seconds": 1.4679463330030558,
+      "threshold_seconds": 2.0,
+      "requests": [
+        {
+          "case_id": "U9-01",
+          "seconds": 1.4679463330030558,
+          "met": true
+        },
+        {
+          "case_id": "U9-02",
+          "seconds": 0.031059458997333422,
+          "met": true
+        },
+        {
+          "case_id": "U9-03",
+          "seconds": 0.03027770899643656,
+          "met": true
+        },
+        {
+          "case_id": "U9-04",
+          "seconds": 0.030607624998083338,
+          "met": true
+        },
+        {
+          "case_id": "U9-05",
+          "seconds": 0.03229670900327619,
+          "met": true
+        },
+        {
+          "case_id": "U9-06",
+          "seconds": 0.03105620899441419,
+          "met": true
+        },
+        {
+          "case_id": "U9-07",
+          "seconds": 0.03282004199718358,
+          "met": true
+        },
+        {
+          "case_id": "U9-08",
+          "seconds": 0.03576204199634958,
+          "met": true
+        },
+        {
+          "case_id": "U9-09",
+          "seconds": 0.04542895799386315,
+          "met": true
+        },
+        {
+          "case_id": "U9-10",
+          "seconds": 0.07519716599927051,
+          "met": true
+        }
+      ]
+    },
+    "C5": {
+      "met": true,
+      "checks": {
+        "first_submission_success": true,
+        "one_original_decision": true,
+        "original_matches_submission": true,
+        "original_audit_unchanged": true,
+        "appeal_success": true,
+        "one_exact_appeal": true,
+        "restart_ready": true,
+        "lookup_success": true,
+        "lookup_original_fields": true,
+        "lookup_exact_appeals": true,
+        "submission_operation_retained_once_unchanged": true,
+        "appeal_operation_retained_once_unchanged": true,
+        "appeal_instrumentation": true,
+        "operation_logs_parse": true,
+        "audit_parses": true
+      },
+      "original_decision": {
+        "timestamp": "2026-11-04T23:19:26+00:00",
+        "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+        "creator_id": "unit9-before-t3-U9-01",
+        "guess": "unsure",
+        "model_score": 0.3053,
+        "style_score": 0.5231870623020842,
+        "combined_score": 0.4142435311510421,
+        "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+        "status": "decided",
+        "implementation_stage": "two_signals"
+      },
+      "appeal_events_after_restart": [
+        {
+          "timestamp": "2026-11-04T23:19:26+00:00",
+          "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+          "creator_id": "unit9-before-t3-U9-01",
+          "event": "appeal",
+          "status": "under_review",
+          "reasoning": "Please review this classroom example."
+        }
+      ],
+      "appeal_instrumentation": {
+        "passed": true,
+        "checks": {
+          "http_status": true,
+          "request_id_returned": true,
+          "exactly_one_record": true,
+          "utc_timestamp": true,
+          "method_path": true,
+          "status_matches": true,
+          "exact_json_output": true,
+          "wall_time": true,
+          "cpu_time": true,
+          "exact_input_body": true,
+          "content_type": true,
+          "all_stage_durations": true
+        },
+        "record": {
+          "request_id": "11da93ad-f0da-4120-97a9-c6a514a73d20",
+          "timestamp": "2026-11-04T23:19:26.488+00:00",
+          "method": "POST",
+          "path": "/appeal",
+          "query_string": "",
+          "stages_seconds": {
+            "model": 0.0,
+            "style": 0.0,
+            "scoring": 0.0,
+            "audit": 9.074999979929999e-05
+          },
+          "duration_seconds": 0.00034166700061177835,
+          "cpu_seconds": 0.0003189999999999582,
+          "input": {
+            "content_type": "application/json",
+            "body": "{\"content_id\": \"d36736a1-48c0-4d13-964a-5eae179c0d38\", \"reasoning\": \"Please review this classroom example.\"}",
+            "truncated": false,
+            "content_length": 108
+          },
+          "output": {
+            "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+            "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
+            "reasoning": "Please review this classroom example.",
+            "status": "under_review"
+          },
+          "status": 200
+        }
+      }
+    }
+  },
+  "operation_log": "results/unit9/before/trial-3/logs/operations.jsonl",
+  "audit_log": "results/unit9/before/trial-3/logs/audit.jsonl",
+  "startup": {
+    "command": "./start.sh",
+    "cwd": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026",
+    "started_utc": "2026-11-04T23:19:24.440412+00:00",
+    "log_directory": "results/unit9/before/trial-3/logs",
+    "server_log": "results/unit9/before/trial-3/server-1.log",
+    "ready": true,
+    "health": {
+      "detector_loaded": false,
+      "detector_model": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "log_entries": 0,
+      "ok": true,
+      "rate_limiting": true
+    },
+    "pid": 4546,
+    "health_request_id": "dee69862-5e90-4edc-af63-61f2f4a0efd8",
+    "elapsed_seconds": 0.21685299999808194
+  },
+  "rate_burst_seconds": 0.012470542002120055,
+  "original_decisions": [
+    {
+      "timestamp": "2026-11-04T23:19:26+00:00",
+      "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+      "creator_id": "unit9-before-t3-U9-01",
+      "guess": "unsure",
+      "model_score": 0.3053,
+      "style_score": 0.5231870623020842,
+      "combined_score": 0.4142435311510421,
+      "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+      "status": "decided",
+      "implementation_stage": "two_signals"
+    }
+  ],
+  "original_audit_parse_errors": [],
+  "appeal": {
+    "case_id": "appeal",
+    "method": "POST",
+    "path": "/appeal",
+    "input_body": "{\"content_id\": \"d36736a1-48c0-4d13-964a-5eae179c0d38\", \"reasoning\": \"Please review this classroom example.\"}",
+    "content_type": "application/json",
+    "started_utc": "2026-11-04T23:19:26.487664+00:00",
+    "status": 200,
+    "output": {
+      "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+      "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
+      "reasoning": "Please review this classroom example.",
+      "status": "under_review"
+    },
+    "request_id": "11da93ad-f0da-4120-97a9-c6a514a73d20",
+    "response_content_type": "application/json",
+    "elapsed_seconds": 0.001099207998777274
+  },
+  "continuity_operations_before_restart": {
+    "submission": [
+      {
+        "request_id": "84bbe5c3-71da-4672-bc90-3fe60398868d",
+        "timestamp": "2026-11-04T23:19:24.657+00:00",
+        "method": "POST",
+        "path": "/submit",
+        "query_string": "",
+        "stages_seconds": {
+          "model": 1.4660554579968448,
+          "style": 0.0001788749941624701,
+          "scoring": 1.720800355542451e-05,
+          "audit": 0.00030941700242692605
+        },
+        "duration_seconds": 1.466845042006753,
+        "cpu_seconds": 1.478461,
+        "input": {
+          "content_type": "application/json",
+          "body": "{\"text\": \"Our neighborhood volunteers will meet beside the library on Saturday morning. We plan to sort donated books, repair a few torn covers, and prepare boxes for the community center. Please bring comfortable shoes and a reusable water bottle. New volunteers can join an experienced partner before choosing a task.\", \"creator_id\": \"unit9-before-t3-U9-01\"}",
+          "truncated": false,
+          "content_length": 360
+        },
+        "output": {
+          "appeal": {
+            "endpoint": "/appeal",
+            "method": "POST",
+            "required_fields": [
+              "content_id",
+              "reasoning"
+            ]
+          },
+          "combined_score": 0.4142435311510421,
+          "confidence": 0.4142435311510421,
+          "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+          "creator_id": "unit9-before-t3-U9-01",
+          "guess": "unsure",
+          "implementation_stage": "two_signals",
+          "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+          "model_score": 0.3053,
+          "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+          "status": "decided",
+          "style_score": 0.5231870623020842,
+          "timestamp": "2026-11-04T23:19:26+00:00"
+        },
+        "status": 200
+      }
+    ],
+    "appeal": [
+      {
+        "request_id": "11da93ad-f0da-4120-97a9-c6a514a73d20",
+        "timestamp": "2026-11-04T23:19:26.488+00:00",
+        "method": "POST",
+        "path": "/appeal",
+        "query_string": "",
+        "stages_seconds": {
+          "model": 0.0,
+          "style": 0.0,
+          "scoring": 0.0,
+          "audit": 9.074999979929999e-05
+        },
+        "duration_seconds": 0.00034166700061177835,
+        "cpu_seconds": 0.0003189999999999582,
+        "input": {
+          "content_type": "application/json",
+          "body": "{\"content_id\": \"d36736a1-48c0-4d13-964a-5eae179c0d38\", \"reasoning\": \"Please review this classroom example.\"}",
+          "truncated": false,
+          "content_length": 108
+        },
+        "output": {
+          "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+          "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
+          "reasoning": "Please review this classroom example.",
+          "status": "under_review"
+        },
+        "status": 200
+      }
+    ]
+  },
+  "operation_parse_errors_before_restart": [],
+  "restart": {
+    "command": "./start.sh",
+    "cwd": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026",
+    "started_utc": "2026-11-04T23:19:26.925438+00:00",
+    "log_directory": "results/unit9/before/trial-3/logs",
+    "server_log": "results/unit9/before/trial-3/server-2.log",
+    "ready": true,
+    "health": {
+      "detector_loaded": false,
+      "detector_model": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "log_entries": 26,
+      "ok": true,
+      "rate_limiting": true
+    },
+    "pid": 4570,
+    "health_request_id": "cf633e13-209e-4774-9236-3e4fdab78d88",
+    "elapsed_seconds": 0.21517074999428587
+  },
+  "lookup": {
+    "case_id": "lookup_after_restart",
+    "method": "GET",
+    "path": "/content/d36736a1-48c0-4d13-964a-5eae179c0d38",
+    "input_body": "",
+    "content_type": "",
+    "started_utc": "2026-11-04T23:19:27.140738+00:00",
+    "status": 200,
+    "output": {
+      "appeals": [
+        {
+          "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+          "creator_id": "unit9-before-t3-U9-01",
+          "event": "appeal",
+          "reasoning": "Please review this classroom example.",
+          "status": "under_review",
+          "timestamp": "2026-11-04T23:19:26+00:00"
+        }
+      ],
+      "combined_score": 0.4142435311510421,
+      "confidence": 0.4142435311510421,
+      "content_id": "d36736a1-48c0-4d13-964a-5eae179c0d38",
+      "creator_id": "unit9-before-t3-U9-01",
+      "guess": "unsure",
+      "implementation_stage": "two_signals",
+      "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+      "model_score": 0.3053,
+      "status": "under_review",
+      "style_score": 0.5231870623020842,
+      "timestamp": "2026-11-04T23:19:26+00:00"
+    },
+    "request_id": "5bb4b500-3b35-4cfc-b677-2aa0ccd982b4",
+    "response_content_type": "application/json",
+    "elapsed_seconds": 0.000981124998361338
+  },
+  "service_events": [
+    {
+      "command": "./start.sh",
+      "cwd": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026",
+      "started_utc": "2026-11-04T23:19:24.440412+00:00",
+      "log_directory": "results/unit9/before/trial-3/logs",
+      "server_log": "results/unit9/before/trial-3/server-1.log",
+      "ready": true,
+      "health": {
+        "detector_loaded": false,
+        "detector_model": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+        "log_entries": 0,
+        "ok": true,
+        "rate_limiting": true
+      },
+      "pid": 4546,
+      "health_request_id": "dee69862-5e90-4edc-af63-61f2f4a0efd8",
+      "elapsed_seconds": 0.21685299999808194
+    },
+    {
+      "command": "./start.sh",
+      "cwd": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026",
+      "started_utc": "2026-11-04T23:19:26.925438+00:00",
+      "log_directory": "results/unit9/before/trial-3/logs",
+      "server_log": "results/unit9/before/trial-3/server-2.log",
+      "ready": true,
+      "health": {
+        "detector_loaded": false,
+        "detector_model": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+        "log_entries": 26,
+        "ok": true,
+        "rate_limiting": true
+      },
+      "pid": 4570,
+      "health_request_id": "cf633e13-209e-4774-9236-3e4fdab78d88",
+      "elapsed_seconds": 0.21517074999428587
+    }
+  ],
+  "operation_record_count": 29,
+  "operation_parse_errors": [],
+  "audit_parse_errors": [],
+  "cost": {
+    "sample_request_ids": [
+      "84bbe5c3-71da-4672-bc90-3fe60398868d",
+      "53250587-38e9-4faf-96a6-c4a9f1afe07f",
+      "0e91cca1-fcc4-4d02-890f-8962b78a6d54",
+      "f3d1d0e5-f9b0-493f-9b60-b751aac4ee76",
+      "b046bdcf-8cd2-45e4-9980-62c59800844a",
+      "7847fd59-c88a-479d-bd96-4573f4caa92c",
+      "0baede42-22be-4970-88be-45e629b657b4",
+      "b4ac1bab-01bf-4d52-a45e-e4635140f314",
+      "6d22e8d3-7038-4bbb-a108-0c7048b6a0a2",
+      "99ce47af-2ec0-4993-bade-32c9f25f675c"
+    ],
+    "sample_size": 10,
+    "mean_cpu_seconds": 0.1913709,
+    "mean_service_wall_seconds": 0.1800477832002798,
+    "mean_client_wall_seconds": 0.18124522519792663,
+    "100_users_one_submission_each_cpu_seconds": 19.13709,
+    "100_users_one_submission_each_service_wall_seconds_serial": 18.00477832002798,
+    "100_users_one_submission_each_client_wall_seconds_serial": 18.124522519792663,
+    "method": "Arithmetic mean of ten sequential real submissions, including the first after readiness. Process CPU spans all serving-worker threads; one sync worker prevents overlapping requests. CPU is compute usage, not cloud dollars. Request clocks exclude setup/startup and final operation-log append; client wall includes HTTP overhead and append.",
+    "startup_seconds_excluded": 0.21685299999808194,
+    "restart_startup_seconds_excluded": 0.21517074999428587,
+    "failures_and_other_routes_excluded": true
+  },
+  "finished_utc": "2026-11-04T23:19:27.261222+00:00"
+}

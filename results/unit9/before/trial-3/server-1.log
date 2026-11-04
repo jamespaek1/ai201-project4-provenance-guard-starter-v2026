@@ -1,0 +1,35 @@
+[2026-11-04 18:19:24 -0500] [4546] [INFO] Starting gunicorn 23.0.0
+[2026-11-04 18:19:24 -0500] [4546] [INFO] Listening at: http://127.0.0.1:5057 (4546)
+[2026-11-04 18:19:24 -0500] [4546] [INFO] Using worker: sync
+[2026-11-04 18:19:24 -0500] [4552] [INFO] Booting worker with pid: 4552
+127.0.0.1 - - [04/Nov/2026:18:19:24 -0500] "GET /health HTTP/1.1" 200 278 "-" "python-requests/2.34.2"
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 680 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 200 678 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 74 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 413 79 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /appeal HTTP/1.1" 404 77 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 400 84 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /submit HTTP/1.1" 429 104 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:19:26 -0500] "POST /appeal HTTP/1.1" 200 282 "-" "python-requests/2.34.2"
+[2026-11-04 18:19:26 -0500] [4552] [INFO] Worker exiting (pid: 4552)
+[2026-11-04 18:19:26 -0500] [4546] [INFO] Handling signal: term
+[2026-11-04 18:19:26 -0500] [4546] [INFO] Shutting down: Master
