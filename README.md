@@ -5,7 +5,10 @@ Codex authorship is disclosed. The service, criteria, real-model calibration,
 audit trail and Unit 7 write-up are preserved below. No personal hours, unaided
 student work or course-portal submission are claimed.
 
-**How to read this report:** the sections through the Unit 7 handoff describe
+**Current deliverable:** [Unit 9 capstone report](#unit-9-capstone-report),
+[run instructions](RUNNING.md), and [five new criteria](criteria.md).
+
+**How to read the historical report:** the sections through the Unit 7 handoff describe
 the original 75% model / 25% style baseline. The Unit 8 sections beginning at
 **Rate Limiting** record the independent attacks, repeated criterion trials and
 the single measured change to 50% / 50%. Original criteria and historical results
@@ -327,7 +330,7 @@ review; this demonstration does not contain a staffed reviewer workflow.
   the committed audit log is the historical one-signal stage; its null style and
   combined scores are explicitly marked. All later decision entries carry both
   real signals and the combined score.
-- The five [criteria](criteria.md), pipeline contract, scoring rule and stretch
+- The five [criteria](docs/criteria-units7-8.md), pipeline contract, scoring rule and stretch
   choice were committed at `753217e` before implementation and any detector
   outputs. Their original targets are unchanged. Detector code, its GPT-2 model
   mapping and the `/ping` control handler are unchanged from the starter.
@@ -776,7 +779,7 @@ scores. The complete append-only file is [logs/audit.jsonl](logs/audit.jsonl).
 
 ## Run Log and Verdicts
 
-The original [five criteria](criteria.md) are unchanged from Unit 7 commit
+The original [five criteria](docs/criteria-units7-8.md) are unchanged from Unit 7 commit
 `753217e`. Three complete trials use the same committed 20+20 corpus; no text was
 replaced after scoring. It contains externally sourced human excerpts, not the
 user's writing, plus disclosed Codex-authored counterparts matched by topic and
@@ -1338,3 +1341,411 @@ warning because the starter checks a different cache location. Actual cached-mod
 runs succeeded; the setup check is retained unchanged. No additional model
 download or API key was needed. No personal work hours are invented, and nothing
 has been submitted through the CodePath portal.
+
+
+---
+
+## Unit 9 Capstone Report
+
+This is a disclosed **AI-assisted instructor example**. It does not claim the
+student requirement for unaided criteria authorship, personal hours, peer review,
+or course-portal submission. Requirements source: [Unit 9 project](https://courses.codepath.org/courses/ai201/unit/9#!projects).
+
+### What This Extends
+
+This extends Provenance Guard from Units 7–8 in this same repository, starting at
+`e735f3c`. The existing system accepts text, combines local GPT-2 predictability
+with stylometry, returns a heuristic label, and persists decisions and appeals.
+The new layer makes that service reproducible to start and observable to operate.
+`detector.py`, `stylometry.py`, `scoring.py` and `audit.py` remain byte-for-byte
+unchanged from the Unit 8 final code. All 30 matched before/after submissions
+returned identical model/style/combined scores and labels; IDs and times vary.
+
+### The Shape
+
+**Shape A — deploy and instrument. Runtime Path B — local with logs.** Add a
+single-command Gunicorn launcher, exact dependencies and model revision, structured
+request evidence, and measured latency/CPU usage. Four of the five new criteria
+concern this operational extension; the fifth checks integration across restart.
+
+The three exclusions are changes to detector/scoring/labels; public hosting or
+authentication; and a new model, dataset, UI or moderation workflow. The ten
+synthetic HTTP fixtures are operational test inputs, not a new detection dataset.
+The optional **latency-breakdown stretch** was declared at `a6c4c6e`, before
+implementation, and is measured below. No second improvement or load-test stretch
+is claimed.
+
+### Running It
+
+Follow [RUNNING.md](RUNNING.md) for one-time setup, then run exactly:
+
+```bash
+./start.sh
+```
+
+This is a local API at `http://127.0.0.1:5057`, not a public website. It uses one
+Gunicorn sync worker with Flask debug disabled. The pinned environment is CPython
+3.12.14, macOS 27.0.1 arm64, and the 40 exact packages in
+[requirements.lock](requirements.lock). GPT-2 is pinned to
+`607a30d783dfa663caf39e06633721c8d4cfcd7e`; seven required files total
+550,959,861 bytes (525.4 MiB). Runtime model access is offline; no API key is used.
+
+A separate GitHub clone with a fresh venv was tested at build `4b00fb6` and then
+at final runtime `b4e618e`. All pins matched and tracked files were clean; the
+second check reused that independently installed venv because the lock did not
+change. Both explicitly shared an existing model cache and installed Python;
+this is not a fresh-machine model-download test. The initial uv interpreter
+lookup and smoke-harness fixture lookup failures are retained, with the PATH
+clarification and successful retry, in the evidence. No failed attempt was erased.
+
+| Clean-clone check | Ready, seconds | First request, seconds | Result |
+|---|---:|---:|---|
+| [Before, successful retry](results/unit9/clean-clone-before/smoke-attempt2/verification.json) | 0.231312 | 11.069082 | HTTP 200; exact operation log; model initially unloaded |
+| [After, final runtime](results/unit9/clean-clone-after/verification.json) | 2.699169 | 1.908636 | HTTP 200; exact operation log; model loaded at readiness |
+
+[Setup evidence](results/unit9/clean-clone-before/setup.json) records the fresh
+venv creation and dependency installation. These are additional verification
+runs, not replacements for any of the three criterion trials.
+
+### Instrumentation
+
+`operations.py::install` begins monotonic wall and process CPU clocks before
+validation, then appends one correlated JSONL record after the audit response
+hook. Every request is logged, including rejected requests, reads and health
+checks; `X-Request-ID` connects the actual response to its record. Fields include
+UTC timestamp, exact bounded input, output, method/path/status, duration and
+CPU seconds. `operations.py::stage` measures model, style, scoring and audit
+work; `app.py::submit` applies it around the unchanged pipeline.
+
+The server clock stops before the operation log's snapshot/serialization/write;
+the independent client clock includes those plus HTTP overhead. Process CPU sums
+all worker-thread CPU and is attributable here because requests are sequential.
+Unmeasured residual wall time includes validation, routing and response building.
+For known oversized Content-Length, Werkzeug rejects before reading: the log
+retains an explicitly empty bounded prefix, `truncated=true`, the declared length
+and `capture_reason=body_rejected_before_read`. It never bypasses the body limit.
+If the log sink fails, stderr and `X-Operational-Log: failed` expose lost evidence;
+a completed decision is not converted into a retry that might duplicate it.
+
+The following **ten actual entries** are copied verbatim from the final trial 1
+[operations log](results/unit9/after/trial-1/logs/operations.jsonl), selected by
+the ten successful response IDs. All other requests and failures remain in the
+committed files. Only authored synthetic inputs are published.
+
+```jsonl
+{"request_id": "c2911638-8740-4b36-922c-f76cb6269a94", "timestamp": "2026-11-04T23:20:43.322+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 1.9268194589967607, "style": 0.00022233300114749, "scoring": 0.0007886669991421513, "audit": 0.00024816700170049444}, "duration_seconds": 1.9284216669984744, "cpu_seconds": 0.23305299999999995, "input": {"content_type": "application/json", "body": "{\"text\": \"Our neighborhood volunteers will meet beside the library on Saturday morning. We plan to sort donated books, repair a few torn covers, and prepare boxes for the community center. Please bring comfortable shoes and a reusable water bottle. New volunteers can join an experienced partner before choosing a task.\", \"creator_id\": \"unit9-after-t1-U9-01\"}", "truncated": false, "content_length": 359}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.4142435311510421, "confidence": 0.4142435311510421, "content_id": "a4603b9a-a0b3-4774-8935-41acfdcb0f21", "creator_id": "unit9-after-t1-U9-01", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.3053, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.5231870623020842, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "25a3937d-8153-4739-b1b8-cc625aa1aefc", "timestamp": "2026-11-04T23:20:45.252+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.029706708002777305, "style": 0.00011512500350363553, "scoring": 1.1166994227096438e-05, "audit": 0.00020945800497429445}, "duration_seconds": 0.030355542003235314, "cpu_seconds": 0.04436899999999988, "input": {"content_type": "application/json", "body": "{\"text\": \"The small garden behind the school needs regular attention during the summer. Yesterday we watered the seedlings and removed weeds from the narrow paths. A wooden sign now explains which plants attract butterflies. Next week the students will compare the shaded beds with those that receive afternoon sunlight.\", \"creator_id\": \"unit9-after-t1-U9-02\"}", "truncated": false, "content_length": 360}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.4281762634381982, "confidence": 0.4281762634381982, "content_id": "16a1ee68-3f6a-427f-ada7-c624d0f7b5b8", "creator_id": "unit9-after-t1-U9-02", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.2662, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.5901525268763964, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "f87d7387-7634-454d-98d2-ce9560a79cf6", "timestamp": "2026-11-04T23:20:45.283+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.0300228749983944, "style": 9.783399582374841e-05, "scoring": 8.957998943515122e-06, "audit": 0.00015816700033610687}, "duration_seconds": 0.030579250000300817, "cpu_seconds": 0.0433079999999999, "input": {"content_type": "application/json", "body": "{\"text\": \"I missed the first bus because I could not find my notebook. While waiting for the next one, I checked the route map and noticed a new stop near the museum. The delay gave me time to finish a short reading assignment, although I still arrived a little late.\", \"creator_id\": \"unit9-after-t1-U9-03\"}", "truncated": false, "content_length": 307}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.6135667545757592, "confidence": 0.6135667545757592, "content_id": "b117f93d-99b8-4f6a-89ff-0c6c9972f137", "creator_id": "unit9-after-t1-U9-03", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.6314, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.5957335091515183, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "df96c4b3-5cb0-45b1-9cee-4464d0897b8b", "timestamp": "2026-11-04T23:20:45.315+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.030808999996224884, "style": 0.00010404200293123722, "scoring": 9.542003681417555e-06, "audit": 0.00018112500401912257}, "duration_seconds": 0.03138724999735132, "cpu_seconds": 0.04427300000000001, "input": {"content_type": "application/json", "body": "{\"text\": \"A useful meeting agenda gives each topic a clear purpose and an approximate time limit. Participants should receive it early enough to prepare questions. At the end of the meeting, someone can read back the decisions and identify the person responsible for each next step. This helps avoid confusion later.\", \"creator_id\": \"unit9-after-t1-U9-04\"}", "truncated": false, "content_length": 356}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.4257788170110346, "confidence": 0.4257788170110346, "content_id": "47362ba3-8a89-4470-add7-7f0200ecbf61", "creator_id": "unit9-after-t1-U9-04", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.4145, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.4370576340220692, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "4ac80f64-8ecc-4314-9c84-454a058e923e", "timestamp": "2026-11-04T23:20:45.347+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.029547999998612795, "style": 0.00011141600407427177, "scoring": 1.1458003427833319e-05, "audit": 0.00025991699658334255}, "duration_seconds": 0.030216125000151806, "cpu_seconds": 0.04577600000000004, "input": {"content_type": "application/json", "body": "{\"text\": \"The kitchen smelled of toasted bread when the power went out. We moved our chairs toward the window and ate breakfast by daylight. My brother told a story about a camping trip that had gone badly. By the time the lights returned, nobody wanted to turn the television back on.\", \"creator_id\": \"unit9-after-t1-U9-05\"}", "truncated": false, "content_length": 325}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.6013273733223472, "confidence": 0.6013273733223472, "content_id": "3ac62778-f3bd-4222-8196-b273ca8012fb", "creator_id": "unit9-after-t1-U9-05", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.5705, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.6321547466446945, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "fbb7bc1d-2d87-4d43-9f5b-a3404e07fb9e", "timestamp": "2026-11-04T23:20:45.378+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.028347542000119574, "style": 9.63749989750795e-05, "scoring": 8.709001122042537e-06, "audit": 0.00017787499382393435}, "duration_seconds": 0.02890550000302028, "cpu_seconds": 0.0430870000000001, "input": {"content_type": "application/json", "body": "{\"text\": \"The town history exhibit includes photographs, handwritten letters, and a model of the old train station. Visitors can follow a timeline along the wall or listen to recorded interviews. One display describes how local shops changed after the highway opened. Another asks residents to contribute memories of their own.\", \"creator_id\": \"unit9-after-t1-U9-06\"}", "truncated": false, "content_length": 367}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.48055023449624207, "confidence": 0.48055023449624207, "content_id": "0908fd55-6954-44ae-81ce-a411d24ea03b", "creator_id": "unit9-after-t1-U9-06", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.3961, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.5650004689924841, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "cd0a00d6-d205-487f-a142-f4ea9175f5e2", "timestamp": "2026-11-04T23:20:45.408+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.029469125001924112, "style": 0.0001096660053008236, "scoring": 1.0666997695807368e-05, "audit": 0.00025054199795704335}, "duration_seconds": 0.03010470799927134, "cpu_seconds": 0.045504999999999685, "input": {"content_type": "application/json", "body": "{\"text\": \"When learning a new programming language, I begin with a very small example. I change one line, run the program, and compare the output with my prediction. If the result surprises me, I write down the question before looking for an explanation. Small experiments make mistakes easier to understand.\", \"creator_id\": \"unit9-after-t1-U9-07\"}", "truncated": false, "content_length": 348}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.6009515326633228, "confidence": 0.6009515326633228, "content_id": "fd814f0e-04db-48b2-a6e6-f49261b88d04", "creator_id": "unit9-after-t1-U9-07", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.6538, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.5481030653266455, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "6d1e4ad5-781d-48f8-8bee-5f498d6e09a8", "timestamp": "2026-11-04T23:20:45.440+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.0285228749999078, "style": 0.00010908300464507192, "scoring": 1.0457995813339949e-05, "audit": 0.0002122919977409765}, "duration_seconds": 0.02913375000207452, "cpu_seconds": 0.04393799999999981, "input": {"content_type": "application/json", "body": "{\"text\": \"Rain continued throughout the afternoon, leaving shallow puddles across the playground. The soccer practice moved indoors, where the team worked on balance and passing with a soft ball. The coach ended the session with a discussion about teamwork. Everyone helped return the equipment before leaving the gym together.\", \"creator_id\": \"unit9-after-t1-U9-08\"}", "truncated": false, "content_length": 367}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.4989581399842503, "confidence": 0.4989581399842503, "content_id": "80d2713f-c576-457a-99da-49c57b0c7e4a", "creator_id": "unit9-after-t1-U9-08", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.4187, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.5792162799685007, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "7d738c2a-0f4f-4208-aff9-5ddcb19f2ac4", "timestamp": "2026-11-04T23:20:45.470+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.0282629170033033, "style": 0.00010333299724152312, "scoring": 9.499999578110874e-06, "audit": 0.00022487500245915726}, "duration_seconds": 0.02887804099736968, "cpu_seconds": 0.04266900000000007, "input": {"content_type": "application/json", "body": "{\"text\": \"The repair cafe opens on the first Sunday of each month. People bring broken lamps, loose chair legs, and other household items that might be fixed. Volunteers explain each repair so the owner can learn along the way. Items requiring specialist equipment are set aside with a written recommendation.\", \"creator_id\": \"unit9-after-t1-U9-09\"}", "truncated": false, "content_length": 349}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.4795700611919708, "confidence": 0.4795700611919708, "content_id": "e3404d39-d929-413c-a366-64b90bcab8f0", "creator_id": "unit9-after-t1-U9-09", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.3571, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.6020401223839417, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+{"request_id": "47c4a5f5-4dfc-42e2-84fb-daa7ecc3297c", "timestamp": "2026-11-04T23:20:45.499+00:00", "method": "POST", "path": "/submit", "query_string": "", "stages_seconds": {"model": 0.03009470800316194, "style": 9.983399650081992e-05, "scoring": 9.292001777794212e-06, "audit": 0.00019558300118660554}, "duration_seconds": 0.03065937499923166, "cpu_seconds": 0.04458399999999996, "input": {"content_type": "application/json", "body": "{\"text\": \"We tested three locations for the new reading corner in the community center. The hallway was convenient but noisy, and the upstairs room had too few chairs. The space near the courtyard offered good light and enough room for a shelf. We will try that arrangement for a month before reviewing it.\", \"creator_id\": \"unit9-after-t1-U9-10\"}", "truncated": false, "content_length": 346}, "output": {"appeal": {"endpoint": "/appeal", "method": "POST", "required_fields": ["content_id", "reasoning"]}, "combined_score": 0.4891123631482779, "confidence": 0.4891123631482779, "content_id": "d5b805df-7bdb-4b0a-96ba-b6b932dcb8d8", "creator_id": "unit9-after-t1-U9-10", "guess": "unsure", "implementation_stage": "two_signals", "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.", "model_score": 0.3217, "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.", "status": "decided", "style_score": 0.6565247262965558, "timestamp": "2026-11-04T23:20:45+00:00"}, "status": 200}
+```
+
+Stage-wall breakdown across the 30 successful requests in each phase:
+
+| Stage | Before mean seconds | After mean seconds |
+|---|---:|---:|
+| model | 0.338960901 | 0.094665829 |
+| style | 0.000128015 | 0.000115686 |
+| scoring | 0.000011986 | 0.000036429 |
+| audit | 0.000253305 | 0.000215996 |
+
+Model work dominates. The before trial 1 model stage took 6.271040 seconds;
+its audit append took 0.000286 seconds. The after trial 1 model stage still took
+1.926819 seconds on the first inference, demonstrating that readiness alone
+does not eliminate all first-inference or OS-cache variability.
+
+### What It Costs
+
+Each trial sends the same **ten real submissions**, sequentially, including the
+first after readiness. The arithmetic mean of their logged `cpu_seconds` is a
+local compute-cost proxy; `duration_seconds` is server handling and the evaluator
+also records client wall time. There is no hosted inference bill. Seconds are
+not dollars, energy, calibrated capacity, or a claim of free hosting.
+
+| Phase / trial | Sample | Mean CPU s/request | Mean client wall s/request | CPU s for 100 submissions |
+|---|---:|---:|---:|---:|
+| before 1 | 10 | 0.205499 | 0.655139 | 20.549870 |
+| before 2 | 10 | 0.194913 | 0.186177 | 19.491260 |
+| before 3 | 10 | 0.191371 | 0.181245 | 19.137090 |
+| after 1 | 10 | 0.063056 | 0.220853 | 6.305620 |
+| after 2 | 10 | 0.046226 | 0.032576 | 4.622600 |
+| after 3 | 10 | 0.048929 | 0.035945 | 4.892910 |
+
+The three equally sized after samples average **0.0527371
+CPU seconds per submission**. For **100 people/day × one submission each**, the
+literal request-cost estimate is `100 × 0.0527371 =
+5.273710` CPU seconds/day. The analogous serial
+client-wall estimate is `100 × 0.096458149 =
+9.645815` seconds. This is arithmetic
+from the small sample, not a measured 100-person traffic test or concurrent SLA.
+
+Loading did not disappear. The three initial after workers separately recorded
+mean model-load CPU **1.425967 seconds** and wall **1.782558 seconds**
+in `startup.jsonl`; full ready-wall averaged **1.998942 seconds**. Assuming
+one worker start per day, add that load CPU: `5.273710 +
+1.425967 = 6.699677` CPU seconds
+for the measured components. Add full readiness separately to serial wall time.
+Pre-hook process boot CPU, final log serialization/write, idle energy, failures,
+appeals and reads are excluded from this subtotal. Extra restarts add more load.
+
+The before mean includes one lazy model load per ten requests; multiplying it by
+100 repeats that cold-cost proportion. The after mean moves loading to startup.
+Therefore the drop in request CPU is **not evidence of total compute savings**.
+All samples use a warm disk cache, but OS page-cache state was not controlled.
+The means and formulas can be recomputed from [comparison.json](results/unit9/comparison.json)
+and the per-trial reports; no missing record was imputed.
+
+### Run Log and Verdicts
+
+[criteria.md](criteria.md) contains five new numbered targets and reasons,
+committed at `a6c4c6e` before implementation and measurements. The course
+[self-check](https://courses.codepath.org/courses/ai201/pages/criteria_self_check)
+was applied; AI authorship is disclosed rather than represented as unaided work.
+C1–C4 concern the extension; C3 is the explicit failure-path criterion. The
+criteria and ten fixtures stayed unchanged across the entire comparison.
+
+Each trial starts a fresh worker with cached model files, runs ten submissions,
+exercises five rejected paths plus ten limiter preliminaries, appeals the first
+submission, restarts and checks continuity. The model is real and no fixture
+inference precedes the ten measured submissions. After readiness loads files but
+does not score a fixture. **MET requires every assertion in all three trials**.
+The runner's C1 verdict is explicitly a startup subcheck; the final table also
+requires the successful separate clean-clone evidence above.
+
+| Criterion | Before T1 | Before T2 | Before T3 | Before verdict | After T1 | After T2 | After T3 | After verdict |
+|---|---|---|---|---|---|---|---|---|
+| C1 ready ≤60 s + clean setup | MET | MET | MET | MET | MET | MET | MET | MET |
+| C2 success logs 10/10 | MET | MET | MET | MET | MET | MET | MET | MET |
+| C3 failure paths 5/5 | MET | MET | MET | MET | MET | MET | MET | MET |
+| C4 every request ≤2 s | MISSED | MET | MET | MISSED | MET | MET | MET | MET |
+| C5 durable appeal round-trip | MET | MET | MET | MET | MET | MET | MET | MET |
+
+| Phase / trial | Initial ready s | Restart ready s | Slowest of ten s |
+|---|---:|---:|---:|
+| before 1 | 0.359050 | 0.211723 | 6.273185 |
+| before 2 | 0.215565 | 0.211306 | 1.506197 |
+| before 3 | 0.216853 | 0.215171 | 1.467946 |
+| after 1 | 2.632644 | 1.576944 | 1.929426 |
+| after 2 | 1.533707 | 1.505442 | 0.058445 |
+| after 3 | 1.830477 | 1.533225 | 0.062889 |
+
+Full input/output, per-assertion checks, ten individual latencies, cost sample IDs
+and Git/runtime hashes are in the reports:
+
+| Phase | Trial 1 | Trial 2 | Trial 3 | Manifest |
+|---|---|---|---|---|
+| Before | [report](results/unit9/before/trial-1/report.json) | [report](results/unit9/before/trial-2/report.json) | [report](results/unit9/before/trial-3/report.json) | [summary](results/unit9/before/summary.json) |
+| After | [report](results/unit9/after/trial-1/report.json) | [report](results/unit9/after/trial-2/report.json) | [report](results/unit9/after/trial-3/report.json) | [summary](results/unit9/after/summary.json) |
+
+The following actual output excerpts ground each criterion; selected fields are
+shown where noted, and complete records remain in the linked reports.
+
+**C1 — startup:** `start.sh`, `gunicorn.conf.py::post_worker_init`, and
+`app.py::health`. After trial 1 actual health output (selected fields):
+```json
+{
+  "ok": true,
+  "detector_loaded": true,
+  "rate_limiting": true
+}
+```
+Ready in 2.632644 s, with independently verified clean setup.
+
+**C2 — complete success evidence:** `operations.py::finish_operation` and
+`run_capstone.py::inspect_record`. Actual first response captured by the evaluator
+(selected fields; `request_id` comes from `X-Request-ID`):
+```json
+{
+  "request_id": "c2911638-8740-4b36-922c-f76cb6269a94",
+  "status": 200,
+  "output": {
+    "content_id": "a4603b9a-a0b3-4774-8935-41acfdcb0f21",
+    "guess": "unsure",
+    "model_score": 0.3053,
+    "style_score": 0.5231870623020842,
+    "combined_score": 0.4142435311510421
+  }
+}
+```
+Its complete matching log is the first pasted entry under Instrumentation; all ten matched exactly.
+
+**C3 — rejected paths:** `app.py::json_object`, `submit`, `enforce_request_size`,
+`appeal`, `rate_limited`, and `operations.py::finish_operation`. Actual after
+trial 1 responses (statuses plus complete error objects):
+```json
+[
+  {
+    "case": "malformed_json",
+    "status": 400,
+    "output": {
+      "error": "invalid_json",
+      "message": "The request body must be valid JSON."
+    }
+  },
+  {
+    "case": "short_input",
+    "status": 400,
+    "output": {
+      "error": "text_too_short",
+      "message": "Provide at least 20 words for this estimate."
+    }
+  },
+  {
+    "case": "oversized_body",
+    "status": 413,
+    "output": {
+      "error": "payload_too_large",
+      "message": "Request body must not exceed 64 KiB."
+    }
+  },
+  {
+    "case": "unknown_appeal",
+    "status": 404,
+    "output": {
+      "error": "content_not_found",
+      "message": "No submission has that content_id."
+    }
+  },
+  {
+    "case": "rate_limit_11",
+    "status": 429,
+    "output": {
+      "error": "rate_limited",
+      "limit": "10 per 1 minute",
+      "message": "Too many submissions. Try again shortly."
+    }
+  }
+]
+```
+All five had one correlated log and zero model-stage duration. Ten preliminary invalid rate-limit requests were also logged without model work.
+
+**C4 — response latency:** `run_capstone.py::Service.call` clocks the actual HTTP
+response, while `app.py::submit` and `operations.py::stage` locate the cost.
+Actual after trial 1 client seconds, in frozen fixture order:
+```json
+[
+  1.929425834,
+  0.03161475,
+  0.031503958,
+  0.032383958,
+  0.03109925,
+  0.029772708,
+  0.031074583,
+  0.030335,
+  0.029760875,
+  0.031563583
+]
+```
+Before trial 1 missed because the first model stage loaded GPT-2 while the
+service already advertised health readiness. The other two before trials
+passing cannot override that miss. The [baseline diagnosis](docs/unit9/baseline-diagnosis.md)
+was committed before the improvement. No other capstone criterion missed.
+
+**C5 — restart continuity:** `app.py::appeal`, `get_content`, and the unchanged
+`audit.py::entries_for`. Actual after trial 1 post-restart output (selected fields):
+```json
+{
+  "content_id": "a4603b9a-a0b3-4774-8935-41acfdcb0f21",
+  "guess": "unsure",
+  "combined_score": 0.4142435311510421,
+  "status": "under_review",
+  "appeals": [
+    {
+      "content_id": "a4603b9a-a0b3-4774-8935-41acfdcb0f21",
+      "creator_id": "unit9-after-t1-U9-01",
+      "event": "appeal",
+      "reasoning": "Please review this classroom example.",
+      "status": "under_review",
+      "timestamp": "2026-11-04T23:20:45+00:00"
+    }
+  ]
+}
+```
+
+The evaluator compared every original decision field and exact reason, and the
+complete submission/appeal operation records remained unchanged and exactly once.
+Separately, **34 software tests passed**, covering prior service/scoring behavior,
+logging of 413/500 and sink failures, false-pass evaluator guards, and startup
+success/failure behavior. Those mocked contract tests are not real-model results.
+
+### The Improvement
+
+The one measured change is `gunicorn.conf.py::post_worker_init`, enabled by the
+launcher. It calls existing `detector.warm_up()` inside the serving worker before
+requests are accepted, records load wall/CPU seconds in `startup.jsonl`, and
+fails worker initialization if loading fails. It does not fork an initialized
+Torch model, change scoring, run warm-up fixture inference, or relax a target.
+
+Before: C4 MISSED with worst request **6.273185 s**; after: C4 MET across all 30
+requests with worst **1.929426 s**. Startup increased from **0.215565–0.359050 s**
+to **1.533707–2.632644 s**, still within C1's 60-second budget. C2, C3 and C5
+remained MET, and all 30 paired score/label outputs were identical. This is a
+readiness/latency tradeoff, not proof that loading or overall compute became free.
+The first after request passed narrowly; no strong causal percentile estimate is
+claimed from three trials with uncontrolled OS caches.
+
+The same repository retains the required sequence; eight new commits precede
+this final report, including three distinct build commits:
+
+| Commit | Evidence |
+|---|---|
+| `a6c4c6e` | New capstone scope/criteria before implementation/results. |
+| `263e5cb` | Build: structured logging and failure capture. |
+| `2ad7695` | Build: request hooks and stage timings. |
+| `4b00fb6` | Build: pinned launcher, model and local setup. |
+| `7a7f592` | Frozen ten-input evaluator before first results. |
+| `5bb5814` | Explicit first results and failure diagnosis. |
+| `b4e618e` | The single measured startup improvement. |
+| `f5b4638` | All three after trials and retained logs. |
+
+No history was rewritten. Final reporting and clean-clone evidence are additional
+commits. Both phase manifests confirm runtime files were unchanged during their
+three trials, and [comparison.json](results/unit9/comparison.json) records the
+final verdicts with the clean-clone gate applied.
+
+### What's Still Broken
+
+The Unit 8 detection limitations remain: the mean AI-minus-human score gap was
+−0.018275 against a +0.20 target, and the final corpus/calibration run did not
+produce the human label. Operational success does not establish authorship
+accuracy. This service must not automatically punish a writer.
+
+The 1.929-second result leaves little margin; a colder cache, longer text, slower
+machine or concurrent queue may miss two seconds. One sync worker serializes
+requests; the in-memory limiter resets on restart and creator IDs are unauthenticated.
+Logs grow without rotation and contain submitted text; sink failure is visible
+but there is no durable alternate sink. Native Windows, Linux, public hosting,
+concurrent capacity, retention/privacy controls and energy/monetary costs were
+not established by this local test. These are limits, not hidden completed work.
+
+Stop here because the bounded operational extension, frozen comparison and one
+improvement are complete; expanding into accuracy, public security or load
+engineering would need new scope and criteria. Next I would investigate the
+Unit 8 score-separation miss using preregistered human/AI evidence before exposing
+the service to real writers. That takes priority over hosting polish because
+reliable logs cannot make authorship estimates trustworthy.
+
+### How I Used AI
+
+This is an AI-authored instructor demonstration, not an unaided student submission.
+Two concrete moments from the work:
+
+1. Asked Codex to review a bounded Shape A extension before running measurements.
+   Its review identified lazy loading, outdated run instructions and unpinned
+   dependencies, and recommended measurable startup/logging/failure/latency/
+   continuity targets. The result became the disclosed preregistration and
+   single-worker design; no human peer review is invented.
+2. Asked a separate Codex review to inspect the evaluator for false passes.
+   It found that checking preserved request IDs alone would miss rewritten
+   operation records. The evaluator was changed to compare complete pre/post
+   restart records before the first trials, and focused validator tests were
+   added; actual HTTP runs then supplied the evidence rather than AI predictions.
+
+Codex also authored the implementation, synthetic fixtures and this report. The
+single improvement was selected after recorded baseline evidence. No API key,
+student hours, personal unaided work or portal submission is claimed.

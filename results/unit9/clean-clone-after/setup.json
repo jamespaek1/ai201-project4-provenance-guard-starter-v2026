@@ -1,0 +1,89 @@
+{
+  "timestamp_utc": "2026-11-04T23:21:32.036933+00:00",
+  "clone_path": "/private/tmp/ai201-unit9-clean-20261104",
+  "environment_note": "Reuse the independently created clean-clone venv from the before verification; do not copy the working repository venv. Same exact lock and model cache. No fresh-machine/download claim.",
+  "steps": [
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "duration_seconds": 0.020334082997578662,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "fetch",
+        "origin"
+      ],
+      "duration_seconds": 0.3683623339966289,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/jamespaek1/ai201-project4-provenance-guard-starter-v2026\n   4b00fb6..b4e618e  main       -> origin/main\n"
+    },
+    {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "b4e618e"
+      ],
+      "duration_seconds": 0.01813679099723231,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at b4e618e Move model loading before worker readiness after measured latency miss\n"
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "duration_seconds": 0.012849874998209998,
+      "exit_code": 0,
+      "stdout": "b4e618ea8372daeeb2c09a2b1a6993b86fd3eb7b\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "duration_seconds": 0.013192083999456372,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "--version"
+      ],
+      "duration_seconds": 0.0430365830034134,
+      "exit_code": 0,
+      "stdout": "Python 3.12.14\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import importlib.metadata as m,json,sys;print(json.dumps({\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix,\"packages\":{d.metadata[\"Name\"]:d.version for d in m.distributions()}}))"
+      ],
+      "duration_seconds": 0.22847216700029094,
+      "exit_code": 0,
+      "stdout": "{\"version\": \"3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]\", \"prefix\": \"/private/tmp/ai201-unit9-clean-20261104/.venv\", \"base_prefix\": \"/Users/jamespaek/.cache/codex-runtimes/codex-primary-runtime/dependencies/python\", \"packages\": {\"Flask\": \"3.1.3\", \"filelock\": \"4.2.4\", \"setuptools\": \"84.2.1\", \"ordered-set\": \"4.1.0\", \"click\": \"8.5.0\", \"torch\": \"2.14.1\", \"packaging\": \"26.3\", \"networkx\": \"3.7\", \"Pygments\": \"2.21.0\", \"requests\": \"2.34.2\", \"blinker\": \"1.9.0\", \"itsdangerous\": \"2.2.0\", \"Deprecated\": \"3.0.0\", \"rich\": \"13.9.4\", \"numpy\": \"2.5.4\", \"wrapt\": \"2.5.1\", \"sympy\": \"1.14.0\", \"huggingface_hub\": \"0.36.2\", \"hf-xet\": \"1.7.0\", \"safetensors\": \"0.8.0\", \"tqdm\": \"4.70.1\", \"urllib3\": \"2.8.0\", \"mdurl\": \"0.1.2\", \"mpmath\": \"1.3.0\", \"PyYAML\": \"6.0.3\", \"gunicorn\": \"23.0.0\", \"fsspec\": \"2026.9.0\", \"transformers\": \"4.57.6\", \"Jinja2\": \"3.1.6\", \"regex\": \"2026.9.29\", \"markdown-it-py\": \"4.2.0\", \"certifi\": \"2026.10.19\", \"typing_extensions\": \"4.16.0\", \"MarkupSafe\": \"3.0.4\", \"tokenizers\": \"0.22.2\", \"charset-normalizer\": \"3.5.2\", \"limits\": \"5.8.0\", \"Flask-Limiter\": \"3.12\", \"idna\": \"3.20\", \"Werkzeug\": \"3.1.9\"}}\n",
+      "stderr": ""
+    }
+  ],
+  "requirements_sha256": "9e1982e682628332b7c5a6ae8a03bea9cec537356736211d4e67e50131f15daa",
+  "lock_unchanged": true,
+  "pins_match": true,
+  "tracked_checkout_clean": true,
+  "prepared_without_model_run": true
+}

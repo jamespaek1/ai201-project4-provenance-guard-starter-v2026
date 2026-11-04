@@ -1,0 +1,13 @@
+[2026-11-04 18:22:01 -0500] [4871] [INFO] Starting gunicorn 23.0.0
+[2026-11-04 18:22:01 -0500] [4871] [INFO] Listening at: http://127.0.0.1:5067 (4871)
+[2026-11-04 18:22:01 -0500] [4871] [INFO] Using worker: sync
+[2026-11-04 18:22:01 -0500] [4876] [INFO] Booting worker with pid: 4876
+[2026-11-04 18:22:03 -0500] [4876] [INFO] model startup status=ready wall=2.244470s cpu=1.424711s
+127.0.0.1 - - [04/Nov/2026:18:22:03 -0500] "GET /health HTTP/1.1" 200 277 "-" "Python-urllib/3.14"
+127.0.0.1 - - [04/Nov/2026:18:22:03 -0500] "GET /health HTTP/1.1" 200 277 "-" "Python-urllib/3.14"
+127.0.0.1 - - [04/Nov/2026:18:22:03 -0500] "GET /health HTTP/1.1" 200 277 "-" "Python-urllib/3.14"
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+127.0.0.1 - - [04/Nov/2026:18:22:05 -0500] "POST /submit HTTP/1.1" 200 680 "-" "Python-urllib/3.14"
+[2026-11-04 18:22:05 -0500] [4876] [INFO] Worker exiting (pid: 4876)
+[2026-11-04 18:22:05 -0500] [4871] [INFO] Handling signal: term
+[2026-11-04 18:22:06 -0500] [4871] [INFO] Shutting down: Master

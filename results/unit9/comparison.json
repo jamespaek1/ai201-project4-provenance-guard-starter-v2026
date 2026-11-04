@@ -1,0 +1,42 @@
+{
+  "criteria_sha256": "d4abf2d19cb587f1dc37c81ec8c7f0181ecbe91a577954aef243addfc8b5c4a2",
+  "fixtures_sha256": "44ad9526b3fad7209e3395a314aaca967ddd8445abfc128d3ddc5d5713de983c",
+  "phases": {
+    "before": {
+      "runtime_commit": "7a7f5923e75d73efe6e2c3dea67c51bd67ea929e",
+      "three_trial_verdicts_with_clean_clone_gate": {
+        "C1": "MET",
+        "C2": "MET",
+        "C3": "MET",
+        "C4": "MISSED",
+        "C5": "MET"
+      },
+      "clean_clone_commit": "4b00fb6893cd550e39d0d044bc313ac7c9c59b1a",
+      "clean_clone_verified": true,
+      "runtime_unchanged_during_phase": true
+    },
+    "after": {
+      "runtime_commit": "b4e618ea8372daeeb2c09a2b1a6993b86fd3eb7b",
+      "three_trial_verdicts_with_clean_clone_gate": {
+        "C1": "MET",
+        "C2": "MET",
+        "C3": "MET",
+        "C4": "MET",
+        "C5": "MET"
+      },
+      "clean_clone_commit": "b4e618ea8372daeeb2c09a2b1a6993b86fd3eb7b",
+      "clean_clone_verified": true,
+      "runtime_unchanged_during_phase": true
+    }
+  },
+  "matched_scores_and_labels_30_of_30": true,
+  "cost": {
+    "after_mean_cpu_seconds_per_submission": 0.052737099999999995,
+    "after_100_submissions_cpu_seconds": 5.2737099999999995,
+    "mean_initial_model_load_cpu_seconds": 1.4259666666666666,
+    "100_submissions_plus_one_model_load_cpu_seconds": 6.699676666666666,
+    "after_mean_client_wall_seconds": 0.09645814870067018,
+    "mean_initial_ready_wall_seconds": 1.998942402996666,
+    "assumption": "Arithmetic estimate: one successful submission per 100 users per day, one worker start, same fixture mix. No actual 100-user load test. CPU subtotal excludes pre-hook process boot, operation-log serialization/append, idle energy and rejected/appeal/read traffic."
+  }
+}

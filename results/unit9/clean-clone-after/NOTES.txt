@@ -1,0 +1,20 @@
+Clean-clone after verification, 2026-11-04
+
+The same separate clone was fetched from origin and checked out detached at
+b4e618ea8372daeeb2c09a2b1a6993b86fd3eb7b. Tracked files remained clean.
+The independently installed virtual environment from the before verification
+was reused because requirements.lock was byte-identical and every pin matched.
+The model cache and base Python installation were shared explicitly; this is
+not a fresh-machine or model-download test.
+
+Literal start command: ./start.sh
+Explicit environment overrides and exact commands are in verification.json.
+Health readiness: 2.699169250 seconds, with detector_loaded=true.
+Real U9-01 submission: HTTP 200 in 1.908635666 seconds.
+The operation record exactly matched the HTTP request body and response.
+One startup.jsonl record reports status=ready, inference_performed=false,
+model load wall=2.244469916 seconds, and
+model load CPU=1.424711000 seconds.
+
+Verification passed and the server was stopped. These setup/smoke observations
+are separate from the three formal after trials.

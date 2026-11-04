@@ -1,0 +1,201 @@
+{
+  "timestamp_utc": "2026-11-04T23:22:00.951131+00:00",
+  "clone": "/private/tmp/ai201-unit9-clean-20261104",
+  "start_command": "./start.sh",
+  "environment_overrides": {
+    "PORT": "5067",
+    "HF_HOME": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface",
+    "AI201_LOG_DIR": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/results/unit9/clean-clone-after/logs"
+  },
+  "shared_model_cache": true,
+  "fresh_machine_download_test": false,
+  "python_environment_copied": false,
+  "steps": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "duration_seconds": 0.010550541999691632,
+      "exit_code": 0,
+      "stdout": "b4e618ea8372daeeb2c09a2b1a6993b86fd3eb7b\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "duration_seconds": 0.017323125000984874,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "prepare_model.py",
+        "--offline"
+      ],
+      "duration_seconds": 0.23243433300376637,
+      "exit_code": 0,
+      "stdout": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import importlib.metadata as m,json,sys;print(json.dumps({\"version\":sys.version,\"prefix\":sys.prefix,\"base_prefix\":sys.base_prefix,\"packages\":{d.metadata[\"Name\"]:d.version for d in m.distributions()}}))"
+      ],
+      "duration_seconds": 0.04680333299620543,
+      "exit_code": 0,
+      "stdout": "{\"version\": \"3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]\", \"prefix\": \"/private/tmp/ai201-unit9-clean-20261104/.venv\", \"base_prefix\": \"/Users/jamespaek/.cache/codex-runtimes/codex-primary-runtime/dependencies/python\", \"packages\": {\"Flask\": \"3.1.3\", \"filelock\": \"4.2.4\", \"setuptools\": \"84.2.1\", \"ordered-set\": \"4.1.0\", \"click\": \"8.5.0\", \"torch\": \"2.14.1\", \"packaging\": \"26.3\", \"networkx\": \"3.7\", \"Pygments\": \"2.21.0\", \"requests\": \"2.34.2\", \"blinker\": \"1.9.0\", \"itsdangerous\": \"2.2.0\", \"Deprecated\": \"3.0.0\", \"rich\": \"13.9.4\", \"numpy\": \"2.5.4\", \"wrapt\": \"2.5.1\", \"sympy\": \"1.14.0\", \"huggingface_hub\": \"0.36.2\", \"hf-xet\": \"1.7.0\", \"safetensors\": \"0.8.0\", \"tqdm\": \"4.70.1\", \"urllib3\": \"2.8.0\", \"mdurl\": \"0.1.2\", \"mpmath\": \"1.3.0\", \"PyYAML\": \"6.0.3\", \"gunicorn\": \"23.0.0\", \"fsspec\": \"2026.9.0\", \"transformers\": \"4.57.6\", \"Jinja2\": \"3.1.6\", \"regex\": \"2026.9.29\", \"markdown-it-py\": \"4.2.0\", \"certifi\": \"2026.10.19\", \"typing_extensions\": \"4.16.0\", \"MarkupSafe\": \"3.0.4\", \"tokenizers\": \"0.22.2\", \"charset-normalizer\": \"3.5.2\", \"limits\": \"5.8.0\", \"Flask-Limiter\": \"3.12\", \"idna\": \"3.20\", \"Werkzeug\": \"3.1.9\"}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "duration_seconds": 0.013314875002834015,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "git_commit": "b4e618ea8372daeeb2c09a2b1a6993b86fd3eb7b",
+  "git_status_before": "",
+  "requirements_sha256": "9e1982e682628332b7c5a6ae8a03bea9cec537356736211d4e67e50131f15daa",
+  "model_path": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "environment": {
+    "version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "prefix": "/private/tmp/ai201-unit9-clean-20261104/.venv",
+    "base_prefix": "/Users/jamespaek/.cache/codex-runtimes/codex-primary-runtime/dependencies/python",
+    "packages": {
+      "Flask": "3.1.3",
+      "filelock": "4.2.4",
+      "setuptools": "84.2.1",
+      "ordered-set": "4.1.0",
+      "click": "8.5.0",
+      "torch": "2.14.1",
+      "packaging": "26.3",
+      "networkx": "3.7",
+      "Pygments": "2.21.0",
+      "requests": "2.34.2",
+      "blinker": "1.9.0",
+      "itsdangerous": "2.2.0",
+      "Deprecated": "3.0.0",
+      "rich": "13.9.4",
+      "numpy": "2.5.4",
+      "wrapt": "2.5.1",
+      "sympy": "1.14.0",
+      "huggingface_hub": "0.36.2",
+      "hf-xet": "1.7.0",
+      "safetensors": "0.8.0",
+      "tqdm": "4.70.1",
+      "urllib3": "2.8.0",
+      "mdurl": "0.1.2",
+      "mpmath": "1.3.0",
+      "PyYAML": "6.0.3",
+      "gunicorn": "23.0.0",
+      "fsspec": "2026.9.0",
+      "transformers": "4.57.6",
+      "Jinja2": "3.1.6",
+      "regex": "2026.9.29",
+      "markdown-it-py": "4.2.0",
+      "certifi": "2026.10.19",
+      "typing_extensions": "4.16.0",
+      "MarkupSafe": "3.0.4",
+      "tokenizers": "0.22.2",
+      "charset-normalizer": "3.5.2",
+      "limits": "5.8.0",
+      "Flask-Limiter": "3.12",
+      "idna": "3.20",
+      "Werkzeug": "3.1.9"
+    }
+  },
+  "pins_match": true,
+  "pin_mismatches": {},
+  "venv_prefix_matches_clone": true,
+  "service_pid": 4871,
+  "health": {
+    "status": 200,
+    "headers": {
+      "Server": "gunicorn",
+      "Date": "Wed, 04 Nov 2026 23:22:03 GMT",
+      "Connection": "close",
+      "Content-Type": "application/json",
+      "Content-Length": "277",
+      "X-Request-ID": "19149c5b-a6cc-458a-b053-097345e6423a"
+    },
+    "body": {
+      "detector_loaded": true,
+      "detector_model": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "log_entries": 0,
+      "ok": true,
+      "rate_limiting": true
+    }
+  },
+  "startup_seconds": 2.6991692500014324,
+  "submit": {
+    "status": 200,
+    "headers": {
+      "Server": "gunicorn",
+      "Date": "Wed, 04 Nov 2026 23:22:05 GMT",
+      "Connection": "close",
+      "Content-Type": "application/json",
+      "Content-Length": "680",
+      "X-Request-ID": "bde741d8-d1db-486d-8cd8-00e9a7d79898"
+    },
+    "body": {
+      "appeal": {
+        "endpoint": "/appeal",
+        "method": "POST",
+        "required_fields": [
+          "content_id",
+          "reasoning"
+        ]
+      },
+      "combined_score": 0.4142435311510421,
+      "confidence": 0.4142435311510421,
+      "content_id": "e17b06c8-6160-4db3-a7b3-1d3eff8cc053",
+      "creator_id": "unit9-clean-clone-after",
+      "guess": "unsure",
+      "implementation_stage": "two_signals",
+      "label": "Our tools cannot confidently tell how this writing was produced. This label is not an accusation. You can add context and request a review.",
+      "model_score": 0.3053,
+      "score_meaning": "Higher scores indicate more AI-associated patterns; this is not an authorship probability.",
+      "status": "decided",
+      "style_score": 0.5231870623020842,
+      "timestamp": "2026-11-04T23:22:05+00:00"
+    },
+    "input_body": "{\"creator_id\": \"unit9-clean-clone-after\", \"text\": \"Our neighborhood volunteers will meet beside the library on Saturday morning. We plan to sort donated books, repair a few torn covers, and prepare boxes for the community center. Please bring comfortable shoes and a reusable water bottle. New volunteers can join an experienced partner before choosing a task.\"}",
+    "fixture_id": "U9-01",
+    "client_seconds": 1.9086356659972807
+  },
+  "matching_operation_count": 1,
+  "operation_matches_response": true,
+  "git_status_after": "",
+  "startup_records": [
+    {
+      "event": "model_startup",
+      "timestamp": "2026-11-04T23:22:01.710+00:00",
+      "pid": 4876,
+      "model": "/Users/jamespaek/Documents/Codex/2026-09-14/com/work/ai201-project4-provenance-guard-starter-v2026/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "status": "ready",
+      "inference_performed": false,
+      "model_load_wall_seconds": 2.2444699159968877,
+      "model_load_cpu_seconds": 1.4247109999999998
+    }
+  ],
+  "startup_record_valid": true,
+  "model_loaded_at_readiness": true,
+  "independent_venv_reused": true,
+  "verification_passed": true,
+  "service_stopped": true,
+  "service_exit_code": 0
+}
