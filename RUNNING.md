@@ -1,308 +1,166 @@
-# Running Provenance Guard
+# Running Provenance Guard — Unit 9 local path
 
-Everything about how the starter works.
+This capstone uses **Path B: local with logs**. It extends the same Unit 7–8
+service. No hosted URL, API key, account or paid inference API is needed.
+The service binds only to `127.0.0.1`, runs one Gunicorn sync worker, and disables
+Flask debug mode. Keep it local: authentication and a public deployment are
+outside this capstone's scope.
 
-This is a **web service**. It runs on your machine and you talk to it with
-`curl` from another terminal. If you've not built a backend before, that's
-assumed — the starter ships one that already answers.
+## One-time setup
 
----
-
-## Before your first class
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python test.py
-```
-
-**You're ready when `python test.py` passes.**
-
-You'll see `[WARN] Detector model — not downloaded yet`:
+The pinned environment is **CPython 3.12.14 on macOS 27.0.1 arm64**. With
+[uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
 
 ```bash
-python detector.py
+git clone https://github.com/jamespaek1/ai201-project4-provenance-guard-starter-v2026.git
+cd ai201-project4-provenance-guard-starter-v2026
+uv venv --python 3.12.14 .venv
+uv pip install --python .venv/bin/python -r requirements.lock
+.venv/bin/python prepare_model.py
 ```
 
-That downloads about 550 MB and scores a sample.
+Alternatively, with CPython 3.12.14 already installed, use
+`python3.12 -m venv .venv` and `.venv/bin/python -m pip install -r requirements.lock`
+in place of the two uv commands. Linux may work but has not been established
+by this macOS record; native Windows needs WSL because this launcher uses POSIX
+shell and Gunicorn.
 
-> **No API key for this pair.** Nothing here calls a hosted service. The model
-> that reads your text runs on your own laptop.
+`requirements.lock` pins every installed runtime dependency, including
+Torch 2.14.1, Transformers 4.57.6, Flask 3.1.3, Flask-Limiter 3.12 and Gunicorn
+23.0.0. `requirements.txt` retains the prior units' version ranges for history;
+use the lock for capstone reproduction. The setup helper only downloads or
+locates files. It does not load the model or perform a warm-up inference.
 
----
+The model is GPT-2 repository `gpt2`, pinned to commit
+`607a30d783dfa663caf39e06633721c8d4cfcd7e`. The helper requests only these seven
+files. Sizes were read from the existing pinned snapshot, not estimated:
 
-## Your first five minutes
+| File | Bytes |
+|---|---:|
+| `config.json` | 665 |
+| `generation_config.json` | 124 |
+| `merges.txt` | 456,318 |
+| `model.safetensors` | 548,105,171 |
+| `tokenizer.json` | 1,355,256 |
+| `tokenizer_config.json` | 26 |
+| `vocab.json` | 1,042,301 |
+| **Total** | **550,959,861** |
 
-Two terminals. In the first:
+That is about **551 MB decimal / 525.4 MiB**, excluding the Python environment,
+download cache metadata, logs and runtime memory. Allow extra disk space for
+package downloads and installation. Files are under `.cache/huggingface` by
+default and are not committed. `start.sh` resolves this exact local snapshot,
+sets `AI201_DETECTOR_MODEL` to its path, and makes runtime model access offline.
+It fails with setup instructions if a required file is missing.
+
+To reuse an existing model cache, set its **Hugging Face home** before both setup
+and start; it must contain `hub/models--gpt2/snapshots/<revision>/...`:
 
 ```bash
-python app.py
+export HF_HOME=/absolute/path/to/existing/.cache/huggingface
+.venv/bin/python prepare_model.py --offline
 ```
 
-In the second:
+This avoids another 551 MB download. A clean-clone verification may share this
+explicit cache while installing a new `.venv`; that verifies the checkout and
+setup instructions, not a fresh-machine network download. The final evidence
+records exactly which setup was used.
+
+## The single start command
+
+From the repository root, after setup:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/ping \
-  -H "Content-Type: application/json" \
-  -d '{"message": "hello"}'
+./start.sh
 ```
 
-You should get JSON back. That's the whole idea of a web service — something
-sent it data, it sent something back.
+It runs in the foreground at `http://127.0.0.1:5057`. Press Ctrl-C to stop.
+The baseline loads GPT-2 on the first valid submission; `/health` may be ready
+while `detector_loaded` is false. The capstone results separately measure
+startup and the first request so this cold-request cost remains visible.
 
-> **On Windows, use `curl.exe` and keep it on one line.**
->
-> In PowerShell, `curl` is an alias for a different tool and the command above
-> fails with `Cannot bind parameter 'Headers'` before it ever reaches your
-> service. The `\` line breaks don't work there either. This does:
->
-> ```powershell
-> curl.exe -X POST http://127.0.0.1:5000/ping -H "Content-Type: application/json" -d '{\"message\": \"hello\"}'
-> ```
->
-> Every `curl` command in this file and in the brief works the same way: swap
-> `curl` for `curl.exe` and put it on one line. Git Bash needs no change.
+Optional environment settings, set before that same command:
 
-**Leave `/ping` alone.** It's your control. When something breaks later, check
-`/ping` still answers: if it does, the problem is in your handler; if it
-doesn't, it's the service itself, and that's a help-channel question.
-
-Then try the route you're going to build:
-
-```bash
-curl -X POST http://127.0.0.1:5000/submit \
-  -H "Content-Type: application/json" \
-  -d '{"text": "some writing", "creator_id": "me"}'
-```
-
-It returns a `501` saying it isn't built yet. **That's the correct starting
-position.**
-
----
-
-## The routes
-
-| Route | State | What it does |
+| Variable | Default | Purpose |
 |---|---|---|
-| `POST /ping` | **works** | The example. Don't edit it |
-| `GET /health` | **works** | Is the service up, is the model loaded |
-| `GET /log` | **works** | The audit log, as JSON |
-| `POST /submit` | **you build it** | Milestones 3, 4, 5 |
-| `POST /appeal` | **you build it** | Milestone 5 |
+| `PORT` | `5057` | Select another local port if this one is occupied. |
+| `HF_HOME` | repository `.cache/huggingface` | Select a prepared pinned cache. |
+| `AI201_LOG_DIR` | repository `logs` | Keep audit and operational logs together in a chosen directory. |
 
----
+The launcher deliberately fixes one worker and one request at a time. This
+makes per-request process CPU seconds interpretable for the sequential cost
+sample and avoids pretending the in-memory limiter is shared across workers.
+It leaves Torch's native thread policy unchanged. CPU seconds can exceed wall
+seconds because native computation can use more than one CPU core.
 
-## Every command
+## Check a real request
 
-| Command | What it does |
-|---|---|
-| `python test.py` | Checks your environment |
-| `python app.py` | Runs the service |
-| `python detector.py` | Downloads the model and scores a sample — **run before class** |
-| `python detector.py "some text"` | Score one piece of text from the terminal |
-| `python stylometry.py "some text"` | Your style measures, on one piece of text |
-| `python run_attacks.py --set <folder>` | The attack set — **unit 8** |
-| `python run_attacks.py --flood 15` | Push past your rate limit and print the status codes — **unit 8** |
-| `python run_eval.py --label before` | Your five criteria, three trials — **unit 8** |
-
----
-
-## Which piece goes with which milestone
-
-### Unit 7 — the build
-
-| Milestone | What you're doing | Where |
-|---|---|---|
-| 1 | Trace a submission on paper | Nothing to run |
-| 2 | Write your criteria | `criteria.md` — all five are yours |
-| 3 | The route, one signal, the log | `app.py::submit`, `detector.py`, `audit.py` |
-| 4 | Second signal, combine, score | `stylometry.py`, `scoring.py::combine_signals` |
-| 5 | Labels and the appeal path | `scoring.py::score_to_label`, `app.py::appeal` |
-| 6 | Write it up | `README.md` |
-
-### Unit 8 — the test
-
-| Milestone | What you're doing | Where |
-|---|---|---|
-| 1 | Rate limiting and the full log | `config.py`, the decorator in `app.py` |
-| 2 | Run the attack set | `run_attacks.py` |
-| 3 | Run your own criteria | `scenarios.py`, `run_eval.py` |
-| 4 | Verdicts and diagnoses | `README.md` |
-| 5 | Fix one thing, re-run | `run_attacks.py --label after` |
-| 6 | What's still broken | `README.md` |
-
----
-
-## Building `/submit` in three passes
-
-The ordering is deliberate. It's how you tell a broken route from a broken
-signal.
-
-**Milestone 3.** Return a hardcoded response. Confirm `curl` gets it back
-**before** you add any logic. Then pull `text` and `creator_id` out. Then call
-one signal. Then log it.
-
-**Milestone 4.** Add the second signal. Combine them. Log both scores.
-
-**Milestone 5.** Turn the score into a label.
-
-> Test each signal from a terminal on its own before wiring it in. If you skip
-> that you'll spend an hour not knowing whether the route or the signal is
-> lying to you.
-
----
-
-## Turning on rate limiting (unit 8)
-
-Three steps:
-
-1. In `config.py`, set `RATE_LIMITING_ENABLED = True` — or run with
-   `AI201_RATE_LIMITS=1`.
-2. Choose your numbers there.
-3. In `app.py`, uncomment the `@limiter.limit(...)` line above `submit`.
-
-Then push past your limit and watch for `429`:
+In another terminal:
 
 ```bash
-python run_attacks.py --flood 15
+curl http://127.0.0.1:5057/health
+curl -i http://127.0.0.1:5057/submit \
+  -H 'Content-Type: application/json' \
+  -d '{"creator_id":"local-example","text":"We met beside the community garden after breakfast to organize the weekend cleanup. Maya brought gloves, and I counted the reusable bags. The gate was stuck again, so we carried everything through the narrow side entrance before the other volunteers arrived."}'
 ```
 
-That sends 15 submissions from one `creator_id` and prints the run of status
-codes — `200 200 200 ... 429 429` — which is exactly what your README's **Rate
-Limiting** section asks you to paste. It also writes `results/flood_<date>.md`.
+The JSON response includes `content_id`, `model_score`, `style_score`,
+`combined_score`, `guess`, `label` and appeal instructions. The
+`X-Request-ID` response header correlates it with `operations.jsonl`.
+The score is a heuristic signal, not proof of authorship. This local service
+does not remove writing or automatically punish a writer.
 
-The attack set can't do this for you. Every attack row submits under its own
-`creator_id`, so a full attack run looks like forty-odd different callers and
-never trips a limit however long it is.
+| Route | Behavior |
+|---|---|
+| `POST /ping` | Preserved starter control route. |
+| `GET /health` | Process status and whether the detector is loaded. |
+| `POST /submit` | Validate text, run both signals, score and append a decision. |
+| `POST /appeal` | Append the exact reason and mark an existing item under review. |
+| `GET /content/<id>` | Retrieve the original decision, current status and appeals. |
+| `GET /log` | Read audit events. |
 
-No `429` at all? Either your limit is above 15 a minute, or rate limiting is
-still off. `GET /health` reports which.
+Input bounds and the 10/minute, 120/day per-creator limits remain those from
+Unit 8. Restarting the single process resets the in-memory rate counters;
+it must not reset either persistent log file.
 
-Rejections are logged for you. **An attack that shows up only as an absence is
-one you'll never find** — a thousand requests that got a `429` and left no
-trace look exactly like a quiet afternoon.
+## Logs and reproducible evaluation
 
----
+`logs/audit.jsonl` holds decisions, appeals and rejections. `logs/operations.jsonl`
+holds correlated request input/output, status, timestamp, wall duration, CPU
+seconds and model/style/scoring/audit stage durations. Operational timing starts
+before validation and ends before its own log append; client timing in the
+evaluator includes transport and the log append. Rejected requests are recorded
+too. Oversized bodies use an explicitly marked bounded prefix. These logs can
+contain submitted text: committed examples use authored synthetic fixtures.
 
-## Running it somewhere else (unit 9)
-
-Unit 9 asks you to deploy one of your systems. **Read this before you pick
-which one** — for this project the answer is already decided, and it isn't the
-hosted one.
-
-Flask's built-in server says "development server" on startup because that's
-what it is. A real one comes from `gunicorn`, which is in
-`requirements.txt` and unused until now:
+The five capstone targets are preregistered in [criteria.md](criteria.md).
+The evaluator uses the ten frozen inputs in `examples/unit9_requests.json`,
+three independent trials, separate logs per trial, and one restart per trial.
+The README links the actual before/after evidence and cost calculation.
+Use a new output directory for an additional run to preserve earlier evidence.
 
 ```bash
-gunicorn app:app --bind 0.0.0.0:$PORT
+.venv/bin/python run_capstone.py --phase reproduction --output results/unit9/reproduction
+.venv/bin/python -m unittest discover -s tests
 ```
 
-Two settings do the work, and both read the environment:
+The evaluator launches and stops its own service, so stop a manual service on
+the chosen port first. The reported CPU cost is measured local compute time,
+not a claim about cloud dollars or a free hosted service. The hundred-users/day
+estimate assumes one successful submission each and reports startup separately.
 
-| Variable | Default | What it does |
-|---|---|---|
-| `HOST` | `127.0.0.1` | Loopback — your machine only. A host needs `0.0.0.0`, or nothing outside the box can reach the service and it looks like the app is down |
-| `PORT` | `5000` | Most hosts hand you a port in `PORT` and expect you to bind exactly that one |
-| `AI201_DEBUG` | `1` | Debug mode. Off automatically whenever `HOST` isn't loopback — an interactive debugger on a public address is a stranger's Python prompt inside your process |
+## Troubleshooting
 
-Nothing about your local workflow changes. With no variables set you get
-`http://127.0.0.1:5000` and every `curl` above still works.
+- Missing `.venv`: complete the install steps with the pinned Python version.
+- Missing model files: run `prepare_model.py` with network access once, using
+  the same `HF_HOME` as start. `--offline` only checks an existing cache.
+- Port occupied: stop your earlier instance or set `PORT` to an unused local
+  port before running `./start.sh`.
+- Incomplete request evidence: inspect the foreground server's error log and
+  ensure the selected `AI201_LOG_DIR` is writable.
+- A slow first request is a measured baseline possibility, not a reason to
+  delete the run. Report it with startup time and the corresponding log row.
 
-### This project will not fit a free host
-
-Say it plainly, because the arithmetic is the point:
-
-| What has to be in memory | Roughly |
-|---|---|
-| `torch` | ~200–800 MB depending on the build |
-| the `gpt2` weights | ~550 MB on disk, loaded into RAM to score |
-| Flask, gunicorn, your code | the rest |
-| **A free tier gives you** | **512 MB** |
-
-That's over budget before a single request arrives — and a free host has no
-persistent disk, so the 550 MB download starts again after every idle
-spin-down. There is no configuration that fixes this. The model is the size it
-is.
-
-**So pair 4 extensions take Path B — local, with logs.** That is the expected
-answer for this project, not a fallback and not a failure. Working out that a
-system doesn't fit its host *before* you spend an evening watching it get
-killed is the skill unit 9 is actually testing. Write the arithmetic above in
-your write-up; that's the deliverable.
-
----
-
-## Where everything lives
-
-| File | What it does |
-|---|---|
-| `config.py` | Every setting: thresholds, weights, rate limits, the model |
-| `app.py` | The service. `/ping` and `/log` work; `/submit` and `/appeal` are yours |
-| `detector.py` | Signal one — the local model. Given to you |
-| `stylometry.py` | Signal two. **Stubs — you build these** |
-| `scoring.py` | Combining and labelling. **Stubs — you build these** |
-| `audit.py` | The audit log writer. Given to you |
-| `run_attacks.py` | Runs the attack set — **unit 8** |
-| `run_eval.py` | Runs your criteria three times — **unit 8** |
-| `scenarios.py` | What your test runs. **You fill this in** |
-| `criteria.md` | Your five criteria. **You write all five** |
-| `logs/audit.jsonl` | Your audit log. **Commit it** |
-| `results/` | Attack runs and run logs. **Commit them** |
-
----
-
-## The two blind spots, up front
-
-Both signals have one, and unit 8's attack set is built out of them. You have
-to name them yourself in Milestone 1 — but knowing they exist now saves you
-from being surprised.
-
-**Signal one** measures how *predictable* your text is. Predictability isn't
-authorship. What it really rewards is common words in short, ordinary
-sentences — someone writing in a second language and staying with vocabulary
-they're sure of, a younger writer, anyone writing plainly on purpose. Writing
-like that scores about as machine-like as machine writing does. (Dense, ornate
-prose often goes the other way and reads as human, because rare words are what
-a language model fails to predict.) So the writers this signal is most likely
-to accuse are the ones with the least room to argue back. That is the false
-positive the whole project is about, and it's structural rather than a bug.
-
-**Signal two** cannot read. It has no idea what the text says. Anything that
-changes the shape without changing the substance moves it — typos, broken-up
-sentences, a pasted quotation. That is very cheap to do on purpose.
-
----
-
-## When something goes wrong
-
-| What you see | What it means |
-|---|---|
-| `501 not_implemented` | Correct at the start — that's the TODO in `app.py` |
-| `404` from curl | Is the server running? Is the path exactly what you typed? |
-| `Cannot bind parameter 'Headers'` | You're in PowerShell, where `curl` is a different tool. Use `curl.exe`, on one line |
-| Request body arrives empty | curl needs `-H "Content-Type: application/json"` |
-| `Address already in use` | A server left running from an earlier attempt. Kill it, don't debug it |
-| The first submission takes 10+ seconds | Signal one is loading the model into memory. Later ones take a second or two |
-| *Every* submission takes 10+ seconds | Something is reloading the model each call. `GET /health` shows `detector_loaded` — if it goes back to `false`, look for a reload in your handler |
-| `DetectorUnavailable` | Run `python detector.py` once to download the model |
-| `/appeal` seems to do nothing | Does the `content_id` you sent actually exist in the log? A typo there fails silently |
-| Every request gets through, no `429` ever | The decorator is uncommented but limiting is still off. Set `RATE_LIMITING_ENABLED` in `config.py` |
-| Flask-Limiter warns about storage | Shouldn't happen — `storage_uri` is preconfigured. If you changed it, put it back |
-| All three of your labels never appear | Your ranges have a gap. `scoring.label_ranges()` prints them |
-
-If the route won't respond, go back to `/ping`. If that answers, the problem is
-in your handler.
-
----
-
-## A note on committing
-
-At least four new commits in unit 7, four more in unit 8.
-
-`logs/` and `results/` are deliberately **not** in `.gitignore`. Your audit log
-is evidence, and the entries you paste into your README are what unit 8 grades.
-
-**Do not delete and recreate this repository.** You submit the same URL both
-units.
+Prior unit commands remain in the repository (`run_eval.py`, `run_attacks.py`).
+Their historical results and criteria are retained in README and
+`docs/criteria-units7-8.md`; they do not replace the new capstone trials.

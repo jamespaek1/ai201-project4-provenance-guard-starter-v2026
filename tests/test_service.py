@@ -255,6 +255,7 @@ from pathlib import Path
 import config
 config.LOG_DIR = Path(sys.argv[1])
 config.AUDIT_LOG = config.LOG_DIR / 'audit.jsonl'
+config.OPERATIONS_LOG = config.LOG_DIR / 'operations.jsonl'
 import app
 client = app.app.test_client()
 print(json.dumps([client.get('/content/' + value).get_json() for value in json.loads(sys.argv[2])]))
