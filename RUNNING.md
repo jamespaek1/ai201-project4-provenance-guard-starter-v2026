@@ -9,7 +9,8 @@ outside this capstone's scope.
 ## One-time setup
 
 The pinned environment is **CPython 3.12.14 on macOS 27.0.1 arm64**. With
-[uv](https://docs.astral.sh/uv/getting-started/installation/) installed:
+[uv](https://docs.astral.sh/uv/getting-started/installation/) installed and
+CPython 3.12.14 discoverable on `PATH` (or available in uv's download catalog):
 
 ```bash
 git clone https://github.com/jamespaek1/ai201-project4-provenance-guard-starter-v2026.git
@@ -18,6 +19,11 @@ uv venv --python 3.12.14 .venv
 uv pip install --python .venv/bin/python -r requirements.lock
 .venv/bin/python prepare_model.py
 ```
+
+If uv cannot find 3.12.14, put the `bin` directory of your installed CPython
+3.12.14 on `PATH`, or pass its absolute executable path to `uv venv --python`.
+The clean-clone check used an existing 3.12.14 interpreter on `PATH` and a new
+virtual environment; it did not copy the original virtual environment.
 
 Alternatively, with CPython 3.12.14 already installed, use
 `python3.12 -m venv .venv` and `.venv/bin/python -m pip install -r requirements.lock`
