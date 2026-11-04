@@ -30,7 +30,8 @@ class Unit8InstrumentTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
         directory = Path(temporary.name)
-        for name, value in (("LOG_DIR", directory), ("AUDIT_LOG", directory / "audit.jsonl")):
+        for name, value in (("LOG_DIR", directory), ("AUDIT_LOG", directory / "audit.jsonl"),
+                            ("OPERATIONS_LOG", directory / "operations.jsonl")):
             mock = patch.object(config, name, value)
             mock.start()
             self.addCleanup(mock.stop)

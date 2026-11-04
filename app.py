@@ -34,10 +34,13 @@ from flask import Flask, jsonify, request
 import audit
 import config
 import detector
+import operations
 import scoring
 import stylometry
 
 app = Flask(__name__)
+# Register first: start before validation; append after other response hooks.
+operations.install(app)
 # One bounded lookahead byte distinguishes an exactly-full streamed body from
 # an oversized one when the client does not supply Content-Length.
 app.config["MAX_CONTENT_LENGTH"] = config.MAX_REQUEST_BYTES + 1
@@ -75,13 +78,14 @@ def log_refused_request(response):
         except (BadRequest, RequestEntityTooLarge):
             payload = None
         error = response.get_json(silent=True) or {}
-        audit.log_rejection(
-            creator_id=valid_creator(payload) or "unknown",
-            reason=error.get("error", f"http_{response.status_code}"),
-            http_status=response.status_code, route=request.path,
-            method=request.method,
-            **({"limit": error["limit"]} if "limit" in error else {}),
-        )
+        with operations.stage("audit"):
+            audit.log_rejection(
+                creator_id=valid_creator(payload) or "unknown",
+                reason=error.get("error", f"http_{response.status_code}"),
+                http_status=response.status_code, route=request.path,
+                method=request.method,
+                **({"limit": error["limit"]} if "limit" in error else {}),
+            )
     return response
 
 
@@ -234,20 +238,24 @@ def submit():
     if not isinstance(creator, str) or not creator.strip() or len(creator) > config.MAX_CREATOR_CHARACTERS:
         return error_response("invalid_creator", "creator_id must be a nonblank string of at most 100 characters.", 400)
     try:
-        model_score = detector.model_signal(text)
-        style_score = stylometry.style_signal(text)
-        confidence = scoring.combine_signals(model_score, style_score)
-        guess, label = scoring.score_to_label(confidence)
+        with operations.stage("model"):
+            model_score = detector.model_signal(text)
+        with operations.stage("style"):
+            style_score = stylometry.style_signal(text)
+        with operations.stage("scoring"):
+            confidence = scoring.combine_signals(model_score, style_score)
+            guess, label = scoring.score_to_label(confidence)
     except detector.DetectorUnavailable:
         return error_response("detector_unavailable", "The local model is unavailable. Try again after it is installed.", 503)
     except ValueError:
         return error_response("unscorable_text", "The model could not score this text. Try a longer passage.", 422)
     content_id = str(uuid.uuid4())
-    entry = audit.log_decision(
-        content_id=content_id, creator_id=creator, guess=guess,
-        model_score=model_score, style_score=style_score, combined_score=confidence,
-        label=label, status="decided", implementation_stage="two_signals",
-    )
+    with operations.stage("audit"):
+        entry = audit.log_decision(
+            content_id=content_id, creator_id=creator, guess=guess,
+            model_score=model_score, style_score=style_score, combined_score=confidence,
+            label=label, status="decided", implementation_stage="two_signals",
+        )
     return jsonify({**entry, "confidence": confidence,
         "appeal": {"endpoint": "/appeal", "method": "POST",
                    "required_fields": ["content_id", "reasoning"]},
@@ -269,7 +277,8 @@ def appeal():
     decision, events = decision_for(content_id)
     if decision is None:
         return error_response("content_not_found", "No submission has that content_id.", 404)
-    entry = audit.log_appeal(content_id, decision["creator_id"], reasoning)
+    with operations.stage("audit"):
+        entry = audit.log_appeal(content_id, decision["creator_id"], reasoning)
     return jsonify({"content_id": content_id, "status": entry["status"],
         "message": "Your explanation has been recorded and this item is under review. The original estimate remains in the history; no new assessment was made.",
         "reasoning": reasoning,

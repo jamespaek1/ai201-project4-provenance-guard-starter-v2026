@@ -36,7 +36,8 @@ class ServiceContractTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.log_dir = Path(temporary.name)
         self.log_path = self.log_dir / "audit.jsonl"
-        for name, value in (("LOG_DIR", self.log_dir), ("AUDIT_LOG", self.log_path)):
+        for name, value in (("LOG_DIR", self.log_dir), ("AUDIT_LOG", self.log_path),
+                            ("OPERATIONS_LOG", self.log_dir / "operations.jsonl")):
             mock = patch.object(config, name, value)
             mock.start()
             self.addCleanup(mock.stop)

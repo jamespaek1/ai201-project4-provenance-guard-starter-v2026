@@ -100,8 +100,9 @@ RATE_LIMIT_STORAGE = "memory://"
 
 # ─── Paths ───────────────────────────────────────────────────────────────────
 
-LOG_DIR = ROOT / "logs"
+LOG_DIR = Path(os.getenv("AI201_LOG_DIR", str(ROOT / "logs"))).expanduser().resolve()
 AUDIT_LOG = LOG_DIR / "audit.jsonl"
+OPERATIONS_LOG = LOG_DIR / "operations.jsonl"
 RESULTS_DIR = ROOT / "results"
 
 # Unit 7 input contract. Bounds apply before either signal runs.
