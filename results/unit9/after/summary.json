@@ -1,0 +1,167 @@
+{
+  "phase": "after",
+  "started_utc": "2026-11-04T23:20:40.677607+00:00",
+  "git_revision": "b4e618ea8372daeeb2c09a2b1a6993b86fd3eb7b",
+  "git_status_at_start": "",
+  "file_sha256": {
+    "criteria.md": "d4abf2d19cb587f1dc37c81ec8c7f0181ecbe91a577954aef243addfc8b5c4a2",
+    "app.py": "43b911733a816371a522d429db463ce700b5ce906ddfb1b9fd8af1b5da9e169b",
+    "config.py": "f642e8bc79abc1710842f80f1b7cd08b335caea5e3fbe55d9bffd7986e10667c",
+    "detector.py": "220bb755b01321638f770c89d2eba8e59968b2dcaeb3f22ee53ad23c1d735e3a",
+    "stylometry.py": "2648aa5f762f086a21ea6921c2f42eeeea42b5b65b2f44055c0071ac75726a89",
+    "scoring.py": "8329ec540974b05a02a619d331ba0c32d9bdf1f0fd9c2de048f14dc9be811476",
+    "audit.py": "405e7bdb2e4eca513fa12320aebda6f5d05d5c10999e69614be0217766f3805c",
+    "operations.py": "943f8e69de2d930fb1ef5fac85c67884fcdccdf884863e88f91879920013c677",
+    "start.sh": "776ce8cfccd8961a512ab826a90c12baf18d2d98af5c3588cdfdb0d3ba81cd51",
+    "gunicorn.conf.py": "9e5f711d9d2528644f418199dd07e4d2073e805289bfa68fc437d3140e24ca38",
+    "requirements.txt": "1c4121d66d2c194d64eb41d78379c3efa8c9fd5d42c29a06cc5d6a049023abd3",
+    "requirements.lock": "9e1982e682628332b7c5a6ae8a03bea9cec537356736211d4e67e50131f15daa",
+    "prepare_model.py": "bbfb260fa132eaa5e741c91c28eb61140f8fcf98fa59e8cfff85623ef0d419f5",
+    "run_capstone.py": "72452fa28ef6b209c706ce95cc1849b5453ba2bb175ab717f603acd6f3dfe8a2",
+    "examples/unit9_requests.json": "44ad9526b3fad7209e3395a314aaca967ddd8445abfc128d3ddc5d5713de983c"
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "flask": "3.1.3",
+      "flask-limiter": "3.12",
+      "gunicorn": "23.0.0",
+      "torch": "2.14.1",
+      "transformers": "4.57.6",
+      "requests": "2.34.2"
+    },
+    "worker_model": "one Gunicorn sync worker; sequential HTTP requests"
+  },
+  "protocol": "Three fresh-worker trials with warm disk cache; ten fixed real submissions before any other inference; unchanged code and fixtures between trials; no mocked model calls.",
+  "clean_clone_requirement": "PENDING EXTERNAL EVIDENCE: additionally verify documented setup and literal start command in a separate clean clone with a fresh venv. Trial C1 checks startup only.",
+  "trials": [
+    {
+      "trial": 1,
+      "report": "results/unit9/after/trial-1/report.json",
+      "startup_seconds": 2.6326435829978436,
+      "startup_model_loaded": true,
+      "maximum_request_seconds": 1.9294258340014494,
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true
+      },
+      "cost": {
+        "sample_request_ids": [
+          "c2911638-8740-4b36-922c-f76cb6269a94",
+          "25a3937d-8153-4739-b1b8-cc625aa1aefc",
+          "f87d7387-7634-454d-98d2-ce9560a79cf6",
+          "df96c4b3-5cb0-45b1-9cee-4464d0897b8b",
+          "4ac80f64-8ecc-4314-9c84-454a058e923e",
+          "fbb7bc1d-2d87-4d43-9f5b-a3404e07fb9e",
+          "cd0a00d6-d205-487f-a142-f4ea9175f5e2",
+          "6d1e4ad5-781d-48f8-8bee-5f498d6e09a8",
+          "7d738c2a-0f4f-4208-aff9-5ddcb19f2ac4",
+          "47c4a5f5-4dfc-42e2-84fb-daa7ecc3297c"
+        ],
+        "sample_size": 10,
+        "mean_cpu_seconds": 0.06305619999999994,
+        "mean_service_wall_seconds": 0.2198641208000481,
+        "mean_client_wall_seconds": 0.22085344990191516,
+        "100_users_one_submission_each_cpu_seconds": 6.305619999999994,
+        "100_users_one_submission_each_service_wall_seconds_serial": 21.98641208000481,
+        "100_users_one_submission_each_client_wall_seconds_serial": 22.085344990191516,
+        "method": "Arithmetic mean of ten sequential real submissions, including the first after readiness. Process CPU spans all serving-worker threads; one sync worker prevents overlapping requests. CPU is compute usage, not cloud dollars. Request clocks exclude setup/startup and final operation-log append; client wall includes HTTP overhead and append.",
+        "startup_seconds_excluded": 2.6326435829978436,
+        "restart_startup_seconds_excluded": 1.576944332999119,
+        "failures_and_other_routes_excluded": true
+      }
+    },
+    {
+      "trial": 2,
+      "report": "results/unit9/after/trial-2/report.json",
+      "startup_seconds": 1.5337070839959779,
+      "startup_model_loaded": true,
+      "maximum_request_seconds": 0.058445249997021165,
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true
+      },
+      "cost": {
+        "sample_request_ids": [
+          "d32cac73-c0a0-4328-b702-f859c408b355",
+          "5eb6d8a4-ed52-420f-a4a2-237e3a336d4e",
+          "2311a090-b9a2-4d24-b544-297c4ce982fc",
+          "ad62c0e6-b3e5-493e-9017-a4c887852a4c",
+          "efc9b77e-e365-4c0c-ac86-fbad09315266",
+          "205d56c7-4741-4290-80a9-6529f0c811c8",
+          "9d7ce962-1f99-4906-9f26-11d1f271687b",
+          "409d9b77-bf59-4123-abef-8f41fac33114",
+          "a94e6bd9-d17a-4e17-9404-02b62778f9c1",
+          "57f9d8f9-bf2a-4542-a488-278f3f592b4e"
+        ],
+        "sample_size": 10,
+        "mean_cpu_seconds": 0.04622600000000003,
+        "mean_service_wall_seconds": 0.03163322490145219,
+        "mean_client_wall_seconds": 0.03257616280025104,
+        "100_users_one_submission_each_cpu_seconds": 4.622600000000003,
+        "100_users_one_submission_each_service_wall_seconds_serial": 3.163322490145219,
+        "100_users_one_submission_each_client_wall_seconds_serial": 3.2576162800251036,
+        "method": "Arithmetic mean of ten sequential real submissions, including the first after readiness. Process CPU spans all serving-worker threads; one sync worker prevents overlapping requests. CPU is compute usage, not cloud dollars. Request clocks exclude setup/startup and final operation-log append; client wall includes HTTP overhead and append.",
+        "startup_seconds_excluded": 1.5337070839959779,
+        "restart_startup_seconds_excluded": 1.5054418329964392,
+        "failures_and_other_routes_excluded": true
+      }
+    },
+    {
+      "trial": 3,
+      "report": "results/unit9/after/trial-3/report.json",
+      "startup_seconds": 1.8304765419961768,
+      "startup_model_loaded": true,
+      "maximum_request_seconds": 0.06288866700197104,
+      "criteria": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true
+      },
+      "cost": {
+        "sample_request_ids": [
+          "371c5076-1c92-4a4f-8ad1-2a905dddc77b",
+          "5d34e976-b008-4983-8b38-43467f0e3ae6",
+          "57caf4af-5a19-4ab5-81ce-845935e800d8",
+          "a7990527-5c6c-4e26-8dd2-45184b9cbd7d",
+          "b46f1c83-6297-421c-8d14-9781270935df",
+          "88f87351-6d6a-4a13-8b23-69aa9d41ef3e",
+          "5e5b459b-8ad2-4376-aa62-90993c313b04",
+          "8307ad28-ec6c-487f-8b4d-3055ec417d22",
+          "0719a21e-12b1-4174-9dbc-b45e75cd9d8a",
+          "ba1d358e-1bc4-434d-bc0c-5e39ef57d86e"
+        ],
+        "sample_size": 10,
+        "mean_cpu_seconds": 0.04892910000000002,
+        "mean_service_wall_seconds": 0.03446299999995972,
+        "mean_client_wall_seconds": 0.035944833399844354,
+        "100_users_one_submission_each_cpu_seconds": 4.892910000000001,
+        "100_users_one_submission_each_service_wall_seconds_serial": 3.446299999995972,
+        "100_users_one_submission_each_client_wall_seconds_serial": 3.5944833399844356,
+        "method": "Arithmetic mean of ten sequential real submissions, including the first after readiness. Process CPU spans all serving-worker threads; one sync worker prevents overlapping requests. CPU is compute usage, not cloud dollars. Request clocks exclude setup/startup and final operation-log append; client wall includes HTTP overhead and append.",
+        "startup_seconds_excluded": 1.8304765419961768,
+        "restart_startup_seconds_excluded": 1.5332252500011236,
+        "failures_and_other_routes_excluded": true
+      }
+    }
+  ],
+  "criterion_trial_verdicts": {
+    "C1": "MET",
+    "C2": "MET",
+    "C3": "MET",
+    "C4": "MET",
+    "C5": "MET"
+  },
+  "finished_utc": "2026-11-04T23:20:55.978967+00:00",
+  "runtime_unchanged_during_phase": true
+}

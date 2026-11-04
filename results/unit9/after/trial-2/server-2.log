@@ -1,0 +1,11 @@
+[2026-11-04 18:20:50 -0500] [4690] [INFO] Starting gunicorn 23.0.0
+[2026-11-04 18:20:50 -0500] [4690] [INFO] Listening at: http://127.0.0.1:5057 (4690)
+[2026-11-04 18:20:50 -0500] [4690] [INFO] Using worker: sync
+[2026-11-04 18:20:50 -0500] [4695] [INFO] Booting worker with pid: 4695
+[2026-11-04 18:20:51 -0500] [4695] [INFO] model startup status=ready wall=1.318179s cpu=1.321790s
+127.0.0.1 - - [04/Nov/2026:18:20:51 -0500] "GET /health HTTP/1.1" 200 278 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:20:51 -0500] "GET /health HTTP/1.1" 200 278 "-" "python-requests/2.34.2"
+127.0.0.1 - - [04/Nov/2026:18:20:51 -0500] "GET /content/86cf65b9-a5d6-4d81-a5dd-297e4768e830 HTTP/1.1" 200 715 "-" "python-requests/2.34.2"
+[2026-11-04 18:20:51 -0500] [4695] [INFO] Worker exiting (pid: 4695)
+[2026-11-04 18:20:51 -0500] [4690] [INFO] Handling signal: term
+[2026-11-04 18:20:51 -0500] [4690] [INFO] Shutting down: Master
