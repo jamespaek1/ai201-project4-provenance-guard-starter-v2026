@@ -81,9 +81,12 @@ From the repository root, after setup:
 ```
 
 It runs in the foreground at `http://127.0.0.1:5057`. Press Ctrl-C to stop.
-The baseline loads GPT-2 on the first valid submission; `/health` may be ready
-while `detector_loaded` is false. The capstone results separately measure
-startup and the first request so this cold-request cost remains visible.
+The final worker loads GPT-2 before accepting requests, so readiness includes
+model loading and `/health` reports `detector_loaded=true`. This is the single
+measured improvement after the baseline cold-request miss. Loading performs no
+fixture inference; `logs/startup.jsonl` records its wall/CPU cost and any failure.
+A failed model load prevents worker readiness. Startup and first-request times
+are both reported so moving the work does not hide it.
 
 Optional environment settings, set before that same command:
 
@@ -136,7 +139,9 @@ holds correlated request input/output, status, timestamp, wall duration, CPU
 seconds and model/style/scoring/audit stage durations. Operational timing starts
 before validation and ends before its own log append; client timing in the
 evaluator includes transport and the log append. Rejected requests are recorded
-too. Oversized bodies use an explicitly marked bounded prefix. These logs can
+too. Oversized bodies use an explicitly marked bounded prefix; when Werkzeug rejects
+Content-Length before reading, the prefix is empty with
+`capture_reason=body_rejected_before_read` and the declared byte length. These logs can
 contain submitted text: committed examples use authored synthetic fixtures.
 
 The five capstone targets are preregistered in [criteria.md](criteria.md).
@@ -164,8 +169,9 @@ estimate assumes one successful submission each and reports startup separately.
   port before running `./start.sh`.
 - Incomplete request evidence: inspect the foreground server's error log and
   ensure the selected `AI201_LOG_DIR` is writable.
-- A slow first request is a measured baseline possibility, not a reason to
-  delete the run. Report it with startup time and the corresponding log row.
+- Startup failures: inspect `startup.jsonl` and the foreground error log; the
+  worker does not become ready if loading fails. Preserve slow or failed runs
+  with their timestamps rather than removing them from the evidence.
 
 Prior unit commands remain in the repository (`run_eval.py`, `run_attacks.py`).
 Their historical results and criteria are retained in README and

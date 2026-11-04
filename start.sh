@@ -22,7 +22,7 @@ export AI201_DETECTOR_MODEL
 export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
 
 # No --preload: Torch must initialize inside the serving worker, not before fork.
-exec .venv/bin/gunicorn app:app \
+exec .venv/bin/gunicorn app:app --config gunicorn.conf.py \
     --bind "127.0.0.1:$PORT" \
     --worker-class sync --workers 1 --threads 1 \
     --timeout 120 --graceful-timeout 30 \
