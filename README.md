@@ -5,7 +5,9 @@ Codex authorship is disclosed. The service, criteria, real-model calibration,
 audit trail and Unit 7 write-up are preserved below. No personal hours, unaided
 student work or course-portal submission are claimed.
 
-**Current deliverable:** [Unit 9 capstone report](#unit-9-capstone-report),
+[Unit 10 Demo Day guide](DEMO_DAY.md) · three-minute presentation and peer-testing handout.
+
+**Unit 9 deliverable:** [Unit 9 capstone report](#unit-9-capstone-report),
 [run instructions](RUNNING.md), and [five new criteria](criteria.md).
 
 **How to read the historical report:** the sections through the Unit 7 handoff describe
